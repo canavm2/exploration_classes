@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace exploration_classes
 {
-    internal class playerCompany
+    internal class PlayerCompany
     {
         #region Constructor
-        public playerCompany(string name, companyMember master)
+        public PlayerCompany(string name, CompanyMember master)
         {
             Name = name;
             masterId = master.getId();
@@ -21,9 +21,14 @@ namespace exploration_classes
         #region Company Descriptors
         public string Name { get; set; }
         public int Id { get; set; }
-        public Dictionary<int, companyMember> companyMembers = new Dictionary<int, companyMember>();
+        public Dictionary<int, CompanyMember> companyMembers = new Dictionary<int, CompanyMember>();
         public int masterId { get; set; }
         public string masterName { get; set; }
+
+        #endregion
+
+        #region Methods
+
 
         #endregion
     }

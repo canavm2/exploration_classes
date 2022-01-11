@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace exploration_classes
 {
-    public class playerCharacter : companyMember
+    internal class Skills
     {
     }
 }

@@ -1,6 +1,7 @@
 ﻿using exploration_classes;
 Console.WriteLine("Testing");
 
-//companyMember company = new exploration_classes.companyMember();
-companyMember company = new exploration_classes.companyMember();
-company.describeCitizen();
+CompanyMember citizen = new exploration_classes.CompanyMember();
+citizen.describeCitizen();
+
+PlayerCompany playerCompany = new PlayerCompany("Mashers", citizen);
