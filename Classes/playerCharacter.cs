@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace exploration_classes
+namespace Citizen
 {
-    public class playerCharacter : CompanyMember
-    {
-    }
+    //public class playerCharacter : CompanyMember
+    //{
+    //}
 }

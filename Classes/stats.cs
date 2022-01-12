@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace exploration_classes
+namespace Citizen
 {
-    public class Stats
+    public class CitizenStats
     {
-        public Stats()
+        public CitizenStats()
         {
             Random random = new Random();
             foreach (string pstat in primaryStats)
             {
                 primary[pstat] = random.Next(10,30);
             }
-            derived["phys"] = primary["str"] + primary["dex"];
-            derived["mntl"] = primary["smt"] + primary["wis"];
-            derived["socl"] = primary["cha"] + primary["ldr"];
+            derived["phys"] = (primary["str"] + primary["dex"])/2;
+            derived["mntl"] = (primary["smt"] + primary["wis"])/ 2;
+            derived["socl"] = (primary["cha"] + primary["ldr"])/ 2;
         }
 
         public List<string> primaryStats = new List<string>()

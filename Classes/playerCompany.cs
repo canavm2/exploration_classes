@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Citizen;
 
-namespace exploration_classes
+namespace Company
 {
     internal class PlayerCompany
     {
@@ -12,18 +13,18 @@ namespace exploration_classes
         public PlayerCompany(string name, CompanyMember master)
         {
             Name = name;
-            masterId = master.getId();
-            masterName = master.Name;
-            companyMembers[masterId] = master;
+            MasterId = master.GetId();
+            MasterName = master.Name;
+            companyMembers[MasterId] = master;
         }
         #endregion
 
         #region Company Descriptors
         public string Name { get; set; }
         public int Id { get; set; }
-        public Dictionary<int, CompanyMember> companyMembers = new Dictionary<int, CompanyMember>();
-        public int masterId { get; set; }
-        public string masterName { get; set; }
+        public Dictionary<int, CompanyMember> companyMembers = new();
+        public int MasterId { get; set; }
+        public string MasterName { get; set; }
 
         #endregion
 
