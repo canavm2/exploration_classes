@@ -8,17 +8,12 @@ namespace exploration_classes
 {
     public class Citizen
     {
-        #region RandomNumberGenerator
-        // create a "random" object which can be used to create random numbers
-        // TODO: Can this be moved out of the class?
-        private Random random = new Random();
-        #endregion
-
         #region Constructors
         // create citizen class which is the lowest level of a company member or NPC.  2 Constructors
-        // first constructor creeates a citizen with a specific Name, Age and Gender
+        // first constructor creates a citizen with a specific Name, Age and Gender
         public Citizen(string name, int age, string gender)
         {
+            Random random = new Random();
             Name = name;
             Age = age;
             if (genders.Contains(gender))
@@ -34,6 +29,7 @@ namespace exploration_classes
         // second constructo allows the creation of random citizens
         public Citizen()
         {
+            Random random = new Random();
             // TODO: Random Name Generator
             Name = "John Doe";
             Age = random.Next(12, 50);

@@ -8,9 +8,9 @@ namespace exploration_classes
 {
     public class Stats
     {
-        private Random random = new Random();
         public Stats()
         {
+            Random random = new Random();
             foreach (string pstat in primaryStats)
             {
                 primary[pstat] = random.Next(10,30);
