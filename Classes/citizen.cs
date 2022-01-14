@@ -39,14 +39,12 @@ namespace Citizen
 
         #region Descriptors and Stats
         private int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get;}
         public int Age { get; set; }
         public string Gender { get; set; }
 
         public CitizenStats Stats = new();
         #endregion
-
-
 
         #region Methods
         public void DescribeCitizen()
@@ -56,7 +54,7 @@ namespace Citizen
             Console.WriteLine("Their primary stats are:");
             Console.WriteLine($"Strength: {Stats.primary["str"]}");
             Console.WriteLine($"Dexterity: {Stats.primary["dex"]}");
-            Console.WriteLine($"Intelligence: {Stats.primary["smt"]}");
+            Console.WriteLine($"Intelligence: {Stats.primary["int"]}");
             Console.WriteLine($"Wisdom: {Stats.primary["wis"]}");
             Console.WriteLine($"Charisma: {Stats.primary["cha"]}");
             Console.WriteLine($"Leadership: {Stats.primary["ldr"]}");
