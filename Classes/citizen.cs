@@ -43,7 +43,7 @@ namespace Citizen
         public int Age { get; set; }
         public string Gender { get; set; }
 
-        public CitizenStats stats = new();
+        public CitizenStats Stats = new();
         #endregion
 
 
@@ -54,17 +54,17 @@ namespace Citizen
             Console.WriteLine($"{Name}, a {Age} year old {Gender}.");
             Console.WriteLine();
             Console.WriteLine("Their primary stats are:");
-            Console.WriteLine($"Strength: {stats.primary["str"]}");
-            Console.WriteLine($"Dexterity: {stats.primary["dex"]}");
-            Console.WriteLine($"Intelligence: {stats.primary["smt"]}");
-            Console.WriteLine($"Wisdom: {stats.primary["wis"]}");
-            Console.WriteLine($"Charisma: {stats.primary["cha"]}");
-            Console.WriteLine($"Leadership: {stats.primary["ldr"]}");
+            Console.WriteLine($"Strength: {Stats.primary["str"]}");
+            Console.WriteLine($"Dexterity: {Stats.primary["dex"]}");
+            Console.WriteLine($"Intelligence: {Stats.primary["smt"]}");
+            Console.WriteLine($"Wisdom: {Stats.primary["wis"]}");
+            Console.WriteLine($"Charisma: {Stats.primary["cha"]}");
+            Console.WriteLine($"Leadership: {Stats.primary["ldr"]}");
             Console.WriteLine();
             Console.WriteLine("Their derived stats are:");
-            Console.WriteLine($"Physical: {stats.derived["phys"]}");
-            Console.WriteLine($"Mental: {stats.derived["mntl"]}");
-            Console.WriteLine($"Social: {stats.derived["socl"]}");
+            Console.WriteLine($"Physical: {Stats.derived["phys"]}");
+            Console.WriteLine($"Mental: {Stats.derived["mntl"]}");
+            Console.WriteLine($"Social: {Stats.derived["socl"]}");
             Console.WriteLine();
             Console.WriteLine($"This citizen's ID: {Id}");
         }
