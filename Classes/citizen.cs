@@ -47,24 +47,23 @@ namespace Citizen
         #endregion
 
         #region Methods
-        public void DescribeCitizen()
+        public string Describe()
         {
-            Console.WriteLine($"{Name}, a {Age} year old {Gender}.");
-            Console.WriteLine();
-            Console.WriteLine("Their primary stats are:");
-            Console.WriteLine($"Strength: {Stats.primary["str"]}");
-            Console.WriteLine($"Dexterity: {Stats.primary["dex"]}");
-            Console.WriteLine($"Intelligence: {Stats.primary["int"]}");
-            Console.WriteLine($"Wisdom: {Stats.primary["wis"]}");
-            Console.WriteLine($"Charisma: {Stats.primary["cha"]}");
-            Console.WriteLine($"Leadership: {Stats.primary["ldr"]}");
-            Console.WriteLine();
-            Console.WriteLine("Their derived stats are:");
-            Console.WriteLine($"Physical: {Stats.derived["phys"]}");
-            Console.WriteLine($"Mental: {Stats.derived["mntl"]}");
-            Console.WriteLine($"Social: {Stats.derived["socl"]}");
-            Console.WriteLine();
-            Console.WriteLine($"This citizen's ID: {Id}");
+            string returnDescription =$"{Name}, a {Age} year old {Gender}.\n\n" +
+                $"Their primary stats are:\n" +
+                $"Strength: {Stats.primary["str"]}\n" +
+                $"Dexterity: {Stats.primary["dex"]}\n" +
+                $"Intelligence: {Stats.primary["int"]}\n" +
+                $"Wisdom: {Stats.primary["wis"]}\n" +
+                $"Charisma: {Stats.primary["cha"]}\n" +
+                $"Leadership: {Stats.primary["ldr"]}\n\n" +
+                $"Their derived stats are:\n" +
+                $"Physical: {Stats.derived["phys"]}\n" +
+                $"Mental: {Stats.derived["mntl"]}\n" +
+                $"Social: {Stats.derived["socl"]}\n\n" +
+                $"This citizen's ID: {Id}";
+
+            return returnDescription;
         }
         public int GetId()
         {
