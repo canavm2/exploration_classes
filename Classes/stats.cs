@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Citizen
+namespace People
 {
     public class CitizenStats
     {
