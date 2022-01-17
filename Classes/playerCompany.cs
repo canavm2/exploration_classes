@@ -10,7 +10,7 @@ namespace Company
     internal class PlayerCompany
     {
         #region Constructor
-        public PlayerCompany(string name, CompanyMember master)
+        public PlayerCompany(string name, Citizen master)
         {
             Name = name;
             MasterId = master.GetId();
@@ -22,7 +22,7 @@ namespace Company
         #region Company Descriptors
         public string Name { get; set; }
         public int Id { get; set; }
-        public Dictionary<int, CompanyMember> companyMembers = new();
+        public Dictionary<int, Citizen> companyMembers = new();
         public int MasterId { get; set; }
         public string MasterName { get; set; }
 

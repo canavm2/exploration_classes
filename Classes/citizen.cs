@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FileTools;
+using Newtonsoft.Json; 
 
 namespace People
 {
@@ -10,9 +12,9 @@ namespace People
     {
         #region Constructors
         // create citizen class which is the lowest level of a company member or NPC.  
-        // constructor requires a name, gender and optional age
+        // constructor requires a name, gender, indexer, and optional age
         // random names can be passed 
-        public Citizen(string name, string gender, int age = 0)
+        public Citizen(string name, string gender, IndexId indexer, int age = 0)
         {
             Random random = new();
             if (age == 0)
@@ -24,26 +26,29 @@ namespace People
                 Gender = gender;
             else
                 Gender = "non-binary";
-
-            //Creates a "Random" ID
-            // TODO: Fix, this is not perfect, will duplicate.
-            Id = random.Next(10000,99999);
+            Id = indexer.GetIndex();
         }
 
-        //public Citizen()
-        //{
-        //    Name = "test";
-        //    Gender = "test";
-        //}
+        [JsonConstructor]
+        public Citizen(string name, string gender, int id, int age, Stats stats)
+        {
+            Name = name;
+            Gender = gender;
+            Id = id;
+            Age = age;
+            Stats = stats;
+
+        }
+
+
         #endregion
 
         #region Descriptors and Stats
-        private int Id { get; set; }
-        public string Name { get;}
-        public int Age { get; set; }
-        public string Gender { get; set; }
-
-        public CitizenStats Stats = new();
+        public readonly int Id;
+        public string Name;
+        public int Age;
+        public readonly string Gender;
+        public Stats Stats = new();
         #endregion
 
         #region Methods
