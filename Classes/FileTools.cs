@@ -11,10 +11,7 @@ namespace FileTools
         //I just need to store the filepath, but don't want to do it in every method.
         #region constructor
         //Constructor, needed to store the txt_files folder Path
-        public FileTool()
-        {
-
-        }
+        public FileTool() { }
         //used with the System.Text.Json
         //JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
         string TxtFilePath = @"C:\Users\canav\Documents\learning_dotnet\exploration_classes\txt_files\";
@@ -27,7 +24,7 @@ namespace FileTools
             filename += ".txt";
             string jsoncitizen = JsonConvert.SerializeObject(citizens);
             string filepath = Path.Combine(TxtFilePath, filename);
-            File.WriteAllText(filepath, jsoncitizen.ToString());
+            File.WriteAllText(filepath, jsoncitizen);
         }
         public List<Citizen> ReadCitizens(string filename)
         {
@@ -46,7 +43,7 @@ namespace FileTools
                 throw new Exception($"Error: Index too small: {currentindex}");
             }
             string jsoncitizen = JsonConvert.SerializeObject(currentindex);
-            File.WriteAllText(filepath, jsoncitizen.ToString());
+            File.WriteAllText(filepath, jsoncitizen);
         }
         public int ReadIndex()
         {
@@ -55,6 +52,19 @@ namespace FileTools
             int currentindex = 0;
             currentindex = JsonConvert.DeserializeObject<int>(fileJson);
             return currentindex;
+        }
+        public void StoreModifier(Stats.Modifier modifier)
+        {
+            string filepath = Path.Combine(TxtFilePath, "modifier.txt");
+            string jsoncitizen = JsonConvert.SerializeObject(modifier);
+            File.WriteAllText(filepath, jsoncitizen);
+        }
+        public Stats.Modifier ReadModifier()
+        {
+            string filepath = Path.Combine(TxtFilePath, "modifier.txt");
+            string fileJson = File.ReadAllText(filepath);
+            Stats.Modifier modifier = JsonConvert.DeserializeObject<Stats.Modifier>(fileJson);
+            return modifier;
         }
         #endregion
     }
