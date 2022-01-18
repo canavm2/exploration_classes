@@ -24,21 +24,27 @@ namespace People
             // saves values to both base and "final" stats
             foreach (string pstat in primaryStats)
             {
-                primary_base[pstat] = random.Next(10, 30);
-                primary[pstat] = primary_base[pstat];
+                PrimaryBase[pstat] = random.Next(10, 30);
+                Primary[pstat] = PrimaryBase[pstat];
             }
-            derived_base["phys"] = (primary["str"] + primary["dex"]) / 2;
-            derived["phys"] = derived_base["phys"];
-            derived_base["mntl"] = (primary["int"] + primary["wis"]) / 2;
-            derived["mntl"] = derived_base["mntl"];
-            derived_base["socl"] = (primary["cha"] + primary["ldr"]) / 2;
-            derived["socl"] = derived_base["socl"];
+            DerivedBase["phys"] = (Primary["str"] + Primary["dex"]) / 2;
+            Derived["phys"] = DerivedBase["phys"];
+            DerivedBase["mntl"] = (Primary["int"] + Primary["wis"]) / 2;
+            Derived["mntl"] = DerivedBase["mntl"];
+            DerivedBase["socl"] = (Primary["cha"] + Primary["ldr"]) / 2;
+            Derived["socl"] = DerivedBase["socl"];
         }
-        //[JsonConstructor]
-        //public Stats(List<Modifier> modifiers)
-        //{
-        //    Modifiers = modifiers;
-        //}
+
+        [JsonConstructor]
+        //Json Deserialization uses the name of the property as the parameter so it is ideal if they match, as done below
+        public Stats(List<Modifier> modifiers, Dictionary<string, int> primarybase, Dictionary<string, int> derivedbase, Dictionary<string, int> primary, Dictionary<string, int> derived)
+        {
+            Modifiers = modifiers;
+            PrimaryBase = primarybase;
+            DerivedBase = derivedbase;
+            Primary = primary;
+            Derived = derived;
+        }
         #endregion
 
         #region Dictionaries
@@ -47,10 +53,10 @@ namespace People
 
 
         //dictionaries&lists that hold the various stats and modifiers
-        public Dictionary<string, int> primary_base = new();
-        public Dictionary<string, int> derived_base = new();
-        public Dictionary<string, int> primary = new();
-        public Dictionary<string, int> derived = new();
+        public Dictionary<string, int> PrimaryBase = new();
+        public Dictionary<string, int> DerivedBase = new();
+        public Dictionary<string, int> Primary = new();
+        public Dictionary<string, int> Derived = new();
         public List<Modifier> Modifiers = new();
         #endregion
 
@@ -110,22 +116,22 @@ namespace People
 
             //Resets the "final" stats to the base values
             foreach (String stat in primaryStats)
-                primary[stat] = primary_base[stat];
+                Primary[stat] = PrimaryBase[stat];
             foreach (String stat in derivedStats)
-                derived[stat] = derived_base[stat];
+                Derived[stat] = DerivedBase[stat];
 
             //iterates through the modifiers and reapplys them
             foreach (Modifier modifier in Modifiers)
             {
                 if (primaryStats.Contains(modifier.ModifiedStat))
                 {
-                    primary[modifier.ModifiedStat] += modifier.Value;
-                    Debug.WriteLine($"Modified: {primary[modifier.ModifiedStat]}");
+                    Primary[modifier.ModifiedStat] += modifier.Value;
+                    Debug.WriteLine($"Modified: {Primary[modifier.ModifiedStat]}");
                 }
                 else if (derivedStats.Contains(modifier.ModifiedStat))
                 {
-                    derived[modifier.ModifiedStat] += modifier.Value;
-                    Debug.WriteLine($"Modified: {derived[modifier.ModifiedStat]}");
+                    Derived[modifier.ModifiedStat] += modifier.Value;
+                    Debug.WriteLine($"Modified: {Derived[modifier.ModifiedStat]}");
                 }
                 //TODO Change exception
                 else throw new Exception($"Error: Stat not found: {modifier.ModifiedStat}");
@@ -136,9 +142,9 @@ namespace People
 
         public void RefreshDerived()
         {
-            derived["phys"] = (primary["str"] + primary["dex"]) / 2;
-            derived["mntl"] = (primary["int"] + primary["wis"]) / 2;
-            derived["socl"] = (primary["cha"] + primary["ldr"]) / 2;
+            Derived["phys"] = (Primary["str"] + Primary["dex"]) / 2;
+            Derived["mntl"] = (Primary["int"] + Primary["wis"]) / 2;
+            Derived["socl"] = (Primary["cha"] + Primary["ldr"]) / 2;
         }
         #endregion
 
@@ -146,19 +152,22 @@ namespace People
         // a class used to apply modifiers to the stats, should only be instatiated with ApplyModifier above.
         public class Modifier
         {
-            public Modifier(string name, string source, string modstat, int val, bool temp, int dur, string desc)
+            // IMPORTANT: Json Deserialization uses the name of the property as the parameter
+            // if the property is readonly it must match or it will not be able to change it after the constructor
+            public Modifier(string name, string source, string modifiedstat, int value, bool temporary, int duration, string description)
             {
                 Name = name;
-                Description = desc;
+                Description = description;
                 Source = source;
-                ModifiedStat = modstat;
-                Value = val;
-                Temporary = temp;
-                Duration = dur;
+                ModifiedStat = modifiedstat;
+                Value = value;
+                Temporary = temporary;
+                Duration = duration;
                 //TODO change exception
-                if (dur < 0) throw new Exception($"Negative Duration: {dur}");
+                if (duration < 0) throw new Exception($"Negative Duration: {duration}");
                 Id = name + "-" + source;
             }
+
             public readonly string Name;
             public readonly string Description;
             public readonly string Source;
@@ -172,7 +181,8 @@ namespace People
             {
                 string returnSummary = $"Citizen Stat Modifier: {Name}\n" +
                     $"{ModifiedStat}: {Value}\n" +
-                    $"Description: {Description}";
+                    $"Description: {Description}\n" +
+                    $"ID: {Id}";
                 if (Temporary)
                     returnSummary = returnSummary + $"\n" +
                         $"Duration: {Duration}\n";

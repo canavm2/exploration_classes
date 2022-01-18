@@ -1,6 +1,7 @@
 ﻿using People;
 using Company;
 using FileTools;
+using Newtonsoft.Json;
 
 
 FileTool fileTool = new FileTool();
@@ -9,6 +10,12 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 List<Citizen> femaleCitizens = new();
 List<Citizen> maleCitizens = new();
 NameList nameList = new NameList();
+
+//ITraceWriter traceWriter = new MemoryTraceWriter();
+
+//JsonConvert.SerializeObject(
+//    staff,
+//    new JsonSerializerSettings { TraceWriter = traceWriter, Converters = { new JavaScriptDateTimeConverter() } });
 
 #region createcitizens
 //for (int i = 0; i < 100; i++)
@@ -42,7 +49,8 @@ maleCitizens = fileTool.ReadCitizens("malecitizens");
 //testing modifiers
 Citizen testcitizen = femaleCitizens[0];
 Console.WriteLine(testcitizen.Describe());
-testcitizen.Stats.ApplyModifier("testmodifier", "test", "dex", 4);
+//testcitizen.Stats.ApplyModifier("testmodifier", "test", "dex", 4, true, 10000, "does this work");
+Console.WriteLine(testcitizen.Stats.Modifiers[0].Summary());
 //fileTool.StoreModifier(testcitizen.Stats.Modifiers[0]);
 //string modifiedstat = fileTool.ReadModifier().ModifiedStat;
 //Console.WriteLine($"The modified stat is: {modifiedstat}.");

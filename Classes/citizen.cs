@@ -56,16 +56,16 @@ namespace People
         {
             string returnDescription =$"{Name}, a {Age} year old {Gender}.\n\n" +
                 $"Their primary stats are:\n" +
-                $"Strength: {Stats.primary["str"]}\n" +
-                $"Dexterity: {Stats.primary["dex"]}\n" +
-                $"Intelligence: {Stats.primary["int"]}\n" +
-                $"Wisdom: {Stats.primary["wis"]}\n" +
-                $"Charisma: {Stats.primary["cha"]}\n" +
-                $"Leadership: {Stats.primary["ldr"]}\n\n" +
+                $"Strength: {Stats.Primary["str"]}\n" +
+                $"Dexterity: {Stats.Primary["dex"]}\n" +
+                $"Intelligence: {Stats.Primary["int"]}\n" +
+                $"Wisdom: {Stats.Primary["wis"]}\n" +
+                $"Charisma: {Stats.Primary["cha"]}\n" +
+                $"Leadership: {Stats.Primary["ldr"]}\n\n" +
                 $"Their derived stats are:\n" +
-                $"Physical: {Stats.derived["phys"]}\n" +
-                $"Mental: {Stats.derived["mntl"]}\n" +
-                $"Social: {Stats.derived["socl"]}\n\n" +
+                $"Physical: {Stats.Derived["phys"]}\n" +
+                $"Mental: {Stats.Derived["mntl"]}\n" +
+                $"Social: {Stats.Derived["socl"]}\n\n" +
                 $"This citizen's ID: {Id}";
 
             return returnDescription;
