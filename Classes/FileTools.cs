@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using People;
+using Company;
 //using System.Text.Json;
 
 namespace FileTools
@@ -34,6 +35,21 @@ namespace FileTools
             List <Citizen> citizens = new List <Citizen>();
             citizens = JsonConvert.DeserializeObject<List<Citizen>>(fileJson);
             return citizens;
+        }
+        public void StoreCompany(PlayerCompany playercompany, string filename)
+        {
+            filename += ".txt";
+            string jsoncompany = JsonConvert.SerializeObject(playercompany);
+            string filepath = Path.Combine(TxtFilePath, filename);
+            File.WriteAllText(filepath, jsoncompany);
+        }
+        public PlayerCompany ReadCompany(string filename)
+        {
+            filename += ".txt";
+            string filepath = Path.Combine(TxtFilePath, filename);
+            string fileJson = File.ReadAllText(filepath);
+            PlayerCompany playercompany = JsonConvert.DeserializeObject<PlayerCompany>(fileJson);
+            return playercompany;
         }
         public void StoreIndex(int currentindex)
         {
@@ -70,7 +86,7 @@ namespace FileTools
     }
 
     //An object that gets instantiated to holds the current index
-    //need to callthe method to get the next index
+    //need to call the method to get the next index
     public class IndexId
     {
         public IndexId(int index)
@@ -79,6 +95,7 @@ namespace FileTools
         }
         private int currentindex;
 
+        //method to call to get the next unused index
         public int GetIndex()
         {
             currentindex++;
