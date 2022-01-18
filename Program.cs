@@ -50,7 +50,7 @@ maleCitizens = fileTool.ReadCitizens("malecitizens");
 Citizen testcitizen = femaleCitizens[0];
 Console.WriteLine(testcitizen.Describe());
 //testcitizen.Stats.ApplyModifier("testmodifier", "test", "dex", 4, true, 10000, "does this work");
-Console.WriteLine(testcitizen.Stats.Modifiers[0].Summary());
+//Console.WriteLine(testcitizen.Stats.Modifiers[0].Summary());
 //fileTool.StoreModifier(testcitizen.Stats.Modifiers[0]);
 //string modifiedstat = fileTool.ReadModifier().ModifiedStat;
 //Console.WriteLine($"The modified stat is: {modifiedstat}.");
