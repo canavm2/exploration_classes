@@ -51,7 +51,31 @@ namespace Company
         #endregion
 
         #region Methods
+        public string Describe()
+        {
+            string advisorDescription = "";
+            foreach (KeyValuePair<string, Citizen> advisor in Advisors)
+            {
+                if (advisor.Key.Contains("advisor"))
+                    advisorDescription += $"{advisor.Value.Name}\n";
+            }
+            string benchDescription = "";
+            foreach (KeyValuePair<string, Citizen> advisor in Advisors)
+            {
+                if (advisor.Key.Contains("bench"))
+                    benchDescription += $"{advisor.Value.Name}\n";
+            }
+            string companyDescription =
+                $"The company's name is: {Name}.\n" +
+                $"ID: {CompanyId}\n\n" +
+                $"The company master is {Advisors["master"].Name}.\n\n" +
+                $"The company advisors are:\n" +
+                advisorDescription +
+                $"These advisors are on the bench:\n" +
+                benchDescription;
 
+            return companyDescription;
+        }
 
         #endregion
     }

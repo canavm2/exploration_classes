@@ -11,12 +11,6 @@ List<Citizen> femaleCitizens = new();
 List<Citizen> maleCitizens = new();
 NameList nameList = new NameList();
 
-//ITraceWriter traceWriter = new MemoryTraceWriter();
-
-//JsonConvert.SerializeObject(
-//    staff,
-//    new JsonSerializerSettings { TraceWriter = traceWriter, Converters = { new JavaScriptDateTimeConverter() } });
-
 #region createcitizens
 //for (int i = 0; i < 100; i++)
 //{
@@ -37,12 +31,12 @@ NameList nameList = new NameList();
 #region readcitizens
 femaleCitizens = fileTool.ReadCitizens("femalecitizens");
 maleCitizens = fileTool.ReadCitizens("malecitizens");
-Console.WriteLine($"femalecitizens has: {femaleCitizens.Count} items.");
-Console.WriteLine("The first female is:");
-Console.WriteLine(femaleCitizens[0].Describe());
-Console.WriteLine($"malecitizens has: {maleCitizens.Count} items.");
-Console.WriteLine("The first male is:");
-Console.WriteLine(maleCitizens[0].Describe());
+//Console.WriteLine($"femalecitizens has: {femaleCitizens.Count} items.");
+//Console.WriteLine("The first female is:");
+//Console.WriteLine(femaleCitizens[0].Describe());
+//Console.WriteLine($"malecitizens has: {maleCitizens.Count} items.");
+//Console.WriteLine("The first male is:");
+//Console.WriteLine(maleCitizens[0].Describe());
 #endregion
 
 #region testingmodifiers
@@ -72,22 +66,23 @@ for (int i = 0; i < 7; i++)
     //femaleCitizens.RemoveAt(randomindex);
 }
 PlayerCompany testcompany = new("testcompany", index, Master, Advisors);
+Console.WriteLine(testcompany.Describe());
 
-foreach (KeyValuePair<string, Citizen> citizen in testcompany.Advisors)
-{
-    Console.WriteLine($"\n------------------\nThis citizen is the: {citizen.Key}");
-    Console.WriteLine(citizen.Value.Describe());
-}
-fileTool.StoreCompany(testcompany, "company");
-testcompany = fileTool.ReadCompany("company");
-Console.WriteLine("======================================================");
-Console.WriteLine("======================================================");
-Console.WriteLine("======================================================");
-foreach (KeyValuePair<string, Citizen> citizen in testcompany.Advisors)
-{
-    Console.WriteLine($"\n------------------\nThis citizen is the: {citizen.Key}");
-    Console.WriteLine(citizen.Value.Describe());
-}
+//foreach (KeyValuePair<string, Citizen> citizen in testcompany.Advisors)
+//{
+//    Console.WriteLine($"\n------------------\nThis citizen is the: {citizen.Key}");
+//    Console.WriteLine(citizen.Value.Describe());
+//}
+//fileTool.StoreCompany(testcompany, "company");
+//testcompany = fileTool.ReadCompany("company");
+//Console.WriteLine("======================================================");
+//Console.WriteLine("======================================================");
+//Console.WriteLine("======================================================");
+//foreach (KeyValuePair<string, Citizen> citizen in testcompany.Advisors)
+//{
+//    Console.WriteLine($"\n------------------\nThis citizen is the: {citizen.Key}");
+//    Console.WriteLine(citizen.Value.Describe());
+//}
 #endregion
 
 //Stores everything again

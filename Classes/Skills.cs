@@ -3,75 +3,112 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace People
 {
-    internal class Skills
-    {        public Skills()
+    public class Skills
+    {
+        #region Constructors
+        public Skills()
         {
             Random random = new();
-            //These stat lists are repeated in ApplyModifier, so that they aren't stored in the Stats Object.
-            List<string> vocSkillsList = new() { "str", "dex", "int", "wis", "cha", "ldr" };
-            List<string> expSkillsList = new() { "phys", "mntl", "socl" };
+            //Stores all the Vocational Skills
+            List<string> VocSkillsList = new()
+            {
+                "Academia",
+                "Animal Handling",
+                "Blacksmithing",
+                "Carpentry",
+                "Cooking",
+                "Court",
+                "Drill",
+                "Engineering",
+                "First Aid",
+                "History",
+                "Hunting",
+                "Law",
+                "Leadership",
+                "Leatherworking",
+                "Martial",
+                "Medical",
+                "Metalworking",
+                "Pathfinding",
+                "Politics",
+                "Prospecting",
+                "Refining",
+                "Quartermastery",
+                "Survival",
+                "Tactics",
+                "Tinker"
+            };
+            //Stores all the Experiential Skills
+            List<string> ExpSkillsList = new() { "exp1", "exp2", "exp3" };
 
-            // generates a random value for all primary stats and then calculates the derived stats
-            // saves values to both base and "final" stats
-            foreach (string skill in vocSkillsList)
+            //Sets all the Vocational skills to a random value between 0 and 10
+            foreach (string skill in VocSkillsList)
             {
-                vocSkill_base[skill] = random.Next(10, 30);
-                vocSkill[skill] = vocSkill_base[skill];
+                VocSkill[skill] = random.Next(0, 10);
             }
-            foreach (string skill in expSkillsList)
+
+            //Picks 1 Voc Skill to set between 30 and 40, and 4 others between 15-25
+            //then overwrites the original values
+            List<string> tempVocSkillsList = VocSkillsList;
+            int index = random.Next(tempVocSkillsList.Count);
+            string highskill = tempVocSkillsList[index];
+            tempVocSkillsList.RemoveAt(index);
+            VocSkill[highskill] = random.Next(30, 40);
+            for (int i = 0; i < 4; i++)
             {
-                expSkill_base[skill] = random.Next(10, 30);
-                expSkill[skill] = expSkill_base[skill];
+                index = random.Next(tempVocSkillsList.Count);
+                highskill = tempVocSkillsList[index];
+                tempVocSkillsList.RemoveAt(index);
+                VocSkill[highskill] = random.Next(15, 25);
+            }
+
+            //Sets all the experiential skills between 0 and 10
+            foreach (string skill in ExpSkillsList)
+            {
+                ExpSkill[skill] = random.Next(0, 10);
             }
         }
 
-        public Dictionary<string, int> vocSkill_base = new();
-        public Dictionary<string, int> expSkill_base = new();
-        public Dictionary<string, int> vocSkill = new();
-        public Dictionary<string, int> expSkill = new();
-
-
-
-        #region subclasses
-        // a class used to apply modifiers to the stats, should only be instatiated with ApplyModifier above.
-        public class Modifier
+        [JsonConstructor]
+        public Skills(Dictionary<string, int> vocskill, Dictionary<string, int> expskill)
         {
-            public Modifier(string name, string source, string modskill, int val, bool temp, int dur, string desc)
-            {
-                Name = name;
-                Description = desc;
-                Source = source;
-                ModifiedSkill = modskill;
-                Value = val;
-                Temporary = temp;
-                Duration = dur;
-                //TODO change exception
-                if (dur < 0) throw new Exception($"Negative Duration: {dur}");
-                Id = source + "-" + name;
-            }
-            public readonly string Name;
-            public readonly string Description;
-            public readonly string Source;
-            public readonly string ModifiedSkill;
-            public readonly int Value;
-            public readonly bool Temporary;
-            public readonly int Duration;
-            public readonly string Id;
-
-            public string Summary()
-            {
-                string returnSummary = $"Citizen Skill Modifier: {Name}\n" +
-                    $"{ModifiedSkill}: {Value}\n" +
-                    $"Description: {Description}";
-                if (Temporary)
-                    returnSummary = returnSummary + $"\n" +
-                        $"Duration: {Duration}\n";
-                return returnSummary;
-            }
+            VocSkill = vocskill;
+            ExpSkill = expskill;
         }
         #endregion
+
+        #region Dictionaries and Properties
+        public Dictionary<string, int> VocSkill = new();
+        public Dictionary<string, int> ExpSkill = new();
+        #endregion
+
+
+        public string Describe()
+        {
+            //Iterates over all the Skills, and provides a string that describes it
+            string vocDesc = "";
+            foreach (KeyValuePair<string, int> skill in VocSkill)
+            {
+                string tempDesc = $"{skill.Key}: {skill.Value.ToString()}\n";
+                vocDesc += tempDesc;
+            }
+            string expDesc = "";
+            foreach (KeyValuePair<string, int> skill in ExpSkill)
+            {
+                string tempDesc = $"{skill.Key}: {skill.Value.ToString()}\n";
+                expDesc += tempDesc;
+            }
+            string description =
+                $"Vocational Skills:\n" +
+                vocDesc +
+                $"\nExperiential Skills:\n" +
+                expDesc;
+            return description;
+        }
+
     }
 }

@@ -17,9 +17,9 @@ namespace People
         {
             Random random = new();
             //These stat lists are repeated in ApplyModifier, so that they aren't stored in the Stats Object.
-            List<string> primaryStats = new() {"str","dex","int","wis","cha","ldr"};
-            List<string> derivedStats = new() {"phys", "mntl", "socl"};
-        
+            List<string> primaryStats = new() { "str", "dex", "int", "wis", "cha", "ldr" };
+            List<string> derivedStats = new() { "phys", "mntl", "socl" };
+
             // generates a random value for all primary stats and then calculates the derived stats
             // saves values to both base and "final" stats
             foreach (string pstat in primaryStats)
@@ -145,6 +145,30 @@ namespace People
             Derived["phys"] = (Primary["str"] + Primary["dex"]) / 2;
             Derived["mntl"] = (Primary["int"] + Primary["wis"]) / 2;
             Derived["socl"] = (Primary["cha"] + Primary["ldr"]) / 2;
+        }
+
+        public string Describe()
+        {
+            //Iterates over all the Primary stats, and provides a string that describes it
+            string primaryDesc = "";
+            foreach (KeyValuePair<string, int> stat in Primary)
+            {
+                string tempDesc = $"{stat.Key.ToUpper()}: {stat.Value.ToString()}\n";
+                primaryDesc += tempDesc;
+            }
+            string derivedDesc = "";
+            foreach (KeyValuePair<string, int> stat in Derived)
+            {
+                string tempDesc = $"{stat.Key.ToUpper()}: {stat.Value.ToString()}\n";
+                derivedDesc += tempDesc;
+            }
+            string description =
+                $"Primary Stats:\n" +
+                primaryDesc +
+                $"\nDerived Stats:\n" +
+                derivedDesc;
+            ;
+            return description;
         }
         #endregion
 

@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FileTools;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
 
 namespace People
 {
     public class Citizen
     {
         #region Constructors
-        // create citizen class which is the lowest level of a company member or NPC.  
-        // constructor requires a name, gender, indexer, and optional age
-        // random names can be passed 
         public Citizen(string name, string gender, IndexId indexer, int age = 0)
         {
             Random random = new();
@@ -30,14 +27,14 @@ namespace People
         }
 
         [JsonConstructor]
-        public Citizen(string name, string gender, int id, int age, Stats stats)
+        public Citizen(string name, string gender, int id, int age, Stats stats, Skills skills)
         {
             Name = name;
             Gender = gender;
             Id = id;
             Age = age;
             Stats = stats;
-
+            Skills = skills;
         }
 
 
@@ -49,30 +46,21 @@ namespace People
         public int Age;
         public readonly string Gender;
         public Stats Stats = new();
+        public Skills Skills = new();
         #endregion
 
         #region Methods
         public string Describe()
         {
-            string returnDescription =$"{Name}, a {Age} year old {Gender}.\n\n" +
-                $"Their primary stats are:\n" +
-                $"Strength: {Stats.Primary["str"]}\n" +
-                $"Dexterity: {Stats.Primary["dex"]}\n" +
-                $"Intelligence: {Stats.Primary["int"]}\n" +
-                $"Wisdom: {Stats.Primary["wis"]}\n" +
-                $"Charisma: {Stats.Primary["cha"]}\n" +
-                $"Leadership: {Stats.Primary["ldr"]}\n\n" +
-                $"Their derived stats are:\n" +
-                $"Physical: {Stats.Derived["phys"]}\n" +
-                $"Mental: {Stats.Derived["mntl"]}\n" +
-                $"Social: {Stats.Derived["socl"]}\n\n" +
-                $"This citizen's ID: {Id}";
+            string returnDescription =
+                $"\n{Name}, a {Age} year old {Gender}.\n" +
+                $"\nTheir stats are:\n\n" +
+                Stats.Describe() +
+                $"\nTheir skills are:\n\n" +
+                Skills.Describe() +
+                $"\nThis citizen's ID: {Id}";
 
             return returnDescription;
-        }
-        public int GetId()
-        {
-            return Id;
         }
         #endregion
     }
