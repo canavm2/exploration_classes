@@ -23,7 +23,7 @@ namespace FileTools
         public void StoreCitizens(List<Citizen> citizens, string filename)
         {
             filename += ".txt";
-            string jsoncitizen = JsonConvert.SerializeObject(citizens);
+            string jsoncitizen = JsonConvert.SerializeObject(citizens, Formatting.Indented);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsoncitizen);
         }
@@ -39,7 +39,7 @@ namespace FileTools
         public void StoreCompany(PlayerCompany playercompany, string filename)
         {
             filename += ".txt";
-            string jsoncompany = JsonConvert.SerializeObject(playercompany);
+            string jsoncompany = JsonConvert.SerializeObject(playercompany, Formatting.Indented);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsoncompany);
         }
@@ -72,7 +72,7 @@ namespace FileTools
         public void StoreModifier(Stats.Modifier modifier)
         {
             string filepath = Path.Combine(TxtFilePath, "modifier.txt");
-            string jsoncitizen = JsonConvert.SerializeObject(modifier);
+            string jsoncitizen = JsonConvert.SerializeObject(modifier, Formatting.Indented);
             File.WriteAllText(filepath, jsoncitizen);
         }
         public Stats.Modifier ReadModifier()

@@ -29,8 +29,8 @@ NameList nameList = new NameList();
 #endregion
 
 #region readcitizens
-femaleCitizens = fileTool.ReadCitizens("femalecitizens");
-maleCitizens = fileTool.ReadCitizens("malecitizens");
+//femaleCitizens = fileTool.ReadCitizens("femalecitizens");
+//maleCitizens = fileTool.ReadCitizens("malecitizens");
 //Console.WriteLine($"femalecitizens has: {femaleCitizens.Count} items.");
 //Console.WriteLine("The first female is:");
 //Console.WriteLine(femaleCitizens[0].Describe());
@@ -54,19 +54,19 @@ maleCitizens = fileTool.ReadCitizens("malecitizens");
 #endregion  
 
 #region companies
-Random random = new Random();
-int randomindex = random.Next(femaleCitizens.Count);
-Citizen Master = femaleCitizens[randomindex];
-//femaleCitizens.RemoveAt(randomindex);
-List<Citizen> Advisors = new();
-for (int i = 0; i < 7; i++)
-{
-    randomindex = random.Next(femaleCitizens.Count);
-    Advisors.Add(femaleCitizens[randomindex]); //as Citizen;
-    //femaleCitizens.RemoveAt(randomindex);
-}
-PlayerCompany testcompany = new("testcompany", index, Master, Advisors);
-Console.WriteLine(testcompany.Describe());
+//Random random = new Random();
+//int randomindex = random.Next(femaleCitizens.Count);
+//Citizen Master = femaleCitizens[randomindex];
+////femaleCitizens.RemoveAt(randomindex);
+//List<Citizen> Advisors = new();
+//for (int i = 0; i < 7; i++)
+//{
+//    randomindex = random.Next(femaleCitizens.Count);
+//    Advisors.Add(femaleCitizens[randomindex]); //as Citizen;
+//    //femaleCitizens.RemoveAt(randomindex);
+//}
+//PlayerCompany testcompany = new("testcompany", index, Master, Advisors);
+//Console.WriteLine(testcompany.Describe());
 
 //foreach (KeyValuePair<string, Citizen> citizen in testcompany.Advisors)
 //{
@@ -74,7 +74,8 @@ Console.WriteLine(testcompany.Describe());
 //    Console.WriteLine(citizen.Value.Describe());
 //}
 //fileTool.StoreCompany(testcompany, "company");
-//testcompany = fileTool.ReadCompany("company");
+PlayerCompany testcompany = fileTool.ReadCompany("company");
+testcompany.UpdateSocial();
 //Console.WriteLine("======================================================");
 //Console.WriteLine("======================================================");
 //Console.WriteLine("======================================================");
@@ -89,3 +90,4 @@ Console.WriteLine(testcompany.Describe());
 index.StoreIndex(fileTool);
 fileTool.StoreCitizens(femaleCitizens, "femaleCitizens");
 fileTool.StoreCitizens(maleCitizens, "maleCitizens");
+fileTool.StoreCompany(testcompany, "company");

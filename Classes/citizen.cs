@@ -24,6 +24,8 @@ namespace People
             else
                 Gender = "non-binary";
             Id = indexer.GetIndex();
+            Stats = new();
+            Skills = new();
         }
 
         [JsonConstructor]
@@ -42,11 +44,11 @@ namespace People
 
         #region Descriptors and Stats
         public readonly int Id;
-        public string Name;
+        public readonly string Name;
         public int Age;
         public readonly string Gender;
-        public Stats Stats = new();
-        public Skills Skills = new();
+        public Stats Stats;
+        public Skills Skills;
         #endregion
 
         #region Methods

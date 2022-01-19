@@ -1,1 +1,926 @@
-{"CompanyId":107409,"Advisors":{"master":{"Id":107289,"Name":"Jakie Vanyarkin","Age":24,"Gender":"female","Stats":{"PrimaryBase":{"str":26,"dex":10,"int":16,"wis":20,"cha":29,"ldr":21},"DerivedBase":{"phys":18,"mntl":18,"socl":25},"Primary":{"str":26,"dex":10,"int":16,"wis":20,"cha":29,"ldr":21},"Derived":{"phys":18,"mntl":18,"socl":25},"Modifiers":[]},"Skills":{"VocSkill":{"Academia":6,"Animal Handling":4,"Blacksmithing":7,"Carpentry":5,"Cooking":6,"Court":2,"Drill":16,"Engineering":5,"First Aid":7,"History":24,"Hunting":7,"Law":6,"Leadership":18,"Leatherworking":0,"Martial":5,"Medical":4,"Metalworking":5,"Pathfinding":0,"Politics":9,"Prospecting":7,"Refining":6,"Quartermastery":9,"Survival":30,"Tactics":20,"Tinker":1},"ExpSkill":{"exp1":4,"exp2":2,"exp3":0}}},"advisor1":{"Id":107227,"Name":"Phaedra Igonet","Age":37,"Gender":"female","Stats":{"PrimaryBase":{"str":13,"dex":24,"int":25,"wis":29,"cha":21,"ldr":21},"DerivedBase":{"phys":18,"mntl":27,"socl":21},"Primary":{"str":13,"dex":24,"int":25,"wis":29,"cha":21,"ldr":21},"Derived":{"phys":18,"mntl":27,"socl":21},"Modifiers":[]},"Skills":{"VocSkill":{"Academia":16,"Animal Handling":19,"Blacksmithing":9,"Carpentry":15,"Cooking":5,"Court":33,"Drill":7,"Engineering":5,"First Aid":0,"History":5,"Hunting":7,"Law":9,"Leadership":2,"Leatherworking":9,"Martial":3,"Medical":15,"Metalworking":3,"Pathfinding":6,"Politics":6,"Prospecting":6,"Refining":3,"Quartermastery":2,"Survival":6,"Tactics":8,"Tinker":7},"ExpSkill":{"exp1":8,"exp2":4,"exp3":5}}},"advisor2":{"Id":107209,"Name":"Demeter Dowall","Age":30,"Gender":"female","Stats":{"PrimaryBase":{"str":28,"dex":29,"int":29,"wis":18,"cha":12,"ldr":19},"DerivedBase":{"phys":28,"mntl":23,"socl":15},"Primary":{"str":28,"dex":33,"int":29,"wis":18,"cha":12,"ldr":19},"Derived":{"phys":30,"mntl":23,"socl":15},"Modifiers":[{"Name":"testmodifier","Description":"does this work","Source":"test","ModifiedStat":"dex","Value":4,"Temporary":true,"Duration":10000,"Id":"testmodifier-test"}]},"Skills":{"VocSkill":{"Academia":4,"Animal Handling":4,"Blacksmithing":2,"Carpentry":0,"Cooking":3,"Court":1,"Drill":17,"Engineering":0,"First Aid":7,"History":22,"Hunting":22,"Law":7,"Leadership":19,"Leatherworking":4,"Martial":0,"Medical":3,"Metalworking":5,"Pathfinding":5,"Politics":1,"Prospecting":0,"Refining":5,"Quartermastery":0,"Survival":3,"Tactics":31,"Tinker":6},"ExpSkill":{"exp1":7,"exp2":9,"exp3":2}}},"advisor3":{"Id":107295,"Name":"Rinaldo Phripp","Age":37,"Gender":"female","Stats":{"PrimaryBase":{"str":17,"dex":20,"int":18,"wis":25,"cha":26,"ldr":27},"DerivedBase":{"phys":18,"mntl":21,"socl":26},"Primary":{"str":17,"dex":20,"int":18,"wis":25,"cha":26,"ldr":27},"Derived":{"phys":18,"mntl":21,"socl":26},"Modifiers":[]},"Skills":{"VocSkill":{"Academia":6,"Animal Handling":4,"Blacksmithing":8,"Carpentry":15,"Cooking":9,"Court":3,"Drill":4,"Engineering":4,"First Aid":9,"History":1,"Hunting":1,"Law":3,"Leadership":17,"Leatherworking":3,"Martial":22,"Medical":36,"Metalworking":8,"Pathfinding":8,"Politics":3,"Prospecting":20,"Refining":8,"Quartermastery":2,"Survival":5,"Tactics":4,"Tinker":2},"ExpSkill":{"exp1":7,"exp2":4,"exp3":7}}},"advisor4":{"Id":107303,"Name":"Stefania McGrory","Age":39,"Gender":"female","Stats":{"PrimaryBase":{"str":23,"dex":14,"int":23,"wis":10,"cha":26,"ldr":27},"DerivedBase":{"phys":18,"mntl":16,"socl":26},"Primary":{"str":23,"dex":14,"int":23,"wis":10,"cha":26,"ldr":27},"Derived":{"phys":18,"mntl":16,"socl":26},"Modifiers":[]},"Skills":{"VocSkill":{"Academia":17,"Animal Handling":7,"Blacksmithing":9,"Carpentry":0,"Cooking":2,"Court":19,"Drill":9,"Engineering":2,"First Aid":5,"History":30,"Hunting":3,"Law":21,"Leadership":3,"Leatherworking":8,"Martial":0,"Medical":4,"Metalworking":1,"Pathfinding":3,"Politics":4,"Prospecting":5,"Refining":8,"Quartermastery":0,"Survival":3,"Tactics":5,"Tinker":16},"ExpSkill":{"exp1":6,"exp2":8,"exp3":2}}},"advisor5":{"Id":107218,"Name":"Fifine Libreros","Age":22,"Gender":"female","Stats":{"PrimaryBase":{"str":10,"dex":10,"int":26,"wis":29,"cha":24,"ldr":14},"DerivedBase":{"phys":10,"mntl":27,"socl":19},"Primary":{"str":10,"dex":10,"int":26,"wis":29,"cha":24,"ldr":14},"Derived":{"phys":10,"mntl":27,"socl":19},"Modifiers":[]},"Skills":{"VocSkill":{"Academia":9,"Animal Handling":4,"Blacksmithing":8,"Carpentry":0,"Cooking":4,"Court":4,"Drill":1,"Engineering":8,"First Aid":15,"History":2,"Hunting":8,"Law":4,"Leadership":2,"Leatherworking":3,"Martial":3,"Medical":1,"Metalworking":16,"Pathfinding":9,"Politics":6,"Prospecting":6,"Refining":17,"Quartermastery":7,"Survival":5,"Tactics":24,"Tinker":32},"ExpSkill":{"exp1":4,"exp2":0,"exp3":7}}},"bench1":{"Id":107298,"Name":"Kesley Clewarth","Age":29,"Gender":"female","Stats":{"PrimaryBase":{"str":22,"dex":25,"int":13,"wis":10,"cha":29,"ldr":26},"DerivedBase":{"phys":23,"mntl":11,"socl":27},"Primary":{"str":22,"dex":25,"int":13,"wis":10,"cha":29,"ldr":26},"Derived":{"phys":23,"mntl":11,"socl":27},"Modifiers":[]},"Skills":{"VocSkill":{"Academia":30,"Animal Handling":9,"Blacksmithing":5,"Carpentry":1,"Cooking":7,"Court":1,"Drill":7,"Engineering":5,"First Aid":7,"History":21,"Hunting":17,"Law":6,"Leadership":1,"Leatherworking":0,"Martial":3,"Medical":0,"Metalworking":5,"Pathfinding":6,"Politics":7,"Prospecting":6,"Refining":16,"Quartermastery":20,"Survival":3,"Tactics":9,"Tinker":7},"ExpSkill":{"exp1":3,"exp2":5,"exp3":4}}},"bench2":{"Id":107267,"Name":"Clemence Doyland","Age":18,"Gender":"female","Stats":{"PrimaryBase":{"str":24,"dex":25,"int":19,"wis":12,"cha":10,"ldr":10},"DerivedBase":{"phys":24,"mntl":15,"socl":10},"Primary":{"str":24,"dex":25,"int":19,"wis":12,"cha":10,"ldr":10},"Derived":{"phys":24,"mntl":15,"socl":10},"Modifiers":[]},"Skills":{"VocSkill":{"Academia":5,"Animal Handling":9,"Blacksmithing":4,"Carpentry":16,"Cooking":2,"Court":4,"Drill":4,"Engineering":6,"First Aid":1,"History":7,"Hunting":9,"Law":0,"Leadership":33,"Leatherworking":22,"Martial":0,"Medical":2,"Metalworking":2,"Pathfinding":18,"Politics":24,"Prospecting":6,"Refining":6,"Quartermastery":7,"Survival":9,"Tactics":7,"Tinker":7},"ExpSkill":{"exp1":4,"exp2":2,"exp3":8}}}},"Name":"testcompany"}
+{
+  "CompanyId": 108412,
+  "Advisors": {
+    "master": {
+      "Id": 108242,
+      "Name": "Derek Bowry",
+      "Age": 28,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 21,
+          "dex": 14,
+          "int": 28,
+          "wis": 16,
+          "cha": 10,
+          "ldr": 24
+        },
+        "DerivedBase": {
+          "phys": 17,
+          "mntl": 22,
+          "socl": 17
+        },
+        "Primary": {
+          "str": 21,
+          "dex": 14,
+          "int": 28,
+          "wis": 16,
+          "cha": 10,
+          "ldr": 24
+        },
+        "Derived": {
+          "phys": 17,
+          "mntl": 22,
+          "socl": 17
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 7,
+          "Animal Handling": 8,
+          "Blacksmithing": 0,
+          "Carpentry": 17,
+          "Cooking": 9,
+          "Court": 19,
+          "Drill": 3,
+          "Engineering": 5,
+          "First Aid": 0,
+          "History": 8,
+          "Hunting": 1,
+          "Law": 8,
+          "Leadership": 4,
+          "Leatherworking": 5,
+          "Martial": 0,
+          "Medical": 3,
+          "Metalworking": 6,
+          "Pathfinding": 22,
+          "Politics": 0,
+          "Prospecting": 5,
+          "Refining": 38,
+          "Quartermastery": 3,
+          "Survival": 19,
+          "Tactics": 7,
+          "Tinker": 9
+        },
+        "ExpSkill": {
+          "exp1": 4,
+          "exp2": 3,
+          "exp3": 1
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108218": {
+            "OtherPerson": "Johnnie Tremlett",
+            "Friendliness": 5,
+            "Teamwork": 2,
+            "Connection": 0
+          },
+          "108283": {
+            "OtherPerson": "Rachael McCutheon",
+            "Friendliness": 4,
+            "Teamwork": 10,
+            "Connection": 0
+          },
+          "108256": {
+            "OtherPerson": "Lusa Launder",
+            "Friendliness": 10,
+            "Teamwork": 11,
+            "Connection": 0
+          },
+          "108246": {
+            "OtherPerson": "Peggi Gavin",
+            "Friendliness": -7,
+            "Teamwork": 16,
+            "Connection": 0
+          },
+          "108286": {
+            "OtherPerson": "Kimberlee Stockings",
+            "Friendliness": 16,
+            "Teamwork": 9,
+            "Connection": 0
+          },
+          "108223": {
+            "OtherPerson": "Bernelle Amiranda",
+            "Friendliness": 2,
+            "Teamwork": -4,
+            "Connection": 0
+          },
+          "108281": {
+            "OtherPerson": "Lilla Newns",
+            "Friendliness": 16,
+            "Teamwork": -2,
+            "Connection": 0
+          }
+        }
+      }
+    },
+    "advisor1": {
+      "Id": 108218,
+      "Name": "Johnnie Tremlett",
+      "Age": 16,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 10,
+          "dex": 14,
+          "int": 14,
+          "wis": 23,
+          "cha": 28,
+          "ldr": 21
+        },
+        "DerivedBase": {
+          "phys": 12,
+          "mntl": 18,
+          "socl": 24
+        },
+        "Primary": {
+          "str": 10,
+          "dex": 14,
+          "int": 14,
+          "wis": 23,
+          "cha": 28,
+          "ldr": 21
+        },
+        "Derived": {
+          "phys": 12,
+          "mntl": 18,
+          "socl": 24
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 8,
+          "Animal Handling": 2,
+          "Blacksmithing": 1,
+          "Carpentry": 1,
+          "Cooking": 2,
+          "Court": 5,
+          "Drill": 18,
+          "Engineering": 3,
+          "First Aid": 4,
+          "History": 1,
+          "Hunting": 5,
+          "Law": 4,
+          "Leadership": 7,
+          "Leatherworking": 2,
+          "Martial": 1,
+          "Medical": 3,
+          "Metalworking": 21,
+          "Pathfinding": 17,
+          "Politics": 6,
+          "Prospecting": 5,
+          "Refining": 36,
+          "Quartermastery": 8,
+          "Survival": 24,
+          "Tactics": 0,
+          "Tinker": 8
+        },
+        "ExpSkill": {
+          "exp1": 3,
+          "exp2": 8,
+          "exp3": 2
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108242": {
+            "OtherPerson": "Derek Bowry",
+            "Friendliness": 18,
+            "Teamwork": 18,
+            "Connection": 0
+          },
+          "108283": {
+            "OtherPerson": "Rachael McCutheon",
+            "Friendliness": 8,
+            "Teamwork": 5,
+            "Connection": 0
+          },
+          "108256": {
+            "OtherPerson": "Lusa Launder",
+            "Friendliness": 9,
+            "Teamwork": -1,
+            "Connection": 0
+          },
+          "108246": {
+            "OtherPerson": "Peggi Gavin",
+            "Friendliness": -9,
+            "Teamwork": 14,
+            "Connection": 0
+          },
+          "108286": {
+            "OtherPerson": "Kimberlee Stockings",
+            "Friendliness": -4,
+            "Teamwork": 2,
+            "Connection": 0
+          },
+          "108223": {
+            "OtherPerson": "Bernelle Amiranda",
+            "Friendliness": 6,
+            "Teamwork": 6,
+            "Connection": 0
+          },
+          "108281": {
+            "OtherPerson": "Lilla Newns",
+            "Friendliness": 13,
+            "Teamwork": -7,
+            "Connection": 0
+          }
+        }
+      }
+    },
+    "advisor2": {
+      "Id": 108283,
+      "Name": "Rachael McCutheon",
+      "Age": 28,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 25,
+          "dex": 29,
+          "int": 23,
+          "wis": 20,
+          "cha": 14,
+          "ldr": 19
+        },
+        "DerivedBase": {
+          "phys": 27,
+          "mntl": 21,
+          "socl": 16
+        },
+        "Primary": {
+          "str": 25,
+          "dex": 29,
+          "int": 23,
+          "wis": 20,
+          "cha": 14,
+          "ldr": 19
+        },
+        "Derived": {
+          "phys": 27,
+          "mntl": 21,
+          "socl": 16
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 7,
+          "Animal Handling": 1,
+          "Blacksmithing": 16,
+          "Carpentry": 21,
+          "Cooking": 5,
+          "Court": 6,
+          "Drill": 8,
+          "Engineering": 6,
+          "First Aid": 5,
+          "History": 0,
+          "Hunting": 5,
+          "Law": 1,
+          "Leadership": 8,
+          "Leatherworking": 19,
+          "Martial": 9,
+          "Medical": 9,
+          "Metalworking": 0,
+          "Pathfinding": 0,
+          "Politics": 3,
+          "Prospecting": 39,
+          "Refining": 9,
+          "Quartermastery": 4,
+          "Survival": 1,
+          "Tactics": 15,
+          "Tinker": 7
+        },
+        "ExpSkill": {
+          "exp1": 0,
+          "exp2": 5,
+          "exp3": 4
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108242": {
+            "OtherPerson": "Derek Bowry",
+            "Friendliness": 16,
+            "Teamwork": -6,
+            "Connection": 0
+          },
+          "108218": {
+            "OtherPerson": "Johnnie Tremlett",
+            "Friendliness": 15,
+            "Teamwork": 6,
+            "Connection": 0
+          },
+          "108256": {
+            "OtherPerson": "Lusa Launder",
+            "Friendliness": -2,
+            "Teamwork": 16,
+            "Connection": 0
+          },
+          "108246": {
+            "OtherPerson": "Peggi Gavin",
+            "Friendliness": 5,
+            "Teamwork": -2,
+            "Connection": 0
+          },
+          "108286": {
+            "OtherPerson": "Kimberlee Stockings",
+            "Friendliness": -10,
+            "Teamwork": 15,
+            "Connection": 0
+          },
+          "108223": {
+            "OtherPerson": "Bernelle Amiranda",
+            "Friendliness": -4,
+            "Teamwork": 14,
+            "Connection": 0
+          },
+          "108281": {
+            "OtherPerson": "Lilla Newns",
+            "Friendliness": 7,
+            "Teamwork": 2,
+            "Connection": 0
+          }
+        }
+      }
+    },
+    "advisor3": {
+      "Id": 108256,
+      "Name": "Lusa Launder",
+      "Age": 36,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 21,
+          "dex": 25,
+          "int": 29,
+          "wis": 13,
+          "cha": 12,
+          "ldr": 14
+        },
+        "DerivedBase": {
+          "phys": 23,
+          "mntl": 21,
+          "socl": 13
+        },
+        "Primary": {
+          "str": 21,
+          "dex": 25,
+          "int": 29,
+          "wis": 13,
+          "cha": 12,
+          "ldr": 14
+        },
+        "Derived": {
+          "phys": 23,
+          "mntl": 21,
+          "socl": 13
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 23,
+          "Animal Handling": 7,
+          "Blacksmithing": 18,
+          "Carpentry": 9,
+          "Cooking": 9,
+          "Court": 3,
+          "Drill": 1,
+          "Engineering": 2,
+          "First Aid": 34,
+          "History": 5,
+          "Hunting": 22,
+          "Law": 4,
+          "Leadership": 1,
+          "Leatherworking": 9,
+          "Martial": 8,
+          "Medical": 5,
+          "Metalworking": 1,
+          "Pathfinding": 8,
+          "Politics": 7,
+          "Prospecting": 1,
+          "Refining": 8,
+          "Quartermastery": 4,
+          "Survival": 21,
+          "Tactics": 7,
+          "Tinker": 8
+        },
+        "ExpSkill": {
+          "exp1": 6,
+          "exp2": 7,
+          "exp3": 5
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108242": {
+            "OtherPerson": "Derek Bowry",
+            "Friendliness": -10,
+            "Teamwork": 7,
+            "Connection": 0
+          },
+          "108218": {
+            "OtherPerson": "Johnnie Tremlett",
+            "Friendliness": 14,
+            "Teamwork": -7,
+            "Connection": 0
+          },
+          "108283": {
+            "OtherPerson": "Rachael McCutheon",
+            "Friendliness": 16,
+            "Teamwork": 13,
+            "Connection": 0
+          },
+          "108246": {
+            "OtherPerson": "Peggi Gavin",
+            "Friendliness": -8,
+            "Teamwork": 18,
+            "Connection": 0
+          },
+          "108286": {
+            "OtherPerson": "Kimberlee Stockings",
+            "Friendliness": 1,
+            "Teamwork": -1,
+            "Connection": 0
+          },
+          "108223": {
+            "OtherPerson": "Bernelle Amiranda",
+            "Friendliness": -10,
+            "Teamwork": -7,
+            "Connection": 0
+          },
+          "108281": {
+            "OtherPerson": "Lilla Newns",
+            "Friendliness": -1,
+            "Teamwork": 15,
+            "Connection": 0
+          }
+        }
+      }
+    },
+    "advisor4": {
+      "Id": 108246,
+      "Name": "Peggi Gavin",
+      "Age": 36,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 25,
+          "dex": 18,
+          "int": 22,
+          "wis": 15,
+          "cha": 11,
+          "ldr": 17
+        },
+        "DerivedBase": {
+          "phys": 21,
+          "mntl": 18,
+          "socl": 14
+        },
+        "Primary": {
+          "str": 25,
+          "dex": 18,
+          "int": 22,
+          "wis": 15,
+          "cha": 11,
+          "ldr": 17
+        },
+        "Derived": {
+          "phys": 21,
+          "mntl": 18,
+          "socl": 14
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 6,
+          "Animal Handling": 1,
+          "Blacksmithing": 6,
+          "Carpentry": 20,
+          "Cooking": 5,
+          "Court": 8,
+          "Drill": 15,
+          "Engineering": 8,
+          "First Aid": 6,
+          "History": 6,
+          "Hunting": 24,
+          "Law": 0,
+          "Leadership": 2,
+          "Leatherworking": 6,
+          "Martial": 3,
+          "Medical": 20,
+          "Metalworking": 1,
+          "Pathfinding": 0,
+          "Politics": 3,
+          "Prospecting": 6,
+          "Refining": 6,
+          "Quartermastery": 0,
+          "Survival": 7,
+          "Tactics": 33,
+          "Tinker": 8
+        },
+        "ExpSkill": {
+          "exp1": 4,
+          "exp2": 3,
+          "exp3": 6
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108242": {
+            "OtherPerson": "Derek Bowry",
+            "Friendliness": -8,
+            "Teamwork": 13,
+            "Connection": 0
+          },
+          "108218": {
+            "OtherPerson": "Johnnie Tremlett",
+            "Friendliness": 17,
+            "Teamwork": 0,
+            "Connection": 0
+          },
+          "108283": {
+            "OtherPerson": "Rachael McCutheon",
+            "Friendliness": 11,
+            "Teamwork": 1,
+            "Connection": 0
+          },
+          "108256": {
+            "OtherPerson": "Lusa Launder",
+            "Friendliness": 8,
+            "Teamwork": 8,
+            "Connection": 0
+          },
+          "108286": {
+            "OtherPerson": "Kimberlee Stockings",
+            "Friendliness": 11,
+            "Teamwork": 17,
+            "Connection": 0
+          },
+          "108223": {
+            "OtherPerson": "Bernelle Amiranda",
+            "Friendliness": 5,
+            "Teamwork": -5,
+            "Connection": 0
+          },
+          "108281": {
+            "OtherPerson": "Lilla Newns",
+            "Friendliness": 16,
+            "Teamwork": 7,
+            "Connection": 0
+          }
+        }
+      }
+    },
+    "advisor5": {
+      "Id": 108286,
+      "Name": "Kimberlee Stockings",
+      "Age": 37,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 17,
+          "dex": 18,
+          "int": 17,
+          "wis": 20,
+          "cha": 14,
+          "ldr": 15
+        },
+        "DerivedBase": {
+          "phys": 17,
+          "mntl": 18,
+          "socl": 14
+        },
+        "Primary": {
+          "str": 17,
+          "dex": 18,
+          "int": 17,
+          "wis": 20,
+          "cha": 14,
+          "ldr": 15
+        },
+        "Derived": {
+          "phys": 17,
+          "mntl": 18,
+          "socl": 14
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 31,
+          "Animal Handling": 9,
+          "Blacksmithing": 15,
+          "Carpentry": 4,
+          "Cooking": 7,
+          "Court": 2,
+          "Drill": 5,
+          "Engineering": 2,
+          "First Aid": 9,
+          "History": 7,
+          "Hunting": 0,
+          "Law": 9,
+          "Leadership": 5,
+          "Leatherworking": 9,
+          "Martial": 9,
+          "Medical": 9,
+          "Metalworking": 4,
+          "Pathfinding": 16,
+          "Politics": 23,
+          "Prospecting": 3,
+          "Refining": 9,
+          "Quartermastery": 7,
+          "Survival": 5,
+          "Tactics": 20,
+          "Tinker": 2
+        },
+        "ExpSkill": {
+          "exp1": 5,
+          "exp2": 8,
+          "exp3": 6
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108242": {
+            "OtherPerson": "Derek Bowry",
+            "Friendliness": 1,
+            "Teamwork": -10,
+            "Connection": 0
+          },
+          "108218": {
+            "OtherPerson": "Johnnie Tremlett",
+            "Friendliness": 5,
+            "Teamwork": 15,
+            "Connection": 0
+          },
+          "108283": {
+            "OtherPerson": "Rachael McCutheon",
+            "Friendliness": -9,
+            "Teamwork": 9,
+            "Connection": 0
+          },
+          "108256": {
+            "OtherPerson": "Lusa Launder",
+            "Friendliness": -3,
+            "Teamwork": -2,
+            "Connection": 0
+          },
+          "108246": {
+            "OtherPerson": "Peggi Gavin",
+            "Friendliness": 6,
+            "Teamwork": 19,
+            "Connection": 0
+          },
+          "108223": {
+            "OtherPerson": "Bernelle Amiranda",
+            "Friendliness": 5,
+            "Teamwork": 13,
+            "Connection": 0
+          },
+          "108281": {
+            "OtherPerson": "Lilla Newns",
+            "Friendliness": 5,
+            "Teamwork": 4,
+            "Connection": 0
+          }
+        }
+      }
+    },
+    "bench1": {
+      "Id": 108223,
+      "Name": "Bernelle Amiranda",
+      "Age": 32,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 12,
+          "dex": 15,
+          "int": 16,
+          "wis": 17,
+          "cha": 10,
+          "ldr": 11
+        },
+        "DerivedBase": {
+          "phys": 13,
+          "mntl": 16,
+          "socl": 10
+        },
+        "Primary": {
+          "str": 12,
+          "dex": 15,
+          "int": 16,
+          "wis": 17,
+          "cha": 10,
+          "ldr": 11
+        },
+        "Derived": {
+          "phys": 13,
+          "mntl": 16,
+          "socl": 10
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 1,
+          "Animal Handling": 6,
+          "Blacksmithing": 5,
+          "Carpentry": 0,
+          "Cooking": 2,
+          "Court": 22,
+          "Drill": 3,
+          "Engineering": 3,
+          "First Aid": 6,
+          "History": 15,
+          "Hunting": 24,
+          "Law": 5,
+          "Leadership": 3,
+          "Leatherworking": 9,
+          "Martial": 9,
+          "Medical": 7,
+          "Metalworking": 9,
+          "Pathfinding": 3,
+          "Politics": 5,
+          "Prospecting": 7,
+          "Refining": 33,
+          "Quartermastery": 2,
+          "Survival": 16,
+          "Tactics": 4,
+          "Tinker": 5
+        },
+        "ExpSkill": {
+          "exp1": 3,
+          "exp2": 6,
+          "exp3": 2
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108242": {
+            "OtherPerson": "Derek Bowry",
+            "Friendliness": 15,
+            "Teamwork": 4,
+            "Connection": 0
+          },
+          "108218": {
+            "OtherPerson": "Johnnie Tremlett",
+            "Friendliness": 0,
+            "Teamwork": -10,
+            "Connection": 0
+          },
+          "108283": {
+            "OtherPerson": "Rachael McCutheon",
+            "Friendliness": -7,
+            "Teamwork": 1,
+            "Connection": 0
+          },
+          "108256": {
+            "OtherPerson": "Lusa Launder",
+            "Friendliness": -2,
+            "Teamwork": -3,
+            "Connection": 0
+          },
+          "108246": {
+            "OtherPerson": "Peggi Gavin",
+            "Friendliness": -4,
+            "Teamwork": -1,
+            "Connection": 0
+          },
+          "108286": {
+            "OtherPerson": "Kimberlee Stockings",
+            "Friendliness": -8,
+            "Teamwork": 11,
+            "Connection": 0
+          },
+          "108281": {
+            "OtherPerson": "Lilla Newns",
+            "Friendliness": 15,
+            "Teamwork": -3,
+            "Connection": 0
+          }
+        }
+      }
+    },
+    "bench2": {
+      "Id": 108281,
+      "Name": "Lilla Newns",
+      "Age": 31,
+      "Gender": "female",
+      "Stats": {
+        "PrimaryBase": {
+          "str": 12,
+          "dex": 15,
+          "int": 26,
+          "wis": 12,
+          "cha": 15,
+          "ldr": 15
+        },
+        "DerivedBase": {
+          "phys": 13,
+          "mntl": 19,
+          "socl": 15
+        },
+        "Primary": {
+          "str": 12,
+          "dex": 15,
+          "int": 26,
+          "wis": 12,
+          "cha": 15,
+          "ldr": 15
+        },
+        "Derived": {
+          "phys": 13,
+          "mntl": 19,
+          "socl": 15
+        },
+        "Modifiers": []
+      },
+      "Skills": {
+        "VocSkill": {
+          "Academia": 9,
+          "Animal Handling": 2,
+          "Blacksmithing": 8,
+          "Carpentry": 5,
+          "Cooking": 6,
+          "Court": 7,
+          "Drill": 22,
+          "Engineering": 1,
+          "First Aid": 8,
+          "History": 6,
+          "Hunting": 1,
+          "Law": 4,
+          "Leadership": 8,
+          "Leatherworking": 0,
+          "Martial": 22,
+          "Medical": 7,
+          "Metalworking": 2,
+          "Pathfinding": 2,
+          "Politics": 19,
+          "Prospecting": 21,
+          "Refining": 9,
+          "Quartermastery": 39,
+          "Survival": 5,
+          "Tactics": 8,
+          "Tinker": 9
+        },
+        "ExpSkill": {
+          "exp1": 5,
+          "exp2": 5,
+          "exp3": 8
+        }
+      },
+      "Social": {
+        "Relationships": {
+          "108242": {
+            "OtherPerson": "Derek Bowry",
+            "Friendliness": 2,
+            "Teamwork": 10,
+            "Connection": 0
+          },
+          "108218": {
+            "OtherPerson": "Johnnie Tremlett",
+            "Friendliness": -4,
+            "Teamwork": 19,
+            "Connection": 0
+          },
+          "108283": {
+            "OtherPerson": "Rachael McCutheon",
+            "Friendliness": 0,
+            "Teamwork": -8,
+            "Connection": 0
+          },
+          "108256": {
+            "OtherPerson": "Lusa Launder",
+            "Friendliness": 6,
+            "Teamwork": 15,
+            "Connection": 0
+          },
+          "108246": {
+            "OtherPerson": "Peggi Gavin",
+            "Friendliness": 7,
+            "Teamwork": -9,
+            "Connection": 0
+          },
+          "108286": {
+            "OtherPerson": "Kimberlee Stockings",
+            "Friendliness": -9,
+            "Teamwork": 2,
+            "Connection": 0
+          },
+          "108223": {
+            "OtherPerson": "Bernelle Amiranda",
+            "Friendliness": -5,
+            "Teamwork": 9,
+            "Connection": 0
+          }
+        }
+      }
+    }
+  },
+  "Name": "testcompany"
+}
