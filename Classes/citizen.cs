@@ -8,6 +8,63 @@ using Newtonsoft.Json;
 
 namespace People
 {
+    public class CitizenCache
+    {
+        public CitizenCache()
+        {
+            FemaleCitizens = new();
+            MaleCitizens = new();
+            NBCitizens = new();
+        }
+        [JsonConstructor]
+        public CitizenCache(List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
+        {
+            FemaleCitizens = femalecitizens;
+            MaleCitizens = malecitizens;
+            NBCitizens = nbcitizens;
+        }
+        public List<Citizen> FemaleCitizens;
+        public List<Citizen> MaleCitizens;
+        public List<Citizen> NBCitizens;
+
+        public void CacheCitizen(Citizen citizen)
+        {
+            if (citizen.Gender == "female") FemaleCitizens.Add(citizen);
+            else if (citizen.Gender == "male") MaleCitizens.Add(citizen);
+            else NBCitizens.Add(citizen);
+        }
+        public Citizen GetCitizen(string gender = "random")
+        {
+            Citizen returncitizen;
+            Random random = new Random();
+            int index;
+            if (gender == "random")
+            {
+                string[] genders = new string[] { "female", "male", "non-binary" };
+                index = random.Next(genders.Length);
+                gender = genders[index];
+            }
+            if (gender == "female")
+            {
+                index = random.Next(FemaleCitizens.Count);
+                returncitizen = FemaleCitizens[index];
+                FemaleCitizens.RemoveAt(index);
+            }
+            else if (gender == "male")
+            {
+                index = random.Next(MaleCitizens.Count);
+                returncitizen = MaleCitizens[index];
+                MaleCitizens.RemoveAt(index);
+            }
+            else
+            {
+                index = random.Next(NBCitizens.Count);
+                returncitizen = NBCitizens[index];
+                NBCitizens.RemoveAt(index);
+            }
+            return returncitizen;
+        }
+    }
     public class Citizen
     {
         #region Constructors
@@ -15,7 +72,7 @@ namespace People
         {
             Random random = new();
             if (age == 0)
-                age = random.Next(15,40);
+                age = random.Next(15, 40);
             Name = name;
             Age = age;
             List<string> genders = new() { "male", "female", "non-binary" };

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using People;
 using FileTools;
 using Newtonsoft.Json;
+using Relationships;
 
 namespace Company
 {
@@ -81,48 +82,49 @@ namespace Company
             return companyDescription;
         }
 
-        //Method to add a citizen to a company when the company is empty, In order to add a citizen into an occupied role, use ReplaceAdvisor
-        public void AddAdvisor(Citizen citizen, string role)
+        internal void AddAdvisor(Citizen citizen, string role)
         {
+            //TODO verify the role is acceptible
             Advisors[role] = citizen;
             foreach (Citizen advisor in Advisors.Values)
             {
                 if (advisor.Id != citizen.Id)
                 {
-                    Social.Relationship relationship = new Social.Relationship(citizen, advisor);
+                    Relationship relationship = new Relationship(citizen, advisor);
                     Social.Relationships[relationship.Id] = relationship;
                 }
             }
         }
 
-
-        //Replaces the citizen provided with teh citizen currently in the provided role.  The replaced citizen is returned, so it can be stored in the citizen vault.
-        public Citizen ReplaceAdvisor(Citizen citizen, string role)
-        {
-            if (Advisors[role] == null) throw new ArgumentNullException($"No citizen to replace in role: {role}");
-            Citizen replacedCitizen = Advisors[role];
-            Advisors[role] = citizen;
-            //TODO deal with relationships
-            return replacedCitizen;
-        }
-        public List<Social.Relationship> UpdateSocial()
+        public List<Relationship> UpdateSocial()
         {
             List<int> advisorIds = new();
-            List<Social.Relationship> oldRelationships = new();
+            List<Relationship> oldRelationships = new();
+            int relationshipCount = 0;
             foreach (Citizen advisor in Advisors.Values)
             {
                 advisorIds.Add(advisor.Id);
             }
             //iterates through each relationship in Social
-            foreach (KeyValuePair<string, Social.Relationship> kvp in Social.Relationships)
+            foreach (KeyValuePair<string, Relationship> kvp in Social.Relationships)
             {
                 string key = kvp.Key;
                 string[] ids = key.Split("-");
                 int id1 = int.Parse(ids[0]);
                 int id2 = int.Parse(ids[1]);
-
+                //check to see if the key contains ids from two current advisors
+                //if it doesnt match 2 current advisors, it removes it and returns it
+                if (advisorIds.Contains(id1) && advisorIds.Contains(id2))
+                {
+                    relationshipCount++;
+                }
+                else
+                {
+                    oldRelationships.Add(kvp.Value);
+                    Social.Relationships.Remove(kvp.Key);
+                }
             }
-            Console.WriteLine($"");
+            Console.WriteLine($"There are {relationshipCount} good relationships, and {oldRelationships.Count} old relationships removed.");
             return oldRelationships;
         }
 
