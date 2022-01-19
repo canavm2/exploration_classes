@@ -14,35 +14,33 @@ namespace Company
         #region Constructor
         public PlayerCompany(string name, IndexId index, Citizen master, List<Citizen> advisors)
         {
-            //advisors must have 7 citizens in it, less than 7 will cause and error, more than 7 will ignore the rest
+            Social = new();
             if (advisors.Count != 7)
                 throw new ArgumentException($"There are {advisors.Count} advisors in the list, there must be 7.");
             Name = name;
             CompanyId = index.GetIndex();
-            Advisors["master"] = master;
+            AddAdvisor(master, "master");
             //Sets the first 5 citizens in advisors to the other advisors
             for (int i = 0; i < 5; i++)
             {
-                string AdvisorNumber = "advisor" + (i+1).ToString();
-                Advisors[AdvisorNumber] = advisors[i];
+                string advisorNumber = "advisor" + (i+1).ToString();
+                AddAdvisor(advisors[i], advisorNumber);
             }
             //Sets the last 2 advisors to bench positions
             for (int i = 5; i < 7; i++)
             {
-                string BenchNumber = "bench" + (i-4).ToString();
-                Advisors[BenchNumber] = advisors[i];
+                string benchNumber = "bench" + (i-4).ToString();
+                AddAdvisor(advisors[i], benchNumber);
             }
-            //Creates relationship between the members
-            UpdateSocial();
-
         }
 
         [JsonConstructor]
-        public PlayerCompany(string name, int companyid, Dictionary<string, Citizen> advisors)
+        public PlayerCompany(string name, int companyid, Dictionary<string, Citizen> advisors, Social social)
         {
             Name = name;
             CompanyId = companyid;
             Advisors = advisors;
+            Social = social;
         }
 
 
@@ -52,6 +50,7 @@ namespace Company
         public string Name { get; set; }
         public readonly int CompanyId;
         public Dictionary<string, Citizen> Advisors = new();
+        public Social Social;
 
         #endregion
 
@@ -82,30 +81,51 @@ namespace Company
             return companyDescription;
         }
 
-        public void UpdateSocial()
+        //Method to add a citizen to a company when the company is empty, In order to add a citizen into an occupied role, use ReplaceAdvisor
+        public void AddAdvisor(Citizen citizen, string role)
         {
-            int count = 0;
-            //iterates through each citizen in the list of Advisors
+            Advisors[role] = citizen;
             foreach (Citizen advisor in Advisors.Values)
             {
-                //for each Advisor, determines if there is a relationship with all the other advisors
-                foreach (Citizen otheradvisor in Advisors.Values)
+                if (advisor.Id != citizen.Id)
                 {
-                    //ignores itself during the search
-                    if (otheradvisor.Id != advisor.Id)
-                    {
-                        count++;
-                        //Checks to see if the relationship already exists, if not it creates a new relationship with the otheradvisor
-                        if (!advisor.Social.Relationships.ContainsKey(otheradvisor.Id))
-                        {
-                            advisor.Social.CreateNewRelationship(otheradvisor);
-                        }
-                    }
+                    Social.Relationship relationship = new Social.Relationship(citizen, advisor);
+                    Social.Relationships[relationship.Id] = relationship;
                 }
             }
-            Console.WriteLine($"Checked {count} advisor relationships.");
         }
-        
+
+
+        //Replaces the citizen provided with teh citizen currently in the provided role.  The replaced citizen is returned, so it can be stored in the citizen vault.
+        public Citizen ReplaceAdvisor(Citizen citizen, string role)
+        {
+            if (Advisors[role] == null) throw new ArgumentNullException($"No citizen to replace in role: {role}");
+            Citizen replacedCitizen = Advisors[role];
+            Advisors[role] = citizen;
+            //TODO deal with relationships
+            return replacedCitizen;
+        }
+        public List<Social.Relationship> UpdateSocial()
+        {
+            List<int> advisorIds = new();
+            List<Social.Relationship> oldRelationships = new();
+            foreach (Citizen advisor in Advisors.Values)
+            {
+                advisorIds.Add(advisor.Id);
+            }
+            //iterates through each relationship in Social
+            foreach (KeyValuePair<string, Social.Relationship> kvp in Social.Relationships)
+            {
+                string key = kvp.Key;
+                string[] ids = key.Split("-");
+                int id1 = int.Parse(ids[0]);
+                int id2 = int.Parse(ids[1]);
+
+            }
+            Console.WriteLine($"");
+            return oldRelationships;
+        }
+
         #endregion
     }
 }
