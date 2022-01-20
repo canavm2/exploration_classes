@@ -22,6 +22,13 @@ namespace Relationships
             OldRelationships = oldrelationships;
         }
         public Dictionary<string, Relationship> OldRelationships;
+
+        public void CacheRelationship(Relationship relationship)
+        {
+            if (!OldRelationships.ContainsKey(relationship.Id))
+                OldRelationships[relationship.Id] = relationship;
+            else throw new Exception($"Relationship Cache already contains relationship: {relationship.Id}");
+        }
     }
     public class Relationships
     {
@@ -45,12 +52,44 @@ namespace Relationships
         }
 
         //Replaces the citizen provided with the citizen currently in the provided role.  The replaced citizen is stored in the citizen vault.
-        public static void ReplaceAdvisor(Citizen citizen, PlayerCompany playercompany, string role, CitizenCache citizencache)
+        public static void ReplaceAdvisor(Citizen citizen, PlayerCompany playercompany, string role, CitizenCache citizencache, RelationshipCache relationshipcache)
         {
             if (playercompany.Advisors[role] == null) throw new ArgumentNullException($"No citizen to replace in role: {role}.");
             Citizen replacedCitizen = playercompany.Advisors[role];
             playercompany.Advisors[role] = citizen;
-
+            UpdateRelationships(playercompany, relationshipcache);
+        }
+        public static void UpdateRelationships(PlayerCompany playercompany, RelationshipCache relationshipcache)
+        {
+            List<int> advisorIds = new();
+            int relationshipCount = 0;
+            int oldrelationships = 0;
+            foreach (Citizen advisor in playercompany.Advisors.Values)
+            {
+                advisorIds.Add(advisor.Id);
+            }
+            //iterates through each relationship in Social
+            foreach (KeyValuePair<string, Relationship> kvp in playercompany.Social.Relationships)
+            {
+                string key = kvp.Key;
+                string[] ids = key.Split("-");
+                int id1 = int.Parse(ids[0]);
+                int id2 = int.Parse(ids[1]);
+                //check to see if the key contains ids from two current advisors
+                //if it doesnt match 2 current advisors, it removes it and returns it
+                if (advisorIds.Contains(id1) && advisorIds.Contains(id2))
+                {
+                    relationshipCount++;
+                }
+                else
+                {
+                    oldrelationships++;
+                    relationshipcache.CacheRelationship(kvp.Value);
+                    playercompany.Social.Relationships.Remove(kvp.Key);
+                }
+            }
+            //TODO remove this tracking
+            Console.WriteLine($"There are {relationshipCount} good relationships, and {oldrelationships} old relationships removed.");
         }
     }
     public class Relationship

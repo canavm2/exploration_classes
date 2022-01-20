@@ -20,20 +20,20 @@ namespace FileTools
 
         #region methods
         //All these methods combine the foilder path with the filename provided for reading and writing to the txt files
-        public void StoreCitizens(List<Citizen> citizens, string filename)
+        public void StoreCitizens(CitizenCache citizens, string filename)
         {
             filename += ".txt";
             string jsoncitizen = JsonConvert.SerializeObject(citizens, Formatting.Indented);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsoncitizen);
         }
-        public List<Citizen> ReadCitizens(string filename)
+        public CitizenCache ReadCitizens(string filename)
         {
             filename += ".txt";
             string filepath = Path.Combine(TxtFilePath, filename);
             string fileJson = File.ReadAllText(filepath);
-            List <Citizen> citizens = new List <Citizen>();
-            citizens = JsonConvert.DeserializeObject<List<Citizen>>(fileJson);
+            CitizenCache citizens;
+            citizens = JsonConvert.DeserializeObject<CitizenCache>(fileJson);
             return citizens;
         }
         public void StoreCompany(PlayerCompany playercompany, string filename)

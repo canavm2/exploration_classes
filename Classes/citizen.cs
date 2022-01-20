@@ -10,11 +10,21 @@ namespace People
 {
     public class CitizenCache
     {
-        public CitizenCache()
+        public CitizenCache(IndexId index, int size = 0)
         {
+            NameList nameList = new();
             FemaleCitizens = new();
             MaleCitizens = new();
             NBCitizens = new();
+            for (int i = 0; i < size; i++)
+            {
+                Citizen femaleCitizen = new(nameList.generateName("female"), "female", index);
+                FemaleCitizens.Add(femaleCitizen);
+                Citizen maleCitizen = new(nameList.generateName("male"), "male", index);
+                MaleCitizens.Add(maleCitizen);
+                Citizen nbCitizen = new(nameList.generateName("non-binary"), "non-binary", index);
+                NBCitizens.Add(nbCitizen);
+            }
         }
         [JsonConstructor]
         public CitizenCache(List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
