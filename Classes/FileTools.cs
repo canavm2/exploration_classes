@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using People;
 using Company;
+using Relation;
 //using System.Text.Json;
 
 namespace FileTools
@@ -50,6 +51,21 @@ namespace FileTools
             string fileJson = File.ReadAllText(filepath);
             PlayerCompany playercompany = JsonConvert.DeserializeObject<PlayerCompany>(fileJson);
             return playercompany;
+        }
+        public void StoreRelationshipCache(RelationshipCache relationships, string filename)
+        {
+            filename += ".txt";
+            string jsonrelationshipcache = JsonConvert.SerializeObject(relationships, Formatting.Indented);
+            string filepath = Path.Combine(TxtFilePath, filename);
+            File.WriteAllText(filepath, jsonrelationshipcache);
+        }
+        public RelationshipCache ReadRelationshipCache(string filename)
+        {
+            filename += ".txt";
+            string filepath = Path.Combine(TxtFilePath, filename);
+            string fileJson = File.ReadAllText(filepath);
+            RelationshipCache relationshipcache = JsonConvert.DeserializeObject<RelationshipCache>(fileJson);
+            return relationshipcache;
         }
         public void StoreIndex(int currentindex)
         {

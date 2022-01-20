@@ -10,7 +10,7 @@ namespace People
     public class Skills
     {
         #region Constructors
-        public Skills()
+        public Skills(string type = "company")
         {
             Random random = new();
             //Stores all the Vocational Skills
@@ -48,30 +48,36 @@ namespace People
             //Sets all the Vocational skills to a random value between 0 and 10
             foreach (string skill in VocSkillsList)
             {
-                VocSkill[skill] = random.Next(0, 10);
+                if (type == "company") VocSkill[skill] = 0;
+                else VocSkill[skill] = random.Next(0, 10);
             }
 
             //Picks 1 Voc Skill to set between 30 and 40, and 4 others between 15-25
             //then overwrites the original values
-            List<string> tempVocSkillsList = VocSkillsList;
-            int index = random.Next(tempVocSkillsList.Count);
-            string highskill = tempVocSkillsList[index];
-            tempVocSkillsList.RemoveAt(index);
-            VocSkill[highskill] = random.Next(30, 40);
-            for (int i = 0; i < 4; i++)
+            if (type != "company")
             {
-                index = random.Next(tempVocSkillsList.Count);
-                highskill = tempVocSkillsList[index];
+                List<string> tempVocSkillsList = VocSkillsList;
+                int index = random.Next(tempVocSkillsList.Count);
+                string highskill = tempVocSkillsList[index];
                 tempVocSkillsList.RemoveAt(index);
-                VocSkill[highskill] = random.Next(15, 25);
+                VocSkill[highskill] = random.Next(30, 40);
+                for (int i = 0; i < 4; i++)
+                {
+                    index = random.Next(tempVocSkillsList.Count);
+                    highskill = tempVocSkillsList[index];
+                    tempVocSkillsList.RemoveAt(index);
+                    VocSkill[highskill] = random.Next(15, 25);
+                }
             }
 
             //Sets all the experiential skills between 0 and 10
             foreach (string skill in ExpSkillsList)
             {
-                ExpSkill[skill] = random.Next(0, 10);
+                if (type == "company") ExpSkill[skill] = 0;
+                else ExpSkill[skill] = random.Next(0, 10);
             }
         }
+
 
         [JsonConstructor]
         public Skills(Dictionary<string, int> vocskill, Dictionary<string, int> expskill)

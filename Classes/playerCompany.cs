@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using People;
 using FileTools;
 using Newtonsoft.Json;
-using Relationships;
+using Relation;
 
 namespace Company
 {
@@ -33,15 +33,18 @@ namespace Company
                 string benchNumber = "bench" + (i-4).ToString();
                 AddAdvisor(advisors[i], benchNumber);
             }
+            Skills = new("company");
+            UpdateCompanySkills();
         }
 
         [JsonConstructor]
-        public PlayerCompany(string name, int companyid, Dictionary<string, Citizen> advisors, Social social)
+        public PlayerCompany(string name, int companyid, Dictionary<string, Citizen> advisors, Social social, Skills skills)
         {
             Name = name;
             CompanyId = companyid;
             Advisors = advisors;
             Social = social;
+            Skills = skills;
         }
 
 
@@ -52,6 +55,7 @@ namespace Company
         public readonly int CompanyId;
         public Dictionary<string, Citizen> Advisors = new();
         public Social Social;
+        public Skills Skills;
 
         #endregion
 
@@ -76,10 +80,52 @@ namespace Company
                 $"The company master is {Advisors["master"].Name}.\n\n" +
                 $"The company advisors are:\n" +
                 advisorDescription +
-                $"These advisors are on the bench:\n" +
-                benchDescription;
-
+                $"\nThese advisors are on the bench:\n" +
+                benchDescription +
+                $"\nThe company skills are:\n" +
+                Skills.Describe()               
+                ;
             return companyDescription;
+        }
+        
+        //used to ensure all the skills are up to date
+        internal void UpdateCompanySkills()
+        {
+            foreach (KeyValuePair<string,int> kvp in Skills.VocSkill)
+            {
+                UpdateCompanySkill(kvp.Key, "voc");
+            }
+            foreach (KeyValuePair<string, int> kvp in Skills.ExpSkill)
+            {
+                UpdateCompanySkill(kvp.Key, "exp");
+            }
+        }
+        //Used to update a single skill
+        internal void UpdateCompanySkill(string skill, string type)
+        {
+            if (type == "voc")
+            {
+                List<int> skillvalues = new();
+                foreach (Citizen citizen in Advisors.Values)
+                {
+                    skillvalues.Add(citizen.Skills.VocSkill[skill]);
+                }
+                skillvalues.Sort();
+                skillvalues.Reverse();
+                Skills.VocSkill[skill] = (skillvalues[0] + skillvalues[1]) / 2;
+            }
+            else if (type == "exp")
+            {
+                List<int> skillvalues = new();
+                foreach (Citizen citizen in Advisors.Values)
+                {
+                    skillvalues.Add(citizen.Skills.ExpSkill[skill]);
+                }
+                skillvalues.Sort();
+                skillvalues.Reverse();
+                Skills.ExpSkill[skill] = (skillvalues[0] + skillvalues[1]) / 2;
+            }
+            else throw new Exception($"type must be voc or exp, not: {type}");
         }
 
         internal void AddAdvisor(Citizen citizen, string role)
@@ -96,37 +142,37 @@ namespace Company
             }
         }
 
-        public List<Relationship> UpdateSocial()
-        {
-            List<int> advisorIds = new();
-            List<Relationship> oldRelationships = new();
-            int relationshipCount = 0;
-            foreach (Citizen advisor in Advisors.Values)
-            {
-                advisorIds.Add(advisor.Id);
-            }
-            //iterates through each relationship in Social
-            foreach (KeyValuePair<string, Relationship> kvp in Social.Relationships)
-            {
-                string key = kvp.Key;
-                string[] ids = key.Split("-");
-                int id1 = int.Parse(ids[0]);
-                int id2 = int.Parse(ids[1]);
-                //check to see if the key contains ids from two current advisors
-                //if it doesnt match 2 current advisors, it removes it and returns it
-                if (advisorIds.Contains(id1) && advisorIds.Contains(id2))
-                {
-                    relationshipCount++;
-                }
-                else
-                {
-                    oldRelationships.Add(kvp.Value);
-                    Social.Relationships.Remove(kvp.Key);
-                }
-            }
-            Console.WriteLine($"There are {relationshipCount} good relationships, and {oldRelationships.Count} old relationships removed.");
-            return oldRelationships;
-        }
+        //public List<Relationship> UpdateSocial()
+        //{
+        //    List<int> advisorIds = new();
+        //    List<Relationship> oldRelationships = new();
+        //    int relationshipCount = 0;
+        //    foreach (Citizen advisor in Advisors.Values)
+        //    {
+        //        advisorIds.Add(advisor.Id);
+        //    }
+        //    iterates through each relationship in Social
+        //    foreach (KeyValuePair<string, Relationship> kvp in Social.Relationships)
+        //    {
+        //        string key = kvp.Key;
+        //        string[] ids = key.Split("-");
+        //        int id1 = int.Parse(ids[0]);
+        //        int id2 = int.Parse(ids[1]);
+        //        check to see if the key contains ids from two current advisors
+        //        if it doesnt match 2 current advisors, it removes it and returns it
+        //        if (advisorIds.Contains(id1) && advisorIds.Contains(id2))
+        //        {
+        //            relationshipCount++;
+        //        }
+        //        else
+        //        {
+        //            oldRelationships.Add(kvp.Value);
+        //            Social.Relationships.Remove(kvp.Key);
+        //        }
+        //    }
+        //    Console.WriteLine($"There are {relationshipCount} good relationships, and {oldRelationships.Count} old relationships removed.");
+        //    return oldRelationships;
+        //}
 
         #endregion
     }

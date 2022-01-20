@@ -1,26 +1,30 @@
 ﻿using People;
 using Company;
 using FileTools;
-using Relationships;
+using Relation;
 using Newtonsoft.Json;
 
 
 FileTool fileTool = new FileTool();
 Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
 IndexId index = new IndexId(fileTool.ReadIndex());
-RelationshipCache RelationshipCache = new();
+RelationshipCache relationshipcache;
 CitizenCache citizens;
+
+PlayerCompany testcompany = fileTool.ReadCompany("company");
+testcompany.UpdateCompanySkills();
+Console.WriteLine(testcompany.Describe());
+citizens = fileTool.ReadCitizens("citizens");
+relationshipcache = fileTool.ReadRelationshipCache("relationships");
 
 #region createcitizens
 //citizens = new CitizenCache(index, 100);
-//fileTool.StoreCitizens(citizens, "citizens");
 #endregion
 
 #region readcitizens
-citizens = fileTool.ReadCitizens("citizens");
-Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].Describe()}");
-Console.WriteLine($"femalecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].Describe()}");
-Console.WriteLine($"femalecitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].Describe()}");
+//Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].Describe()}");
+//Console.WriteLine($"femalecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].Describe()}");
+//Console.WriteLine($"femalecitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].Describe()}");
 #endregion
 
 #region testingmodifiers
@@ -37,45 +41,26 @@ Console.WriteLine($"femalecitizens has: {citizens.NBCitizens.Count} items.\nThe 
 //testcitizen.Stats.RemoveModifier("testmodifier-test");
 #endregion
 
-#region companies
-//Random random = new Random();
-//int randomindex = random.Next(citizens.FemaleCitizens.Count);
-//Citizen Master = citizens.FemaleCitizens[randomindex];
-////femaleCitizens.RemoveAt(randomindex);
-//List<Citizen> Advisors = new();
+#region createcompany
+//List<Citizen> advisors = new List<Citizen>();
 //for (int i = 0; i < 7; i++)
-//{
-//    randomindex = random.Next(citizens.FemaleCitizens.Count);
-//    Advisors.Add(citizens.FemaleCitizens[randomindex]); //as Citizen;
-//    //femaleCitizens.RemoveAt(randomindex);
-//}
-//PlayerCompany testcompany = new("testcompany", index, Master, Advisors);
-//Console.WriteLine(testcompany.Describe());
-//Console.WriteLine($"There are {testcompany.Social.Relationships.Count} relationships.");
-//Citizen replacementCitizen = citizens.FemaleCitizens[random.Next(citizens.FemaleCitizens.Count)];
-//Console.WriteLine(replacementCitizen.Describe());
-////testcompany.ReplaceAdvisor(replacementCitizen, "advisor1");
-//testcompany.UpdateSocial();
-//Console.WriteLine(testcompany.Describe());
+//    advisors.Add(citizens.GetRandomCitizen());
+//Citizen master = citizens.GetRandomCitizen();
+//PlayerCompany testcompany = new("testcompany", index, master, advisors);
+#endregion
 
-//foreach (KeyValuePair<string, Citizen> citizen in testcompany.Advisors)
-//{
-//    Console.WriteLine($"\n------------------\nThis citizen is the: {citizen.Key}");
-//    Console.WriteLine(citizen.Value.Describe());
-//}
-//fileTool.StoreCompany(testcompany, "company");
-//PlayerCompany testcompany = fileTool.ReadCompany("company");
-//testcompany.UpdateSocial();
-//Console.WriteLine("======================================================");
-//Console.WriteLine("======================================================");
-//Console.WriteLine("======================================================");
-//foreach (KeyValuePair<string, Citizen> citizen in testcompany.Advisors)
-//{
-//    Console.WriteLine($"\n------------------\nThis citizen is the: {citizen.Key}");
-//    Console.WriteLine(citizen.Value.Describe());
-//}
+#region readcompany
+//Relationships.UpdateRelationships(testcompany,relationshipcache);
+#endregion
+
+#region advisortesting
+//Citizen replacementadvisor = citizens.GetRandomCitizen();
+//Console.WriteLine(replacementadvisor.Describe());
+//Relationships.ReplaceAdvisor(replacementadvisor, testcompany, "advisor1", citizens, relationshipcache);
 #endregion
 
 //Stores everything again
 index.StoreIndex(fileTool);
 fileTool.StoreCitizens(citizens, "citizens");
+fileTool.StoreCompany(testcompany, "company");
+fileTool.StoreRelationshipCache(relationshipcache, "relationships");

@@ -1,0 +1,60 @@
+{
+  "OldRelationships": {
+    "108844-110932": {
+      "Id": "108844-110932",
+      "Citizen1Name": "Cristabel Drissell",
+      "Citizen2Name": "Henry Seawright",
+      "Friendliness": 18,
+      "Teamwork": -6,
+      "Connection": 0
+    },
+    "109098-110932": {
+      "Id": "109098-110932",
+      "Citizen1Name": "Emmett Werndley",
+      "Citizen2Name": "Henry Seawright",
+      "Friendliness": 17,
+      "Teamwork": 3,
+      "Connection": 0
+    },
+    "109086-110932": {
+      "Id": "109086-110932",
+      "Citizen1Name": "Vannie Salthouse",
+      "Citizen2Name": "Henry Seawright",
+      "Friendliness": -6,
+      "Teamwork": 5,
+      "Connection": 0
+    },
+    "109047-110932": {
+      "Id": "109047-110932",
+      "Citizen1Name": "Colette Adlard",
+      "Citizen2Name": "Henry Seawright",
+      "Friendliness": -5,
+      "Teamwork": 19,
+      "Connection": 0
+    },
+    "108822-110932": {
+      "Id": "108822-110932",
+      "Citizen1Name": "Cora Mugridge",
+      "Citizen2Name": "Henry Seawright",
+      "Friendliness": 2,
+      "Teamwork": 16,
+      "Connection": 0
+    },
+    "108836-110932": {
+      "Id": "108836-110932",
+      "Citizen1Name": "Rianon Sings",
+      "Citizen2Name": "Henry Seawright",
+      "Friendliness": 1,
+      "Teamwork": 3,
+      "Connection": 0
+    },
+    "109064-110932": {
+      "Id": "109064-110932",
+      "Citizen1Name": "Rosetta Shreenan",
+      "Citizen2Name": "Henry Seawright",
+      "Friendliness": -10,
+      "Teamwork": 6,
+      "Connection": 0
+    }
+  }
+}

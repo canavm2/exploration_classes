@@ -33,9 +33,9 @@ namespace People
             MaleCitizens = malecitizens;
             NBCitizens = nbcitizens;
         }
-        public List<Citizen> FemaleCitizens;
-        public List<Citizen> MaleCitizens;
-        public List<Citizen> NBCitizens;
+        public List<Citizen> FemaleCitizens { get; }
+        public List<Citizen> MaleCitizens { get; }
+        public List<Citizen> NBCitizens { get; }
 
         public void CacheCitizen(Citizen citizen)
         {
@@ -43,7 +43,7 @@ namespace People
             else if (citizen.Gender == "male") MaleCitizens.Add(citizen);
             else NBCitizens.Add(citizen);
         }
-        public Citizen GetCitizen(string gender = "random")
+        public Citizen GetRandomCitizen(string gender = "random")
         {
             Citizen returncitizen;
             Random random = new Random();
@@ -127,7 +127,7 @@ namespace People
                 Stats.Describe() +
                 $"\nTheir skills are:\n\n" +
                 Skills.Describe() +
-                $"\nThis citizen's ID: {Id}";
+                $"\nThis citizen's ID: {Id}\n\n";
 
             return returnDescription;
         }
