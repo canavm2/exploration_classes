@@ -12,7 +12,6 @@ RelationshipCache relationshipcache;
 CitizenCache citizens;
 
 PlayerCompany testcompany = fileTool.ReadCompany("company");
-testcompany.UpdateCompanySkills();
 Console.WriteLine(testcompany.Describe());
 citizens = fileTool.ReadCitizens("citizens");
 relationshipcache = fileTool.ReadRelationshipCache("relationships");

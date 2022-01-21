@@ -1,554 +1,578 @@
 {
-  "CompanyId": 111521,
+  "CompanyId": 112123,
   "Advisors": {
     "master": {
-      "Id": 111358,
-      "Name": "Lira Stellman",
-      "Age": 16,
+      "Id": 111828,
+      "Name": "Roseline Plevey",
+      "Age": 38,
       "Gender": "non-binary",
       "Stats": {
         "PrimaryBase": {
-          "str": 11,
-          "dex": 13,
-          "int": 28,
-          "wis": 21,
+          "str": 25,
+          "dex": 19,
+          "int": 17,
+          "wis": 26,
           "cha": 18,
           "ldr": 24
         },
         "DerivedBase": {
-          "phys": 12,
-          "mntl": 24,
+          "phys": 22,
+          "mntl": 21,
           "socl": 21
         },
         "Primary": {
-          "str": 11,
-          "dex": 13,
-          "int": 28,
-          "wis": 21,
+          "str": 25,
+          "dex": 19,
+          "int": 17,
+          "wis": 26,
           "cha": 18,
           "ldr": 24
         },
         "Derived": {
-          "phys": 12,
-          "mntl": 24,
+          "phys": 22,
+          "mntl": 21,
           "socl": 21
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 2,
-          "Animal Handling": 4,
-          "Blacksmithing": 6,
-          "Carpentry": 20,
-          "Cooking": 4,
-          "Court": 3,
-          "Drill": 30,
-          "Engineering": 3,
-          "First Aid": 20,
-          "History": 7,
-          "Hunting": 6,
+          "Academia": 0,
+          "Animal Handling": 0,
+          "Blacksmithing": 0,
+          "Carpentry": 0,
+          "Cooking": 24,
+          "Diplomacy": 0,
+          "Drill": 0,
+          "Engineering": 0,
+          "First Aid": 33,
+          "History": 0,
+          "Hunting": 0,
           "Law": 0,
-          "Leadership": 3,
-          "Leatherworking": 9,
+          "Leadership": 21,
+          "Leatherworking": 0,
           "Martial": 0,
-          "Medical": 5,
-          "Metalworking": 8,
-          "Pathfinding": 18,
-          "Politics": 15,
-          "Prospecting": 9,
-          "Refining": 5,
-          "Quartermastery": 3,
-          "Survival": 8,
-          "Tactics": 1,
-          "Tinker": 7
+          "Medical": 0,
+          "Metalworking": 0,
+          "Pathfinding": 0,
+          "Persuation": 0,
+          "Politics": 22,
+          "Prospecting": 0,
+          "Refining": 0,
+          "Quartermastery": 19,
+          "Skullduggery": 0,
+          "Stealth": 0,
+          "Survival": 0,
+          "Tactics": 0,
+          "Tinker": 0
         },
         "ExpSkill": {
-          "exp1": 4,
-          "exp2": 5,
-          "exp3": 2
+          "exp1": 0,
+          "exp2": 0,
+          "exp3": 0
         }
       }
     },
     "advisor1": {
-      "Id": 111241,
-      "Name": "Sue Fibbitts",
-      "Age": 36,
+      "Id": 111981,
+      "Name": "Frederich Hannigan",
+      "Age": 21,
       "Gender": "non-binary",
       "Stats": {
         "PrimaryBase": {
-          "str": 17,
-          "dex": 27,
-          "int": 12,
-          "wis": 10,
-          "cha": 28,
-          "ldr": 23
+          "str": 24,
+          "dex": 21,
+          "int": 25,
+          "wis": 18,
+          "cha": 17,
+          "ldr": 29
         },
         "DerivedBase": {
           "phys": 22,
-          "mntl": 11,
-          "socl": 25
+          "mntl": 21,
+          "socl": 23
         },
         "Primary": {
-          "str": 17,
-          "dex": 27,
-          "int": 12,
-          "wis": 10,
-          "cha": 28,
-          "ldr": 23
+          "str": 24,
+          "dex": 21,
+          "int": 25,
+          "wis": 18,
+          "cha": 17,
+          "ldr": 29
         },
         "Derived": {
           "phys": 22,
-          "mntl": 11,
-          "socl": 25
+          "mntl": 21,
+          "socl": 23
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 4,
-          "Animal Handling": 8,
-          "Blacksmithing": 7,
-          "Carpentry": 3,
+          "Academia": 0,
+          "Animal Handling": 0,
+          "Blacksmithing": 0,
+          "Carpentry": 0,
           "Cooking": 0,
-          "Court": 1,
-          "Drill": 2,
-          "Engineering": 21,
-          "First Aid": 15,
-          "History": 7,
-          "Hunting": 4,
-          "Law": 5,
-          "Leadership": 1,
-          "Leatherworking": 2,
-          "Martial": 18,
-          "Medical": 9,
-          "Metalworking": 4,
-          "Pathfinding": 7,
-          "Politics": 39,
-          "Prospecting": 23,
-          "Refining": 1,
-          "Quartermastery": 1,
-          "Survival": 1,
-          "Tactics": 4,
-          "Tinker": 6
+          "Diplomacy": 0,
+          "Drill": 0,
+          "Engineering": 35,
+          "First Aid": 0,
+          "History": 0,
+          "Hunting": 19,
+          "Law": 0,
+          "Leadership": 0,
+          "Leatherworking": 0,
+          "Martial": 0,
+          "Medical": 0,
+          "Metalworking": 0,
+          "Pathfinding": 0,
+          "Persuation": 0,
+          "Politics": 0,
+          "Prospecting": 15,
+          "Refining": 0,
+          "Quartermastery": 21,
+          "Skullduggery": 0,
+          "Stealth": 0,
+          "Survival": 0,
+          "Tactics": 0,
+          "Tinker": 24
         },
         "ExpSkill": {
-          "exp1": 5,
+          "exp1": 0,
           "exp2": 0,
-          "exp3": 5
+          "exp3": 0
         }
       }
     },
     "advisor2": {
-      "Id": 111391,
-      "Name": "Mel Kepe",
-      "Age": 29,
-      "Gender": "non-binary",
+      "Id": 111857,
+      "Name": "Westbrooke Raddenbury",
+      "Age": 21,
+      "Gender": "male",
       "Stats": {
         "PrimaryBase": {
-          "str": 23,
-          "dex": 18,
-          "int": 23,
-          "wis": 19,
-          "cha": 29,
-          "ldr": 24
+          "str": 28,
+          "dex": 13,
+          "int": 22,
+          "wis": 23,
+          "cha": 10,
+          "ldr": 21
         },
         "DerivedBase": {
           "phys": 20,
-          "mntl": 21,
-          "socl": 26
+          "mntl": 22,
+          "socl": 15
         },
         "Primary": {
-          "str": 23,
-          "dex": 18,
-          "int": 23,
-          "wis": 19,
-          "cha": 29,
-          "ldr": 24
+          "str": 28,
+          "dex": 13,
+          "int": 22,
+          "wis": 23,
+          "cha": 10,
+          "ldr": 21
         },
         "Derived": {
           "phys": 20,
-          "mntl": 21,
-          "socl": 26
+          "mntl": 22,
+          "socl": 15
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 19,
-          "Animal Handling": 3,
+          "Academia": 0,
+          "Animal Handling": 0,
           "Blacksmithing": 0,
-          "Carpentry": 7,
-          "Cooking": 2,
-          "Court": 8,
-          "Drill": 20,
-          "Engineering": 5,
-          "First Aid": 17,
+          "Carpentry": 0,
+          "Cooking": 0,
+          "Diplomacy": 0,
+          "Drill": 0,
+          "Engineering": 0,
+          "First Aid": 18,
           "History": 0,
-          "Hunting": 4,
+          "Hunting": 15,
           "Law": 0,
-          "Leadership": 3,
-          "Leatherworking": 38,
-          "Martial": 6,
-          "Medical": 1,
-          "Metalworking": 5,
-          "Pathfinding": 6,
-          "Politics": 1,
-          "Prospecting": 9,
-          "Refining": 2,
-          "Quartermastery": 24,
-          "Survival": 4,
-          "Tactics": 6,
-          "Tinker": 3
+          "Leadership": 0,
+          "Leatherworking": 0,
+          "Martial": 19,
+          "Medical": 0,
+          "Metalworking": 0,
+          "Pathfinding": 0,
+          "Persuation": 0,
+          "Politics": 0,
+          "Prospecting": 0,
+          "Refining": 0,
+          "Quartermastery": 23,
+          "Skullduggery": 0,
+          "Stealth": 0,
+          "Survival": 0,
+          "Tactics": 0,
+          "Tinker": 31
         },
         "ExpSkill": {
           "exp1": 0,
-          "exp2": 2,
-          "exp3": 1
+          "exp2": 0,
+          "exp3": 0
         }
       }
     },
     "advisor3": {
-      "Id": 111354,
-      "Name": "Nerita Dene",
-      "Age": 39,
-      "Gender": "male",
+      "Id": 111835,
+      "Name": "Letta Midlane",
+      "Age": 27,
+      "Gender": "female",
       "Stats": {
         "PrimaryBase": {
-          "str": 24,
-          "dex": 17,
-          "int": 29,
-          "wis": 10,
-          "cha": 23,
-          "ldr": 21
+          "str": 20,
+          "dex": 14,
+          "int": 14,
+          "wis": 28,
+          "cha": 17,
+          "ldr": 24
         },
         "DerivedBase": {
-          "phys": 20,
-          "mntl": 19,
-          "socl": 22
+          "phys": 17,
+          "mntl": 21,
+          "socl": 20
         },
         "Primary": {
-          "str": 24,
-          "dex": 17,
-          "int": 29,
-          "wis": 10,
-          "cha": 23,
-          "ldr": 21
+          "str": 20,
+          "dex": 14,
+          "int": 14,
+          "wis": 28,
+          "cha": 17,
+          "ldr": 24
         },
         "Derived": {
-          "phys": 20,
-          "mntl": 19,
-          "socl": 22
+          "phys": 17,
+          "mntl": 21,
+          "socl": 20
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 7,
-          "Animal Handling": 4,
-          "Blacksmithing": 2,
-          "Carpentry": 38,
-          "Cooking": 3,
-          "Court": 1,
-          "Drill": 8,
-          "Engineering": 7,
-          "First Aid": 7,
-          "History": 7,
-          "Hunting": 7,
-          "Law": 8,
-          "Leadership": 3,
-          "Leatherworking": 7,
-          "Martial": 5,
-          "Medical": 22,
-          "Metalworking": 20,
-          "Pathfinding": 16,
-          "Politics": 3,
-          "Prospecting": 7,
-          "Refining": 20,
-          "Quartermastery": 6,
-          "Survival": 1,
-          "Tactics": 1,
+          "Academia": 0,
+          "Animal Handling": 0,
+          "Blacksmithing": 0,
+          "Carpentry": 0,
+          "Cooking": 0,
+          "Diplomacy": 0,
+          "Drill": 0,
+          "Engineering": 19,
+          "First Aid": 0,
+          "History": 0,
+          "Hunting": 0,
+          "Law": 0,
+          "Leadership": 0,
+          "Leatherworking": 0,
+          "Martial": 18,
+          "Medical": 0,
+          "Metalworking": 0,
+          "Pathfinding": 0,
+          "Persuation": 0,
+          "Politics": 15,
+          "Prospecting": 33,
+          "Refining": 0,
+          "Quartermastery": 0,
+          "Skullduggery": 0,
+          "Stealth": 20,
+          "Survival": 0,
+          "Tactics": 0,
           "Tinker": 0
         },
         "ExpSkill": {
-          "exp1": 4,
-          "exp2": 6,
-          "exp3": 2
+          "exp1": 0,
+          "exp2": 0,
+          "exp3": 0
         }
       }
     },
     "advisor4": {
-      "Id": 111332,
-      "Name": "Cordie Balston",
-      "Age": 28,
-      "Gender": "female",
+      "Id": 112068,
+      "Name": "Jenni Steptow",
+      "Age": 38,
+      "Gender": "non-binary",
       "Stats": {
         "PrimaryBase": {
-          "str": 14,
-          "dex": 13,
-          "int": 23,
-          "wis": 25,
-          "cha": 25,
-          "ldr": 17
+          "str": 26,
+          "dex": 12,
+          "int": 13,
+          "wis": 20,
+          "cha": 19,
+          "ldr": 18
         },
         "DerivedBase": {
-          "phys": 13,
-          "mntl": 24,
-          "socl": 21
+          "phys": 19,
+          "mntl": 16,
+          "socl": 18
         },
         "Primary": {
-          "str": 14,
-          "dex": 13,
-          "int": 23,
-          "wis": 25,
-          "cha": 25,
-          "ldr": 17
+          "str": 26,
+          "dex": 12,
+          "int": 13,
+          "wis": 20,
+          "cha": 19,
+          "ldr": 18
         },
         "Derived": {
-          "phys": 13,
-          "mntl": 24,
-          "socl": 21
+          "phys": 19,
+          "mntl": 16,
+          "socl": 18
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 3,
-          "Animal Handling": 6,
-          "Blacksmithing": 3,
-          "Carpentry": 3,
-          "Cooking": 6,
-          "Court": 0,
-          "Drill": 34,
-          "Engineering": 4,
-          "First Aid": 16,
-          "History": 1,
-          "Hunting": 5,
-          "Law": 5,
-          "Leadership": 4,
-          "Leatherworking": 5,
-          "Martial": 9,
-          "Medical": 24,
-          "Metalworking": 21,
-          "Pathfinding": 21,
-          "Politics": 4,
-          "Prospecting": 6,
-          "Refining": 1,
-          "Quartermastery": 9,
-          "Survival": 8,
-          "Tactics": 5,
-          "Tinker": 3
+          "Academia": 0,
+          "Animal Handling": 0,
+          "Blacksmithing": 0,
+          "Carpentry": 0,
+          "Cooking": 24,
+          "Diplomacy": 0,
+          "Drill": 20,
+          "Engineering": 0,
+          "First Aid": 0,
+          "History": 0,
+          "Hunting": 0,
+          "Law": 39,
+          "Leadership": 0,
+          "Leatherworking": 0,
+          "Martial": 0,
+          "Medical": 0,
+          "Metalworking": 0,
+          "Pathfinding": 0,
+          "Persuation": 0,
+          "Politics": 0,
+          "Prospecting": 0,
+          "Refining": 24,
+          "Quartermastery": 0,
+          "Skullduggery": 0,
+          "Stealth": 24,
+          "Survival": 0,
+          "Tactics": 0,
+          "Tinker": 0
         },
         "ExpSkill": {
-          "exp1": 7,
-          "exp2": 8,
-          "exp3": 2
+          "exp1": 0,
+          "exp2": 0,
+          "exp3": 0
         }
       }
     },
     "advisor5": {
-      "Id": 111307,
-      "Name": "Levin Hudspith",
-      "Age": 29,
-      "Gender": "non-binary",
+      "Id": 112117,
+      "Name": "Laughton Emby",
+      "Age": 23,
+      "Gender": "female",
       "Stats": {
         "PrimaryBase": {
-          "str": 21,
-          "dex": 11,
-          "int": 21,
-          "wis": 11,
-          "cha": 15,
-          "ldr": 11
+          "str": 26,
+          "dex": 25,
+          "int": 24,
+          "wis": 13,
+          "cha": 24,
+          "ldr": 25
         },
         "DerivedBase": {
-          "phys": 16,
-          "mntl": 16,
-          "socl": 13
+          "phys": 25,
+          "mntl": 18,
+          "socl": 24
         },
         "Primary": {
-          "str": 21,
-          "dex": 11,
-          "int": 21,
-          "wis": 11,
-          "cha": 15,
-          "ldr": 11
+          "str": 26,
+          "dex": 25,
+          "int": 24,
+          "wis": 13,
+          "cha": 24,
+          "ldr": 25
         },
         "Derived": {
-          "phys": 16,
-          "mntl": 16,
-          "socl": 13
+          "phys": 25,
+          "mntl": 18,
+          "socl": 24
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 6,
-          "Animal Handling": 6,
+          "Academia": 0,
+          "Animal Handling": 0,
           "Blacksmithing": 0,
-          "Carpentry": 9,
-          "Cooking": 9,
-          "Court": 18,
-          "Drill": 0,
+          "Carpentry": 24,
+          "Cooking": 0,
+          "Diplomacy": 0,
+          "Drill": 17,
           "Engineering": 0,
-          "First Aid": 9,
-          "History": 2,
-          "Hunting": 4,
-          "Law": 6,
-          "Leadership": 22,
-          "Leatherworking": 6,
-          "Martial": 1,
-          "Medical": 23,
-          "Metalworking": 4,
-          "Pathfinding": 6,
-          "Politics": 5,
-          "Prospecting": 2,
-          "Refining": 9,
-          "Quartermastery": 1,
-          "Survival": 21,
-          "Tactics": 33,
-          "Tinker": 2
+          "First Aid": 0,
+          "History": 17,
+          "Hunting": 18,
+          "Law": 0,
+          "Leadership": 0,
+          "Leatherworking": 0,
+          "Martial": 0,
+          "Medical": 0,
+          "Metalworking": 37,
+          "Pathfinding": 0,
+          "Persuation": 0,
+          "Politics": 0,
+          "Prospecting": 0,
+          "Refining": 0,
+          "Quartermastery": 0,
+          "Skullduggery": 0,
+          "Stealth": 0,
+          "Survival": 0,
+          "Tactics": 0,
+          "Tinker": 0
         },
         "ExpSkill": {
-          "exp1": 2,
-          "exp2": 5,
-          "exp3": 8
+          "exp1": 0,
+          "exp2": 0,
+          "exp3": 0
         }
       }
     },
     "bench1": {
-      "Id": 111265,
-      "Name": "Levin Seccombe",
-      "Age": 18,
+      "Id": 111861,
+      "Name": "Lauri Probert",
+      "Age": 29,
       "Gender": "non-binary",
       "Stats": {
         "PrimaryBase": {
-          "str": 22,
-          "dex": 16,
-          "int": 11,
-          "wis": 11,
-          "cha": 13,
-          "ldr": 25
+          "str": 27,
+          "dex": 18,
+          "int": 24,
+          "wis": 19,
+          "cha": 21,
+          "ldr": 21
         },
         "DerivedBase": {
-          "phys": 19,
-          "mntl": 11,
-          "socl": 19
+          "phys": 22,
+          "mntl": 21,
+          "socl": 21
         },
         "Primary": {
-          "str": 22,
-          "dex": 16,
-          "int": 11,
-          "wis": 11,
-          "cha": 13,
-          "ldr": 25
+          "str": 27,
+          "dex": 18,
+          "int": 24,
+          "wis": 19,
+          "cha": 21,
+          "ldr": 21
         },
         "Derived": {
-          "phys": 19,
-          "mntl": 11,
-          "socl": 19
+          "phys": 22,
+          "mntl": 21,
+          "socl": 21
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 4,
-          "Animal Handling": 16,
-          "Blacksmithing": 1,
-          "Carpentry": 6,
-          "Cooking": 9,
-          "Court": 7,
-          "Drill": 9,
-          "Engineering": 7,
-          "First Aid": 5,
-          "History": 23,
-          "Hunting": 5,
-          "Law": 1,
-          "Leadership": 2,
-          "Leatherworking": 3,
-          "Martial": 3,
-          "Medical": 21,
-          "Metalworking": 9,
+          "Academia": 0,
+          "Animal Handling": 0,
+          "Blacksmithing": 15,
+          "Carpentry": 0,
+          "Cooking": 18,
+          "Diplomacy": 0,
+          "Drill": 0,
+          "Engineering": 0,
+          "First Aid": 0,
+          "History": 0,
+          "Hunting": 38,
+          "Law": 0,
+          "Leadership": 0,
+          "Leatherworking": 0,
+          "Martial": 0,
+          "Medical": 0,
+          "Metalworking": 0,
           "Pathfinding": 0,
-          "Politics": 35,
-          "Prospecting": 16,
-          "Refining": 9,
+          "Persuation": 0,
+          "Politics": 0,
+          "Prospecting": 0,
+          "Refining": 0,
           "Quartermastery": 0,
-          "Survival": 7,
-          "Tactics": 6,
-          "Tinker": 6
+          "Skullduggery": 23,
+          "Stealth": 0,
+          "Survival": 0,
+          "Tactics": 0,
+          "Tinker": 18
         },
         "ExpSkill": {
-          "exp1": 3,
-          "exp2": 1,
-          "exp3": 3
+          "exp1": 0,
+          "exp2": 0,
+          "exp3": 0
         }
       }
     },
     "bench2": {
-      "Id": 111273,
-      "Name": "Natasha Plank",
-      "Age": 38,
+      "Id": 112079,
+      "Name": "Boyd Dutnell",
+      "Age": 19,
       "Gender": "male",
       "Stats": {
         "PrimaryBase": {
-          "str": 12,
-          "dex": 19,
-          "int": 15,
-          "wis": 25,
-          "cha": 26,
-          "ldr": 17
+          "str": 21,
+          "dex": 22,
+          "int": 27,
+          "wis": 11,
+          "cha": 24,
+          "ldr": 19
         },
         "DerivedBase": {
-          "phys": 15,
-          "mntl": 20,
+          "phys": 21,
+          "mntl": 19,
           "socl": 21
         },
         "Primary": {
-          "str": 12,
-          "dex": 19,
-          "int": 15,
-          "wis": 25,
-          "cha": 26,
-          "ldr": 17
+          "str": 21,
+          "dex": 22,
+          "int": 27,
+          "wis": 11,
+          "cha": 24,
+          "ldr": 19
         },
         "Derived": {
-          "phys": 15,
-          "mntl": 20,
+          "phys": 21,
+          "mntl": 19,
           "socl": 21
         },
         "Modifiers": []
       },
       "Skills": {
         "VocSkill": {
-          "Academia": 3,
-          "Animal Handling": 2,
-          "Blacksmithing": 2,
-          "Carpentry": 32,
-          "Cooking": 7,
-          "Court": 3,
-          "Drill": 3,
-          "Engineering": 1,
-          "First Aid": 15,
-          "History": 7,
-          "Hunting": 8,
+          "Academia": 0,
+          "Animal Handling": 0,
+          "Blacksmithing": 0,
+          "Carpentry": 0,
+          "Cooking": 0,
+          "Diplomacy": 0,
+          "Drill": 0,
+          "Engineering": 0,
+          "First Aid": 0,
+          "History": 22,
+          "Hunting": 21,
           "Law": 0,
-          "Leadership": 7,
-          "Leatherworking": 6,
-          "Martial": 6,
-          "Medical": 15,
-          "Metalworking": 3,
-          "Pathfinding": 24,
-          "Politics": 8,
-          "Prospecting": 4,
-          "Refining": 8,
-          "Quartermastery": 17,
-          "Survival": 9,
-          "Tactics": 5,
-          "Tinker": 6
+          "Leadership": 0,
+          "Leatherworking": 30,
+          "Martial": 0,
+          "Medical": 0,
+          "Metalworking": 0,
+          "Pathfinding": 0,
+          "Persuation": 20,
+          "Politics": 23,
+          "Prospecting": 0,
+          "Refining": 0,
+          "Quartermastery": 0,
+          "Skullduggery": 0,
+          "Stealth": 0,
+          "Survival": 0,
+          "Tactics": 0,
+          "Tinker": 0
         },
         "ExpSkill": {
-          "exp1": 5,
-          "exp2": 5,
+          "exp1": 0,
+          "exp2": 0,
           "exp3": 0
         }
       }
@@ -556,264 +580,267 @@
   },
   "Social": {
     "Relationships": {
-      "111241-111358": {
-        "Id": "111241-111358",
-        "Citizen1Name": "Sue Fibbitts",
-        "Citizen2Name": "Lira Stellman",
-        "Friendliness": -6,
-        "Teamwork": 8,
+      "111828-111981": {
+        "Id": "111828-111981",
+        "Citizen1Name": "Roseline Plevey",
+        "Citizen2Name": "Frederich Hannigan",
+        "Friendliness": 8,
+        "Teamwork": 3,
         "Connection": 0
       },
-      "111358-111391": {
-        "Id": "111358-111391",
-        "Citizen1Name": "Lira Stellman",
-        "Citizen2Name": "Mel Kepe",
-        "Friendliness": 3,
-        "Teamwork": -8,
-        "Connection": 0
-      },
-      "111241-111391": {
-        "Id": "111241-111391",
-        "Citizen1Name": "Sue Fibbitts",
-        "Citizen2Name": "Mel Kepe",
-        "Friendliness": -3,
-        "Teamwork": 19,
-        "Connection": 0
-      },
-      "111354-111358": {
-        "Id": "111354-111358",
-        "Citizen1Name": "Nerita Dene",
-        "Citizen2Name": "Lira Stellman",
-        "Friendliness": 2,
-        "Teamwork": 12,
-        "Connection": 0
-      },
-      "111241-111354": {
-        "Id": "111241-111354",
-        "Citizen1Name": "Sue Fibbitts",
-        "Citizen2Name": "Nerita Dene",
-        "Friendliness": 6,
-        "Teamwork": 18,
-        "Connection": 0
-      },
-      "111354-111391": {
-        "Id": "111354-111391",
-        "Citizen1Name": "Nerita Dene",
-        "Citizen2Name": "Mel Kepe",
+      "111828-111857": {
+        "Id": "111828-111857",
+        "Citizen1Name": "Roseline Plevey",
+        "Citizen2Name": "Westbrooke Raddenbury",
         "Friendliness": 5,
-        "Teamwork": 0,
+        "Teamwork": 11,
         "Connection": 0
       },
-      "111332-111358": {
-        "Id": "111332-111358",
-        "Citizen1Name": "Cordie Balston",
-        "Citizen2Name": "Lira Stellman",
-        "Friendliness": 14,
-        "Teamwork": 0,
+      "111857-111981": {
+        "Id": "111857-111981",
+        "Citizen1Name": "Westbrooke Raddenbury",
+        "Citizen2Name": "Frederich Hannigan",
+        "Friendliness": 13,
+        "Teamwork": 1,
         "Connection": 0
       },
-      "111241-111332": {
-        "Id": "111241-111332",
-        "Citizen1Name": "Sue Fibbitts",
-        "Citizen2Name": "Cordie Balston",
-        "Friendliness": -4,
-        "Teamwork": -6,
+      "111828-111835": {
+        "Id": "111828-111835",
+        "Citizen1Name": "Roseline Plevey",
+        "Citizen2Name": "Letta Midlane",
+        "Friendliness": -8,
+        "Teamwork": 3,
         "Connection": 0
       },
-      "111332-111391": {
-        "Id": "111332-111391",
-        "Citizen1Name": "Cordie Balston",
-        "Citizen2Name": "Mel Kepe",
-        "Friendliness": 15,
-        "Teamwork": 8,
+      "111835-111981": {
+        "Id": "111835-111981",
+        "Citizen1Name": "Letta Midlane",
+        "Citizen2Name": "Frederich Hannigan",
+        "Friendliness": 19,
+        "Teamwork": 9,
         "Connection": 0
       },
-      "111332-111354": {
-        "Id": "111332-111354",
-        "Citizen1Name": "Cordie Balston",
-        "Citizen2Name": "Nerita Dene",
+      "111835-111857": {
+        "Id": "111835-111857",
+        "Citizen1Name": "Letta Midlane",
+        "Citizen2Name": "Westbrooke Raddenbury",
         "Friendliness": 18,
         "Teamwork": 9,
         "Connection": 0
       },
-      "111307-111358": {
-        "Id": "111307-111358",
-        "Citizen1Name": "Levin Hudspith",
-        "Citizen2Name": "Lira Stellman",
-        "Friendliness": -2,
-        "Teamwork": -8,
+      "111828-112068": {
+        "Id": "111828-112068",
+        "Citizen1Name": "Roseline Plevey",
+        "Citizen2Name": "Jenni Steptow",
+        "Friendliness": -1,
+        "Teamwork": -1,
         "Connection": 0
       },
-      "111241-111307": {
-        "Id": "111241-111307",
-        "Citizen1Name": "Sue Fibbitts",
-        "Citizen2Name": "Levin Hudspith",
+      "111981-112068": {
+        "Id": "111981-112068",
+        "Citizen1Name": "Frederich Hannigan",
+        "Citizen2Name": "Jenni Steptow",
         "Friendliness": 3,
-        "Teamwork": 4,
+        "Teamwork": 0,
         "Connection": 0
       },
-      "111307-111391": {
-        "Id": "111307-111391",
-        "Citizen1Name": "Levin Hudspith",
-        "Citizen2Name": "Mel Kepe",
-        "Friendliness": -6,
+      "111857-112068": {
+        "Id": "111857-112068",
+        "Citizen1Name": "Westbrooke Raddenbury",
+        "Citizen2Name": "Jenni Steptow",
+        "Friendliness": 12,
+        "Teamwork": -6,
+        "Connection": 0
+      },
+      "111835-112068": {
+        "Id": "111835-112068",
+        "Citizen1Name": "Letta Midlane",
+        "Citizen2Name": "Jenni Steptow",
+        "Friendliness": 9,
         "Teamwork": -7,
         "Connection": 0
       },
-      "111307-111354": {
-        "Id": "111307-111354",
-        "Citizen1Name": "Levin Hudspith",
-        "Citizen2Name": "Nerita Dene",
-        "Friendliness": -2,
-        "Teamwork": 19,
+      "111828-112117": {
+        "Id": "111828-112117",
+        "Citizen1Name": "Roseline Plevey",
+        "Citizen2Name": "Laughton Emby",
+        "Friendliness": 17,
+        "Teamwork": -10,
         "Connection": 0
       },
-      "111307-111332": {
-        "Id": "111307-111332",
-        "Citizen1Name": "Levin Hudspith",
-        "Citizen2Name": "Cordie Balston",
+      "111981-112117": {
+        "Id": "111981-112117",
+        "Citizen1Name": "Frederich Hannigan",
+        "Citizen2Name": "Laughton Emby",
+        "Friendliness": 11,
+        "Teamwork": 14,
+        "Connection": 0
+      },
+      "111857-112117": {
+        "Id": "111857-112117",
+        "Citizen1Name": "Westbrooke Raddenbury",
+        "Citizen2Name": "Laughton Emby",
+        "Friendliness": 4,
+        "Teamwork": -4,
+        "Connection": 0
+      },
+      "111835-112117": {
+        "Id": "111835-112117",
+        "Citizen1Name": "Letta Midlane",
+        "Citizen2Name": "Laughton Emby",
         "Friendliness": -6,
-        "Teamwork": 14,
-        "Connection": 0
-      },
-      "111265-111358": {
-        "Id": "111265-111358",
-        "Citizen1Name": "Levin Seccombe",
-        "Citizen2Name": "Lira Stellman",
-        "Friendliness": -1,
-        "Teamwork": 6,
-        "Connection": 0
-      },
-      "111241-111265": {
-        "Id": "111241-111265",
-        "Citizen1Name": "Sue Fibbitts",
-        "Citizen2Name": "Levin Seccombe",
-        "Friendliness": 15,
-        "Teamwork": 14,
-        "Connection": 0
-      },
-      "111265-111391": {
-        "Id": "111265-111391",
-        "Citizen1Name": "Levin Seccombe",
-        "Citizen2Name": "Mel Kepe",
-        "Friendliness": -8,
         "Teamwork": -9,
         "Connection": 0
       },
-      "111265-111354": {
-        "Id": "111265-111354",
-        "Citizen1Name": "Levin Seccombe",
-        "Citizen2Name": "Nerita Dene",
-        "Friendliness": 14,
-        "Teamwork": 8,
-        "Connection": 0
-      },
-      "111265-111332": {
-        "Id": "111265-111332",
-        "Citizen1Name": "Levin Seccombe",
-        "Citizen2Name": "Cordie Balston",
-        "Friendliness": -2,
-        "Teamwork": -8,
-        "Connection": 0
-      },
-      "111265-111307": {
-        "Id": "111265-111307",
-        "Citizen1Name": "Levin Seccombe",
-        "Citizen2Name": "Levin Hudspith",
-        "Friendliness": 0,
-        "Teamwork": 12,
-        "Connection": 0
-      },
-      "111273-111358": {
-        "Id": "111273-111358",
-        "Citizen1Name": "Natasha Plank",
-        "Citizen2Name": "Lira Stellman",
-        "Friendliness": 15,
-        "Teamwork": -3,
-        "Connection": 0
-      },
-      "111241-111273": {
-        "Id": "111241-111273",
-        "Citizen1Name": "Sue Fibbitts",
-        "Citizen2Name": "Natasha Plank",
-        "Friendliness": 2,
-        "Teamwork": 6,
-        "Connection": 0
-      },
-      "111273-111391": {
-        "Id": "111273-111391",
-        "Citizen1Name": "Natasha Plank",
-        "Citizen2Name": "Mel Kepe",
-        "Friendliness": 13,
-        "Teamwork": 6,
-        "Connection": 0
-      },
-      "111273-111354": {
-        "Id": "111273-111354",
-        "Citizen1Name": "Natasha Plank",
-        "Citizen2Name": "Nerita Dene",
+      "112068-112117": {
+        "Id": "112068-112117",
+        "Citizen1Name": "Jenni Steptow",
+        "Citizen2Name": "Laughton Emby",
         "Friendliness": 16,
-        "Teamwork": -3,
+        "Teamwork": -4,
         "Connection": 0
       },
-      "111273-111332": {
-        "Id": "111273-111332",
-        "Citizen1Name": "Natasha Plank",
-        "Citizen2Name": "Cordie Balston",
-        "Friendliness": 19,
-        "Teamwork": 13,
+      "111828-111861": {
+        "Id": "111828-111861",
+        "Citizen1Name": "Roseline Plevey",
+        "Citizen2Name": "Lauri Probert",
+        "Friendliness": 13,
+        "Teamwork": 10,
         "Connection": 0
       },
-      "111273-111307": {
-        "Id": "111273-111307",
-        "Citizen1Name": "Natasha Plank",
-        "Citizen2Name": "Levin Hudspith",
-        "Friendliness": -4,
+      "111861-111981": {
+        "Id": "111861-111981",
+        "Citizen1Name": "Lauri Probert",
+        "Citizen2Name": "Frederich Hannigan",
+        "Friendliness": 8,
+        "Teamwork": 18,
+        "Connection": 0
+      },
+      "111857-111861": {
+        "Id": "111857-111861",
+        "Citizen1Name": "Westbrooke Raddenbury",
+        "Citizen2Name": "Lauri Probert",
+        "Friendliness": 15,
+        "Teamwork": 15,
+        "Connection": 0
+      },
+      "111835-111861": {
+        "Id": "111835-111861",
+        "Citizen1Name": "Letta Midlane",
+        "Citizen2Name": "Lauri Probert",
+        "Friendliness": 4,
         "Teamwork": -7,
         "Connection": 0
       },
-      "111265-111273": {
-        "Id": "111265-111273",
-        "Citizen1Name": "Levin Seccombe",
-        "Citizen2Name": "Natasha Plank",
+      "111861-112068": {
+        "Id": "111861-112068",
+        "Citizen1Name": "Lauri Probert",
+        "Citizen2Name": "Jenni Steptow",
+        "Friendliness": 19,
+        "Teamwork": -4,
+        "Connection": 0
+      },
+      "111861-112117": {
+        "Id": "111861-112117",
+        "Citizen1Name": "Lauri Probert",
+        "Citizen2Name": "Laughton Emby",
+        "Friendliness": -6,
+        "Teamwork": -2,
+        "Connection": 0
+      },
+      "111828-112079": {
+        "Id": "111828-112079",
+        "Citizen1Name": "Roseline Plevey",
+        "Citizen2Name": "Boyd Dutnell",
+        "Friendliness": 17,
+        "Teamwork": -2,
+        "Connection": 0
+      },
+      "111981-112079": {
+        "Id": "111981-112079",
+        "Citizen1Name": "Frederich Hannigan",
+        "Citizen2Name": "Boyd Dutnell",
+        "Friendliness": 3,
+        "Teamwork": 6,
+        "Connection": 0
+      },
+      "111857-112079": {
+        "Id": "111857-112079",
+        "Citizen1Name": "Westbrooke Raddenbury",
+        "Citizen2Name": "Boyd Dutnell",
         "Friendliness": -10,
-        "Teamwork": 3,
+        "Teamwork": 10,
+        "Connection": 0
+      },
+      "111835-112079": {
+        "Id": "111835-112079",
+        "Citizen1Name": "Letta Midlane",
+        "Citizen2Name": "Boyd Dutnell",
+        "Friendliness": -4,
+        "Teamwork": 16,
+        "Connection": 0
+      },
+      "112068-112079": {
+        "Id": "112068-112079",
+        "Citizen1Name": "Jenni Steptow",
+        "Citizen2Name": "Boyd Dutnell",
+        "Friendliness": -8,
+        "Teamwork": -10,
+        "Connection": 0
+      },
+      "112079-112117": {
+        "Id": "112079-112117",
+        "Citizen1Name": "Boyd Dutnell",
+        "Citizen2Name": "Laughton Emby",
+        "Friendliness": 15,
+        "Teamwork": -2,
+        "Connection": 0
+      },
+      "111861-112079": {
+        "Id": "111861-112079",
+        "Citizen1Name": "Lauri Probert",
+        "Citizen2Name": "Boyd Dutnell",
+        "Friendliness": 16,
+        "Teamwork": -2,
         "Connection": 0
       }
     }
   },
   "Skills": {
     "VocSkill": {
-      "Academia": 13,
-      "Animal Handling": 12,
-      "Blacksmithing": 6,
-      "Carpentry": 35,
-      "Cooking": 9,
-      "Court": 13,
-      "Drill": 32,
-      "Engineering": 14,
-      "First Aid": 18,
-      "History": 15,
-      "Hunting": 7,
-      "Law": 7,
-      "Leadership": 14,
-      "Leatherworking": 23,
-      "Martial": 13,
-      "Medical": 23,
-      "Metalworking": 20,
-      "Pathfinding": 22,
-      "Politics": 37,
-      "Prospecting": 19,
-      "Refining": 14,
-      "Quartermastery": 20,
-      "Survival": 15,
-      "Tactics": 19,
-      "Tinker": 6
+      "Academia": 0,
+      "Animal Handling": 0,
+      "Blacksmithing": 7,
+      "Carpentry": 12,
+      "Cooking": 24,
+      "Diplomacy": 0,
+      "Drill": 18,
+      "Engineering": 27,
+      "First Aid": 25,
+      "History": 19,
+      "Hunting": 29,
+      "Law": 19,
+      "Leadership": 10,
+      "Leatherworking": 15,
+      "Martial": 18,
+      "Medical": 0,
+      "Metalworking": 18,
+      "Pathfinding": 0,
+      "Persuation": 10,
+      "Politics": 22,
+      "Prospecting": 24,
+      "Refining": 12,
+      "Quartermastery": 22,
+      "Skullduggery": 11,
+      "Stealth": 22,
+      "Survival": 0,
+      "Tactics": 0,
+      "Tinker": 27
     },
     "ExpSkill": {
-      "exp1": 6,
-      "exp2": 7,
-      "exp3": 6
+      "exp1": 0,
+      "exp2": 0,
+      "exp3": 0
     }
   },
   "Name": "testcompany"

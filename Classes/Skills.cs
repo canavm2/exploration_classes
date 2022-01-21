@@ -10,7 +10,7 @@ namespace People
     public class Skills
     {
         #region Constructors
-        public Skills(string type = "company")
+        public Skills(string type = "citizen")
         {
             Random random = new();
             //Stores all the Vocational Skills
@@ -21,7 +21,7 @@ namespace People
                 "Blacksmithing",
                 "Carpentry",
                 "Cooking",
-                "Court",
+                "Diplomacy",
                 "Drill",
                 "Engineering",
                 "First Aid",
@@ -34,10 +34,13 @@ namespace People
                 "Medical",
                 "Metalworking",
                 "Pathfinding",
+                "Persuation",
                 "Politics",
                 "Prospecting",
                 "Refining",
                 "Quartermastery",
+                "Skullduggery",
+                "Stealth",
                 "Survival",
                 "Tactics",
                 "Tinker"
@@ -49,7 +52,7 @@ namespace People
             foreach (string skill in VocSkillsList)
             {
                 if (type == "company") VocSkill[skill] = 0;
-                else VocSkill[skill] = random.Next(0, 10);
+                else VocSkill[skill] = 0;//random.Next(0, 10);
             }
 
             //Picks 1 Voc Skill to set between 30 and 40, and 4 others between 15-25
@@ -74,7 +77,7 @@ namespace People
             foreach (string skill in ExpSkillsList)
             {
                 if (type == "company") ExpSkill[skill] = 0;
-                else ExpSkill[skill] = random.Next(0, 10);
+                else ExpSkill[skill] = 0;// random.Next(0, 10);
             }
         }
 
@@ -99,14 +102,20 @@ namespace People
             string vocDesc = "";
             foreach (KeyValuePair<string, int> skill in VocSkill)
             {
-                string tempDesc = $"{skill.Key}: {skill.Value.ToString()}\n";
-                vocDesc += tempDesc;
+                if(skill.Value > 0)
+                {
+                    string tempDesc = $"{skill.Key}: {skill.Value.ToString()}\n";
+                    vocDesc += tempDesc;
+                }
             }
             string expDesc = "";
             foreach (KeyValuePair<string, int> skill in ExpSkill)
             {
-                string tempDesc = $"{skill.Key}: {skill.Value.ToString()}\n";
-                expDesc += tempDesc;
+                if (skill.Value > 0)
+                {
+                    string tempDesc = $"{skill.Key}: {skill.Value.ToString()}\n";
+                    expDesc += tempDesc;
+                }
             }
             string description =
                 $"Vocational Skills:\n" +

@@ -141,39 +141,6 @@ namespace Company
                 }
             }
         }
-
-        //public List<Relationship> UpdateSocial()
-        //{
-        //    List<int> advisorIds = new();
-        //    List<Relationship> oldRelationships = new();
-        //    int relationshipCount = 0;
-        //    foreach (Citizen advisor in Advisors.Values)
-        //    {
-        //        advisorIds.Add(advisor.Id);
-        //    }
-        //    iterates through each relationship in Social
-        //    foreach (KeyValuePair<string, Relationship> kvp in Social.Relationships)
-        //    {
-        //        string key = kvp.Key;
-        //        string[] ids = key.Split("-");
-        //        int id1 = int.Parse(ids[0]);
-        //        int id2 = int.Parse(ids[1]);
-        //        check to see if the key contains ids from two current advisors
-        //        if it doesnt match 2 current advisors, it removes it and returns it
-        //        if (advisorIds.Contains(id1) && advisorIds.Contains(id2))
-        //        {
-        //            relationshipCount++;
-        //        }
-        //        else
-        //        {
-        //            oldRelationships.Add(kvp.Value);
-        //            Social.Relationships.Remove(kvp.Key);
-        //        }
-        //    }
-        //    Console.WriteLine($"There are {relationshipCount} good relationships, and {oldRelationships.Count} old relationships removed.");
-        //    return oldRelationships;
-        //}
-
         #endregion
     }
 }
