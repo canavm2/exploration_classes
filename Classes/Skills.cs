@@ -13,7 +13,7 @@ namespace People
         public Skills(string type = "citizen")
         {
             Random random = new();
-            //Stores all the Vocational Skills
+            Modifiers = new();
             List<string> VocSkillsList = new()
             {
                 "Academia",
@@ -45,18 +45,14 @@ namespace People
                 "Tactics",
                 "Tinker"
             };
-            //Stores all the Experiential Skills
             List<string> ExpSkillsList = new() { "exp1", "exp2", "exp3" };
 
-            //Sets all the Vocational skills to a random value between 0 and 10
             foreach (string skill in VocSkillsList)
             {
                 if (type == "company") VocSkill[skill] = new(0);
                 else VocSkill[skill] = new(0);//random.Next(0, 10);
             }
 
-            //Picks 1 Voc Skill to set between 30 and 40, and 4 others between 15-25
-            //then overwrites the original values
             if (type != "company")
             {
                 List<string> tempVocSkillsList = VocSkillsList;
@@ -83,16 +79,18 @@ namespace People
 
 
         [JsonConstructor]
-        public Skills(Dictionary<string, Skill> vocskill, Dictionary<string, Skill> expskill)
+        public Skills(Dictionary<string, Skill> vocskill, Dictionary<string, Skill> expskill, List<Modifier> modifiers)
         {
             VocSkill = vocskill;
             ExpSkill = expskill;
+            Modifiers = modifiers;
         }
         #endregion
 
         #region Dictionaries and Properties
         public Dictionary<string, Skill> VocSkill = new();
         public Dictionary<string, Skill> ExpSkill = new();
+        public List<Modifier> Modifiers;
         #endregion
 
         #region Methods

@@ -12,7 +12,7 @@ namespace People
         // if the property is readonly it must match or it will not be able to change it after the constructor
         public Modifier(string name, string source, string type, string modifiedvalue, int value, bool temporary, int duration, string description)
         {
-            List<string> possibletypes = new List<string>() {"skill", "stat", "property"};
+            List<string> possibletypes = new List<string>() {"skill", "stat", "attribute"};
             if (!possibletypes.Contains(type)) throw new Exception($"Modifier type not found: {type}.");
             Name = name;
             Description = description;

@@ -93,10 +93,11 @@ namespace People
             Id = indexer.GetIndex();
             Stats = new();
             Skills = new();
+            Attributes = new();
         }
 
         [JsonConstructor]
-        public Citizen(string name, string gender, int id, int age, Stats stats, Skills skills)
+        public Citizen(string name, string gender, int id, int age, Stats stats, Skills skills, Attributes attributes)
         {
             Name = name;
             Gender = gender;
@@ -104,9 +105,8 @@ namespace People
             Age = age;
             Stats = stats;
             Skills = skills;
+            Attributes = attributes;
         }
-
-
         #endregion
 
         #region Descriptors and Stats
@@ -116,6 +116,8 @@ namespace People
         public readonly string Gender;
         public Stats Stats;
         public Skills Skills;
+        public Attributes Attributes;
+        public Traits Traits;
         #endregion
 
         #region Methods

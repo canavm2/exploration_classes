@@ -11,17 +11,12 @@ namespace People
     public class Stats
     {
         #region Constructor
-        // an object to hold the primary and derived stats for citizens
-        // each object holds the base stats, any modifiers and calculated stats.
         public Stats()
         {
             Random random = new();
-            //These stat lists are repeated in ApplyModifier, so that they aren't stored in the Stats Object.
             List<string> primaryStats = new() { "str", "dex", "int", "wis", "cha", "ldr" };
             List<string> derivedStats = new() { "phys", "mntl", "socl" };
 
-            // generates a random value for all primary stats and then calculates the derived stats
-            // saves values to both base and "final" stats
             foreach (string pstat in primaryStats)
             {
                 Primary[pstat] = new(random.Next(10, 30));
@@ -42,7 +37,6 @@ namespace People
         #endregion
 
         #region Dictionaries
-        //dictionaries&lists that hold the various stats and modifiers
         public Dictionary<string, Stat> Primary = new();
         public Dictionary<string, Stat> Derived = new();
         public List<Modifier> Modifiers = new();
