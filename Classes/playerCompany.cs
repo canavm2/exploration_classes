@@ -50,7 +50,7 @@ namespace Company
 
         #endregion
 
-        #region Company Descriptors
+        #region Dictionaries and Properties
         public string Name { get; set; }
         public readonly int CompanyId;
         public Dictionary<string, Citizen> Advisors = new();

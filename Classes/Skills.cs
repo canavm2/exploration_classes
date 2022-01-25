@@ -145,44 +145,5 @@ namespace People
         public int Unmodified;
     }
 
-    //public class Modifier
-    //{
-    //    // IMPORTANT: Json Deserialization uses the name of the property as the parameter
-    //    // if the property is readonly it must match or it will not be able to change it after the constructor
-    //    public Modifier(string name, string source, string modifiedskill, int value, bool temporary, int duration, string description)
-    //    {
-    //        Name = name;
-    //        Description = description;
-    //        Source = source;
-    //        ModifiedSkill = modifiedskill;
-    //        Value = value;
-    //        Temporary = temporary;
-    //        Duration = duration;
-    //        //TODO change exception
-    //        if (duration < 0) throw new Exception($"Negative Duration: {duration}");
-    //        Id = name + "-" + source;
-    //    }
-
-    //    public readonly string Name;
-    //    public readonly string Description;
-    //    public readonly string Source;
-    //    public readonly string ModifiedSkill;
-    //    public readonly int Value;
-    //    public readonly bool Temporary;
-    //    public readonly int Duration;
-    //    public readonly string Id;
-
-    //    public string Summary()
-    //    {
-    //        string returnSummary = $"Citizen Stat Modifier: {Name}\n" +
-    //            $"{ModifiedSkill}: {Value}\n" +
-    //            $"Description: {Description}\n" +
-    //            $"ID: {Id}";
-    //        if (Temporary)
-    //            returnSummary = returnSummary + $"\n" +
-    //                $"Duration: {Duration}\n";
-    //        return returnSummary;
-    //    }
-    //}
     #endregion
 }

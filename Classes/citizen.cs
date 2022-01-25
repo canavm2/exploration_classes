@@ -8,74 +8,7 @@ using Newtonsoft.Json;
 
 namespace People
 {
-    public class CitizenCache
-    {
-        public CitizenCache(IndexId index, int size = 0)
-        {
-            NameList nameList = new();
-            FemaleCitizens = new();
-            MaleCitizens = new();
-            NBCitizens = new();
-            for (int i = 0; i < size; i++)
-            {
-                Citizen femaleCitizen = new(nameList.generateName("female"), "female", index);
-                FemaleCitizens.Add(femaleCitizen);
-                Citizen maleCitizen = new(nameList.generateName("male"), "male", index);
-                MaleCitizens.Add(maleCitizen);
-                Citizen nbCitizen = new(nameList.generateName("non-binary"), "non-binary", index);
-                NBCitizens.Add(nbCitizen);
-            }
-        }
-        [JsonConstructor]
-        public CitizenCache(List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
-        {
-            FemaleCitizens = femalecitizens;
-            MaleCitizens = malecitizens;
-            NBCitizens = nbcitizens;
-        }
-        public List<Citizen> FemaleCitizens { get; }
-        public List<Citizen> MaleCitizens { get; }
-        public List<Citizen> NBCitizens { get; }
-
-        public void CacheCitizen(Citizen citizen)
-        {
-            if (citizen.Gender == "female") FemaleCitizens.Add(citizen);
-            else if (citizen.Gender == "male") MaleCitizens.Add(citizen);
-            else NBCitizens.Add(citizen);
-        }
-        public Citizen GetRandomCitizen(string gender = "random")
-        {
-            Citizen returncitizen;
-            Random random = new Random();
-            int index;
-            if (gender == "random")
-            {
-                string[] genders = new string[] { "female", "male", "non-binary" };
-                index = random.Next(genders.Length);
-                gender = genders[index];
-            }
-            if (gender == "female")
-            {
-                index = random.Next(FemaleCitizens.Count);
-                returncitizen = FemaleCitizens[index];
-                FemaleCitizens.RemoveAt(index);
-            }
-            else if (gender == "male")
-            {
-                index = random.Next(MaleCitizens.Count);
-                returncitizen = MaleCitizens[index];
-                MaleCitizens.RemoveAt(index);
-            }
-            else
-            {
-                index = random.Next(NBCitizens.Count);
-                returncitizen = NBCitizens[index];
-                NBCitizens.RemoveAt(index);
-            }
-            return returncitizen;
-        }
-    }
-    public class Citizen
+    public partial class Citizen
     {
         #region Constructors
         public Citizen(string name, string gender, IndexId indexer, int age = 0)
@@ -91,47 +24,131 @@ namespace People
             else
                 Gender = "non-binary";
             Id = indexer.GetIndex();
-            Stats = new();
             Skills = new();
+
+            #region ConstructStats
+            List<string> primaryStats = new() { "str", "dex", "int", "wis", "cha", "ldr" };
+            List<string> derivedStats = new() { "phys", "mntl", "socl" };
+            PrimaryStats = new();
+            DerivedStats = new();
+            StatModifiers = new();
+
+            foreach (string pstat in primaryStats)
+            {
+                PrimaryStats[pstat] = new(random.Next(10, 30));
+            }
+            DerivedStats["phys"] = new((PrimaryStats["str"].Unmodified + PrimaryStats["dex"].Unmodified) / 2);
+            DerivedStats["mntl"] = new((PrimaryStats["int"].Unmodified + PrimaryStats["wis"].Unmodified) / 2);
+            DerivedStats["socl"] = new((PrimaryStats["cha"].Unmodified + PrimaryStats["ldr"].Unmodified) / 2);
+            #endregion
+
+            #region ConstructAttributes
+            List<string> attributes = new List<string>() {
+                "Health",
+                "Happiness",
+                "Motivation",
+                "Psyche"
+            };
             Attributes = new();
+            AttributeModifiers = new();
+            foreach (string attribute in attributes)
+                Attributes.Add(attribute, new Attribute());
+            #endregion
+
+            #region ConstructTraits
+            //TODO Actually Construct Traits
+            Traits = new();
+            #endregion
         }
 
         [JsonConstructor]
-        public Citizen(string name, string gender, int id, int age, Stats stats, Skills skills, Attributes attributes)
+        public Citizen(
+            string name,
+            string gender,
+            int id, int age,
+            Skills skills,
+            Dictionary<string, Stat> primarystats,
+            Dictionary<string, Stat> derivedstats,
+            List<Modifier> statmodifiers,
+            Dictionary<string, Attribute> attributes,
+            List<Modifier> attributemodifiers,
+            List<Trait> traits
+            )
         {
             Name = name;
             Gender = gender;
             Id = id;
             Age = age;
-            Stats = stats;
             Skills = skills;
+            PrimaryStats = primarystats;
+            DerivedStats = derivedstats;
+            StatModifiers = statmodifiers;
             Attributes = attributes;
+            AttributeModifiers = attributemodifiers;
+            Traits = traits;
         }
         #endregion
 
-        #region Descriptors and Stats
+        #region Dictionaries and Properties
         public readonly int Id;
         public readonly string Name;
         public int Age;
         public readonly string Gender;
-        public Stats Stats;
         public Skills Skills;
-        public Attributes Attributes;
-        public Traits Traits;
+        public Dictionary<string, Stat> PrimaryStats;
+        public Dictionary<string, Stat> DerivedStats;
+        public List<Modifier> StatModifiers;
+        public Dictionary<string, Attribute> Attributes;
+        public List<Modifier> AttributeModifiers;
+        public List<Trait> Traits;
         #endregion
 
-        #region Methods
-        public string Describe()
+        #region Subclasses
+        public class Attribute
         {
-            string returnDescription =
-                $"\n{Name}, a {Age} year old {Gender}.\n" +
-                $"\nTheir stats are:\n\n" +
-                Stats.Describe() +
-                $"\nTheir skills are:\n\n" +
-                Skills.Describe() +
-                $"\nThis citizen's ID: {Id}\n\n";
+            #region Constructors
+            public Attribute()
+            {
+                Full = 10;
+                Unmodified = 10;
+            }
 
-            return returnDescription;
+            [JsonConstructor]
+            public Attribute(int full, int unmodified)
+            {
+                Full = full;
+                Unmodified = unmodified;
+            }
+            #endregion
+            public int Full;
+            public int Unmodified;
+        }
+        public class Stat
+        {
+            public Stat(int unmod)
+            {
+                Unmodified = unmod;
+                Full = unmod;
+            }
+
+            [JsonConstructor]
+            public Stat(int unmodified, int full)
+            {
+                Unmodified = unmodified;
+                Full = full;
+            }
+            public int Unmodified;
+            public int Full;
+        }
+        public class Trait
+        {
+            public Trait(string name, List<Modifier> modifiers)
+            {
+                Name = name;
+                Modifiers = modifiers;
+            }
+            public readonly string Name;
+            public readonly List<Modifier> Modifiers;
         }
         #endregion
     }
