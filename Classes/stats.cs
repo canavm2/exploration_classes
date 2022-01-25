@@ -24,48 +24,36 @@ namespace People
             // saves values to both base and "final" stats
             foreach (string pstat in primaryStats)
             {
-                PrimaryBase[pstat] = random.Next(10, 30);
-                Primary[pstat] = PrimaryBase[pstat];
+                Primary[pstat] = new(random.Next(10, 30));
             }
-            DerivedBase["phys"] = (Primary["str"] + Primary["dex"]) / 2;
-            Derived["phys"] = DerivedBase["phys"];
-            DerivedBase["mntl"] = (Primary["int"] + Primary["wis"]) / 2;
-            Derived["mntl"] = DerivedBase["mntl"];
-            DerivedBase["socl"] = (Primary["cha"] + Primary["ldr"]) / 2;
-            Derived["socl"] = DerivedBase["socl"];
+            Derived["phys"] = new((Primary["str"].Unmodified + Primary["dex"].Unmodified) / 2);
+            Derived["mntl"] = new((Primary["int"].Unmodified + Primary["wis"].Unmodified) / 2);
+            Derived["socl"] = new((Primary["cha"].Unmodified + Primary["ldr"].Unmodified) / 2);
         }
 
         [JsonConstructor]
         //Json Deserialization uses the name of the property as the parameter so it is ideal if they match, as done below
-        public Stats(List<Modifier> modifiers, Dictionary<string, int> primarybase, Dictionary<string, int> derivedbase, Dictionary<string, int> primary, Dictionary<string, int> derived)
+        public Stats(List<Modifier> modifiers, Dictionary<string, Stat> primarybase, Dictionary<string, Stat> derivedbase, Dictionary<string, Stat> primary, Dictionary<string, Stat> derived)
         {
             Modifiers = modifiers;
-            PrimaryBase = primarybase;
-            DerivedBase = derivedbase;
             Primary = primary;
             Derived = derived;
         }
         #endregion
 
         #region Dictionaries
-        // lists of strings that holds the names of all the primary and derived stats
-
-
-
         //dictionaries&lists that hold the various stats and modifiers
-        public Dictionary<string, int> PrimaryBase = new();
-        public Dictionary<string, int> DerivedBase = new();
-        public Dictionary<string, int> Primary = new();
-        public Dictionary<string, int> Derived = new();
+        public Dictionary<string, Stat> Primary = new();
+        public Dictionary<string, Stat> Derived = new();
         public List<Modifier> Modifiers = new();
         #endregion
 
         #region Methods
         // Method that takes all the information required for a modifier, creates a modifier, adds it to the list of modifiers, and then refreshes modifiers.
         // temporary modifiers are stored with a duration.
-        public void ApplyModifier(string name, string source, string modstat, int val, bool temp = false, int dur = 0, string desc = "None.")
+        public void ApplyModifier(string name, string source, string type, string modstat, int val, bool temp = false, int dur = 0, string desc = "None.")
         {
-            Modifier modifier = new(name, source, modstat, val, temp, dur, desc);
+            Modifier modifier = new(name, source, type, modstat, val, temp, dur, desc);
 
             //Checks to see if the modifiers Id already exists
             //if it exists it replaces the current instance with the new one
@@ -116,25 +104,25 @@ namespace People
 
             //Resets the "final" stats to the base values
             foreach (String stat in primaryStats)
-                Primary[stat] = PrimaryBase[stat];
+                Primary[stat].Full = Primary[stat].Unmodified;
             foreach (String stat in derivedStats)
-                Derived[stat] = DerivedBase[stat];
+                Derived[stat].Full = Derived[stat].Unmodified;
 
             //iterates through the modifiers and reapplys them
             foreach (Modifier modifier in Modifiers)
             {
-                if (primaryStats.Contains(modifier.ModifiedStat))
+                if (primaryStats.Contains(modifier.ModifiedValue))
                 {
-                    Primary[modifier.ModifiedStat] += modifier.Value;
-                    Debug.WriteLine($"Modified: {Primary[modifier.ModifiedStat]}");
+                    Primary[modifier.ModifiedValue].Full += modifier.Value;
+                    Debug.WriteLine($"Modified: {Primary[modifier.ModifiedValue]}");
                 }
-                else if (derivedStats.Contains(modifier.ModifiedStat))
+                else if (derivedStats.Contains(modifier.ModifiedValue))
                 {
-                    Derived[modifier.ModifiedStat] += modifier.Value;
-                    Debug.WriteLine($"Modified: {Derived[modifier.ModifiedStat]}");
+                    Derived[modifier.ModifiedValue].Full += modifier.Value;
+                    Debug.WriteLine($"Modified: {Derived[modifier.ModifiedValue]}");
                 }
                 //TODO Change exception
-                else throw new Exception($"Error: Stat not found: {modifier.ModifiedStat}");
+                else throw new Exception($"Error: Stat not found: {modifier.ModifiedValue}");
 
             }
             RefreshDerived();
@@ -142,24 +130,27 @@ namespace People
 
         public void RefreshDerived()
         {
-            Derived["phys"] = (Primary["str"] + Primary["dex"]) / 2;
-            Derived["mntl"] = (Primary["int"] + Primary["wis"]) / 2;
-            Derived["socl"] = (Primary["cha"] + Primary["ldr"]) / 2;
+            Derived["phys"].Full = (Primary["str"].Full + Primary["dex"].Full) / 2;
+            Derived["mntl"].Full = (Primary["int"].Full + Primary["wis"].Full) / 2;
+            Derived["socl"].Full = (Primary["cha"].Full + Primary["ldr"].Full) / 2;
+            Derived["phys"].Unmodified = (Primary["str"].Unmodified + Primary["dex"].Unmodified) / 2;
+            Derived["mntl"].Unmodified = (Primary["int"].Unmodified + Primary["wis"].Unmodified) / 2;
+            Derived["socl"].Unmodified = (Primary["cha"].Unmodified + Primary["ldr"].Unmodified) / 2;
         }
 
         public string Describe()
         {
             //Iterates over all the Primary stats, and provides a string that describes it
             string primaryDesc = "";
-            foreach (KeyValuePair<string, int> stat in Primary)
+            foreach (KeyValuePair<string, Stat> stat in Primary)
             {
-                string tempDesc = $"{stat.Key.ToUpper()}: {stat.Value.ToString()}\n";
+                string tempDesc = $"{stat.Key.ToUpper()}: {stat.Value.Full.ToString()}\n";
                 primaryDesc += tempDesc;
             }
             string derivedDesc = "";
-            foreach (KeyValuePair<string, int> stat in Derived)
+            foreach (KeyValuePair<string, Stat> stat in Derived)
             {
-                string tempDesc = $"{stat.Key.ToUpper()}: {stat.Value.ToString()}\n";
+                string tempDesc = $"{stat.Key.ToUpper()}: {stat.Value.Full.ToString()}\n";
                 derivedDesc += tempDesc;
             }
             string description =
@@ -173,46 +164,65 @@ namespace People
         #endregion
 
         #region subclasses
-        // a class used to apply modifiers to the stats, should only be instatiated with ApplyModifier above.
-        public class Modifier
+
+        public class Stat
         {
-            // IMPORTANT: Json Deserialization uses the name of the property as the parameter
-            // if the property is readonly it must match or it will not be able to change it after the constructor
-            public Modifier(string name, string source, string modifiedstat, int value, bool temporary, int duration, string description)
+            public Stat(int unmod)
             {
-                Name = name;
-                Description = description;
-                Source = source;
-                ModifiedStat = modifiedstat;
-                Value = value;
-                Temporary = temporary;
-                Duration = duration;
-                //TODO change exception
-                if (duration < 0) throw new Exception($"Negative Duration: {duration}");
-                Id = name + "-" + source;
+                Unmodified = unmod;
+                Full = unmod;
             }
 
-            public readonly string Name;
-            public readonly string Description;
-            public readonly string Source;
-            public readonly string ModifiedStat;
-            public readonly int Value;
-            public readonly bool Temporary;
-            public readonly int Duration;
-            public readonly string Id;
-
-            public string Summary()
+            [JsonConstructor]
+            public Stat(int unmodified, int full)
             {
-                string returnSummary = $"Citizen Stat Modifier: {Name}\n" +
-                    $"{ModifiedStat}: {Value}\n" +
-                    $"Description: {Description}\n" +
-                    $"ID: {Id}";
-                if (Temporary)
-                    returnSummary = returnSummary + $"\n" +
-                        $"Duration: {Duration}\n";
-                return returnSummary;
+                Unmodified = unmodified;
+                Full = full;
             }
+            public int Unmodified;
+            public int Full;
         }
+
+        // a class used to apply modifiers to the stats, should only be instatiated with ApplyModifier above.
+        //public class Modifier
+        //{
+        //    // IMPORTANT: Json Deserialization uses the name of the property as the parameter
+        //    // if the property is readonly it must match or it will not be able to change it after the constructor
+        //    public Modifier(string name, string source, string modifiedstat, int value, bool temporary, int duration, string description)
+        //    {
+        //        Name = name;
+        //        Description = description;
+        //        Source = source;
+        //        ModifiedStat = modifiedstat;
+        //        Value = value;
+        //        Temporary = temporary;
+        //        Duration = duration;
+        //        //TODO change exception
+        //        if (duration < 0) throw new Exception($"Negative Duration: {duration}");
+        //        Id = name + "-" + source;
+        //    }
+
+        //    public readonly string Name;
+        //    public readonly string Description;
+        //    public readonly string Source;
+        //    public readonly string ModifiedStat;
+        //    public readonly int Value;
+        //    public readonly bool Temporary;
+        //    public readonly int Duration;
+        //    public readonly string Id;
+
+        //    public string Summary()
+        //    {
+        //        string returnSummary = $"Citizen Stat Modifier: {Name}\n" +
+        //            $"{ModifiedStat}: {Value}\n" +
+        //            $"Description: {Description}\n" +
+        //            $"ID: {Id}";
+        //        if (Temporary)
+        //            returnSummary = returnSummary + $"\n" +
+        //                $"Duration: {Duration}\n";
+        //        return returnSummary;
+        //    }
+        //}
         #endregion
     }
 

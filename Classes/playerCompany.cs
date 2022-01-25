@@ -91,11 +91,11 @@ namespace Company
         //used to ensure all the skills are up to date
         internal void UpdateCompanySkills()
         {
-            foreach (KeyValuePair<string,int> kvp in Skills.VocSkill)
+            foreach (KeyValuePair<string,Skill> kvp in Skills.VocSkill)
             {
                 UpdateCompanySkill(kvp.Key, "voc");
             }
-            foreach (KeyValuePair<string, int> kvp in Skills.ExpSkill)
+            foreach (KeyValuePair<string, Skill> kvp in Skills.ExpSkill)
             {
                 UpdateCompanySkill(kvp.Key, "exp");
             }
@@ -108,22 +108,22 @@ namespace Company
                 List<int> skillvalues = new();
                 foreach (Citizen citizen in Advisors.Values)
                 {
-                    skillvalues.Add(citizen.Skills.VocSkill[skill]);
+                    skillvalues.Add(citizen.Skills.VocSkill[skill].Full);
                 }
                 skillvalues.Sort();
                 skillvalues.Reverse();
-                Skills.VocSkill[skill] = (skillvalues[0] + skillvalues[1]) / 2;
+                Skills.VocSkill[skill] = new((skillvalues[0] + skillvalues[1])/2);
             }
             else if (type == "exp")
             {
                 List<int> skillvalues = new();
                 foreach (Citizen citizen in Advisors.Values)
                 {
-                    skillvalues.Add(citizen.Skills.ExpSkill[skill]);
+                    skillvalues.Add(citizen.Skills.ExpSkill[skill].Full);
                 }
                 skillvalues.Sort();
                 skillvalues.Reverse();
-                Skills.ExpSkill[skill] = (skillvalues[0] + skillvalues[1]) / 2;
+                Skills.ExpSkill[skill] = new((skillvalues[0] + skillvalues[1]) / 2);
             }
             else throw new Exception($"type must be voc or exp, not: {type}");
         }
