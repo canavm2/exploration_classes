@@ -64,6 +64,7 @@ namespace People
             }
             //TODO Determine what happens if the modifier is a duplicate name
         }
+
         public void RemoveModifier(string name)
         {
             for (int i = 0; i < Modifiers.Count; i++)
@@ -106,7 +107,5 @@ namespace People
             }
             else throw new Exception($"Modifier Type not found: {modifier.Type}");
         }
-
-        
     }
 }
