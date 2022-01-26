@@ -1,0 +1,3 @@
+﻿name,source,type,modifiedvalue,value,temporary,duration,description
+int10,trait,stat,int,10,false,0,+10 Int
+wis10,trait,stat,wis,10,false,0,+10 Wis

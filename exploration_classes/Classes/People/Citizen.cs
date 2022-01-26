@@ -145,6 +145,15 @@ namespace People
             }
             public readonly string Name;
             public readonly List<Modifier> Modifiers;
+
+            public string Summary()
+            {
+                string returnstring = $"\nTrait: {Name}." +
+                    $"\nModifiers:\n";
+                foreach (Modifier modifier in Modifiers)
+                    returnstring += modifier.Summary();
+                return returnstring;
+            }
         }
         #endregion
     }

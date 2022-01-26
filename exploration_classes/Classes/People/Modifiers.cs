@@ -47,9 +47,9 @@ namespace People
             string returnSummary = $"Citizen Stat Modifier: {Name}\n" +
                 $"{ModifiedValue}: {Value}\n" +
                 $"Description: {Description}\n" +
-                $"ID: {Id}";
+                $"ID: {Id}\n";
             if (Temporary)
-                returnSummary = returnSummary + $"\n" +
+                returnSummary = returnSummary + 
                     $"Duration: {Duration}\n";
             return returnSummary;
         }

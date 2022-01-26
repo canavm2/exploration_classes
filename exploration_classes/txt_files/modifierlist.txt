@@ -1,0 +1,26 @@
+{
+  "Modifiers": {
+    "int10": {
+      "Name": "int10",
+      "Description": "+10 Int",
+      "Source": "trait",
+      "Type": "stat",
+      "ModifiedValue": "int",
+      "Value": 10,
+      "Temporary": false,
+      "Duration": 0,
+      "Id": "int10-trait"
+    },
+    "wis10": {
+      "Name": "wis10",
+      "Description": "+10 Wis",
+      "Source": "trait",
+      "Type": "stat",
+      "ModifiedValue": "wis",
+      "Value": 10,
+      "Temporary": false,
+      "Duration": 0,
+      "Id": "wis10-trait"
+    }
+  }
+}

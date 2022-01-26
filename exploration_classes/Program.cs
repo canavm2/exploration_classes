@@ -1,19 +1,20 @@
-﻿using People;
+﻿using FileTools;
+using People;
 using Company;
-using FileTools;
-using Relation;
-using Newtonsoft.Json;
 
 
 FileTool fileTool = new FileTool();
 Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
 IndexId index = new IndexId(fileTool.ReadIndex());
-RelationshipCache relationshipcache;
+//RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
+//ModifierList modifierlist = new ModifierList();
+ModifierList modifierlist = fileTool.ReadModifierList("modifierlist");
+//TraitList traitlist = new(modifierlist);
+TraitList traitlist = fileTool.ReadTraitList("traitlist");
 CitizenCache citizens;
 PlayerCompany testcompany = fileTool.ReadCompany("company");
-Console.WriteLine(testcompany.Describe());
+//Console.WriteLine(testcompany.Describe());
 citizens = fileTool.ReadCitizens("citizens");
-relationshipcache = fileTool.ReadRelationshipCache("relationships");
 
 #region createcitizens
 //citizens = new CitizenCache(index, 100);
@@ -48,8 +49,20 @@ relationshipcache = fileTool.ReadRelationshipCache("relationships");
 //Relationships.ReplaceAdvisor(replacementadvisor, testcompany, "advisor1", citizens, relationshipcache);
 #endregion
 
+foreach (Modifier modifier in modifierlist.Modifiers.Values)
+{
+    Console.WriteLine(modifier.Summary());
+}
+foreach (Citizen.Trait trait in traitlist.Traits.Values)
+{
+    Console.WriteLine(trait.Summary());
+}
+
+
 //Stores everything again
 index.StoreIndex(fileTool);
 fileTool.StoreCitizens(citizens, "citizens");
 fileTool.StoreCompany(testcompany, "company");
-fileTool.StoreRelationshipCache(relationshipcache, "relationships");
+fileTool.StoreModifierList(modifierlist, "modifierlist");
+fileTool.StoreTraitList(traitlist, "traitlist");
+//fileTool.StoreRelationshipCache(relationshipcache, "relationships");

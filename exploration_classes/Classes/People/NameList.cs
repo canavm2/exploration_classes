@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace People
 {
-    internal class NameList
+    public class NameList
     {
         public NameList()
         {
             // Reads a CSV file and imports 4 list of random names, female, male, non-binary, and last.
             // Saves the names to 4 lists of strings//
             // string path = "C:/Users/canav/Documents/VS_Projects/exploration_classes/names.csv";
-            string path = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\names.csv";
+            string path = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\csv_files\names.csv";
             string[] lines = System.IO.File.ReadAllLines(path);
             string[] female_array = lines[0].Split(',');
             string[] male_array = lines[1].Split(',');

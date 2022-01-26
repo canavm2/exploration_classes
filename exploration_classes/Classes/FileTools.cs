@@ -20,7 +20,7 @@ namespace FileTools
         #endregion
 
         #region methods
-        //All these methods combine the foilder path with the filename provided for reading and writing to the txt files
+        //All these methods combine the folder path with the filename provided for reading and writing to the txt files
         public void StoreCitizens(CitizenCache citizens, string filename)
         {
             filename += ".txt";
@@ -66,6 +66,36 @@ namespace FileTools
             string fileJson = File.ReadAllText(filepath);
             RelationshipCache relationshipcache = JsonConvert.DeserializeObject<RelationshipCache>(fileJson);
             return relationshipcache;
+        }
+        public void StoreModifierList(ModifierList modifierlist, string filename)
+        {
+            filename += ".txt";
+            string jsonmodifierlist = JsonConvert.SerializeObject(modifierlist, Formatting.Indented);
+            string filepath = Path.Combine(TxtFilePath, filename);
+            File.WriteAllText(filepath, jsonmodifierlist);
+        }
+        public ModifierList ReadModifierList(string filename)
+        {
+            filename += ".txt";
+            string filepath = Path.Combine(TxtFilePath, filename);
+            string fileJson = File.ReadAllText(filepath);
+            ModifierList modifierlist = JsonConvert.DeserializeObject<ModifierList>(fileJson);
+            return modifierlist;
+        }
+        public void StoreTraitList(TraitList traitlist, string filename)
+        {
+            filename += ".txt";
+            string jsontraitlist = JsonConvert.SerializeObject(traitlist, Formatting.Indented);
+            string filepath = Path.Combine(TxtFilePath, filename);
+            File.WriteAllText(filepath, jsontraitlist);
+        }
+        public TraitList ReadTraitList(string filename)
+        {
+            filename += ".txt";
+            string filepath = Path.Combine(TxtFilePath, filename);
+            string fileJson = File.ReadAllText(filepath);
+            TraitList traitlist = JsonConvert.DeserializeObject<TraitList>(fileJson);
+            return traitlist;
         }
         public void StoreIndex(int currentindex)
         {
