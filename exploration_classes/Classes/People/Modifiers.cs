@@ -8,6 +8,7 @@ namespace People
 {
     public class Modifier
     {
+        #region Constructors
         // IMPORTANT: Json Deserialization uses the name of the property as the parameter
         // if the property is readonly it must match or it will not be able to change it after the constructor
         public Modifier(string name, string source, string type, string modifiedvalue, int value, bool temporary, int duration, string description)
@@ -26,7 +27,9 @@ namespace People
             if (duration < 0) throw new Exception($"Negative Duration: {duration}");
             Id = name + "-" + source;
         }
+        #endregion
 
+        #region Properties
         public readonly string Name;
         public readonly string Description;
         public readonly string Source;
@@ -36,7 +39,9 @@ namespace People
         public readonly bool Temporary;
         public readonly int Duration;
         public readonly string Id;
+        #endregion
 
+        #region Methods
         public string Summary()
         {
             string returnSummary = $"Citizen Stat Modifier: {Name}\n" +
@@ -48,5 +53,6 @@ namespace People
                     $"Duration: {Duration}\n";
             return returnSummary;
         }
+        #endregion
     }
 }

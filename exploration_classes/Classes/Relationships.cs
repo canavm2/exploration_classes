@@ -40,6 +40,8 @@ namespace Relation
             return OldRelationships.ContainsKey(id);
         }
     }
+
+    #region Static Methods
     public class Relationships
     {
         //Takes two Citizen IDs and returns them as XXXX-YYYY where XXXX<YYYY
@@ -87,7 +89,7 @@ namespace Relation
                 advisorIds.Add(advisor.Id);
             }
             //iterates through each relationship in Social
-            foreach (KeyValuePair<string, Relationship> kvp in playercompany.Social.Relationships)
+            foreach (KeyValuePair<string, Relationship> kvp in playercompany.Relationships)
             {
                 string key = kvp.Key;
                 string[] ids = key.Split("-");
@@ -103,7 +105,7 @@ namespace Relation
                 {
                     oldrelationships++;
                     relationshipcache.CacheRelationship(kvp.Value);
-                    playercompany.Social.Relationships.Remove(kvp.Key);
+                    playercompany.Relationships.Remove(kvp.Key);
                 }
             }
             //Iterates through each pair of advisors in the advisor list
@@ -116,13 +118,13 @@ namespace Relation
                     {
                         string relationshipId = CreateRelationshipId(id, id2);
                         //Checks to see if a relationship already exists in the company
-                        if (!playercompany.Social.Relationships.ContainsKey(relationshipId))
+                        if (!playercompany.Relationships.ContainsKey(relationshipId))
                         {
                             //checks to see if the relationship exists in the cache
                             if (relationshipcache.ContainsRelationships(relationshipId))
                             {
                                 //retrieves the relationship from the cache if it exists there
-                                playercompany.Social.Relationships.Add(relationshipId,relationshipcache.RetrieveRelationship(relationshipId));
+                                playercompany.Relationships.Add(relationshipId,relationshipcache.RetrieveRelationship(relationshipId));
                             }
                             //creates a new relationship if it doesnt exist anywhere
                             else
@@ -132,7 +134,7 @@ namespace Relation
                                 Citizen citizen1 = playercompany.Advisors.Where(x => x.Value.Id == id).FirstOrDefault().Value;
                                 Citizen citizen2 = playercompany.Advisors.Where(x => x.Value.Id == id2).FirstOrDefault().Value;
                                 Relationship newrelationship = new(citizen1, citizen2);
-                                playercompany.Social.Relationships.Add(relationshipId,newrelationship);
+                                playercompany.Relationships.Add(relationshipId,newrelationship);
                             }
                             newrelationships++;
                         }
@@ -143,6 +145,7 @@ namespace Relation
             Console.WriteLine($"There are {relationshipCount} good relationships, and {oldrelationships} old relationships removed, with {newrelationships} new relationships added.");
         }
     }
+    #endregion
     public class Relationship
     {
         public Relationship(Citizen citizen1, Citizen citizen2)

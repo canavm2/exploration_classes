@@ -10,6 +10,12 @@
 *.userosscache
 *.sln.docstates
 
+# txt_files
+citizens.txt
+company.txt
+modifier.txt
+relationships.txt
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

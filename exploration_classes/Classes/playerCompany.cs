@@ -15,7 +15,7 @@ namespace Company
         #region Constructor
         public PlayerCompany(string name, IndexId index, Citizen master, List<Citizen> advisors)
         {
-            Social = new();
+            Relationships = new();
             if (advisors.Count != 7)
                 throw new ArgumentException($"There are {advisors.Count} advisors in the list, there must be 7.");
             Name = name;
@@ -38,12 +38,12 @@ namespace Company
         }
 
         [JsonConstructor]
-        public PlayerCompany(string name, int companyid, Dictionary<string, Citizen> advisors, Social social, Skills skills)
+        public PlayerCompany(string name, int companyid, Dictionary<string, Citizen> advisors, Dictionary<string, Relationship> relationships, Skills skills)
         {
             Name = name;
             CompanyId = companyid;
             Advisors = advisors;
-            Social = social;
+            Relationships = relationships;
             Skills = skills;
         }
 
@@ -54,7 +54,8 @@ namespace Company
         public string Name { get; set; }
         public readonly int CompanyId;
         public Dictionary<string, Citizen> Advisors = new();
-        public Social Social;
+        public Dictionary<string, Relationship> Relationships;
+        //public Social Social;
         public Skills Skills;
 
         #endregion
@@ -137,7 +138,7 @@ namespace Company
                 if (advisor.Id != citizen.Id)
                 {
                     Relationship relationship = new Relationship(citizen, advisor);
-                    Social.Relationships[relationship.Id] = relationship;
+                    Relationships[relationship.Id] = relationship;
                 }
             }
         }

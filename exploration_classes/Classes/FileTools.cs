@@ -16,7 +16,7 @@ namespace FileTools
         public FileTool() { }
         //used with the System.Text.Json
         //JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-        string TxtFilePath = @"C:\Users\canav\Documents\learning_dotnet\exploration_classes\txt_files\";
+        string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
         #endregion
 
         #region methods
@@ -85,17 +85,17 @@ namespace FileTools
             currentindex = JsonConvert.DeserializeObject<int>(fileJson);
             return currentindex;
         }
-        public void StoreModifier(Stats.Modifier modifier)
+        public void StoreModifier(Modifier modifier)
         {
             string filepath = Path.Combine(TxtFilePath, "modifier.txt");
             string jsoncitizen = JsonConvert.SerializeObject(modifier, Formatting.Indented);
             File.WriteAllText(filepath, jsoncitizen);
         }
-        public Stats.Modifier ReadModifier()
+        public Modifier ReadModifier()
         {
             string filepath = Path.Combine(TxtFilePath, "modifier.txt");
             string fileJson = File.ReadAllText(filepath);
-            Stats.Modifier modifier = JsonConvert.DeserializeObject<Stats.Modifier>(fileJson);
+            Modifier modifier = JsonConvert.DeserializeObject<Modifier>(fileJson);
             return modifier;
         }
         #endregion

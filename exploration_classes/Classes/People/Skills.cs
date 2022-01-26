@@ -13,7 +13,6 @@ namespace People
         public Skills(string type = "citizen")
         {
             Random random = new();
-            Modifiers = new();
             List<string> VocSkillsList = new()
             {
                 "Academia",
@@ -79,18 +78,16 @@ namespace People
 
 
         [JsonConstructor]
-        public Skills(Dictionary<string, Skill> vocskill, Dictionary<string, Skill> expskill, List<Modifier> modifiers)
+        public Skills(Dictionary<string, Skill> vocskill, Dictionary<string, Skill> expskill)
         {
             VocSkill = vocskill;
             ExpSkill = expskill;
-            Modifiers = modifiers;
         }
         #endregion
 
         #region Dictionaries and Properties
         public Dictionary<string, Skill> VocSkill = new();
         public Dictionary<string, Skill> ExpSkill = new();
-        public List<Modifier> Modifiers;
         #endregion
 
         #region Methods

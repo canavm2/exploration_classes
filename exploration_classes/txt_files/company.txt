@@ -1,233 +1,11 @@
 {
-  "CompanyId": 112424,
+  "CompanyId": 113327,
   "Advisors": {
     "master": {
-      "Id": 112230,
-      "Name": "Dory Grinaugh",
-      "Age": 20,
-      "Gender": "male",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 21,
-            "Full": 21
-          },
-          "dex": {
-            "Unmodified": 12,
-            "Full": 12
-          },
-          "int": {
-            "Unmodified": 18,
-            "Full": 18
-          },
-          "wis": {
-            "Unmodified": 10,
-            "Full": 10
-          },
-          "cha": {
-            "Unmodified": 11,
-            "Full": 11
-          },
-          "ldr": {
-            "Unmodified": 23,
-            "Full": 23
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 16,
-            "Full": 16
-          },
-          "mntl": {
-            "Unmodified": 14,
-            "Full": 14
-          },
-          "socl": {
-            "Unmodified": 17,
-            "Full": 17
-          }
-        },
-        "Modifiers": []
-      },
-      "Skills": {
-        "VocSkill": {
-          "Academia": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Animal Handling": {
-            "Full": 17,
-            "Unmodified": 17
-          },
-          "Blacksmithing": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Carpentry": {
-            "Full": 21,
-            "Unmodified": 21
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 31,
-            "Unmodified": 31
-          },
-          "Drill": {
-            "Full": 21,
-            "Unmodified": 21
-          },
-          "Engineering": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "First Aid": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "History": {
-            "Full": 16,
-            "Unmodified": 16
-          },
-          "Hunting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leatherworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Martial": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Medical": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Metalworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Pathfinding": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Persuation": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Politics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Prospecting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Refining": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Quartermastery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Skullduggery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Stealth": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Survival": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tactics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tinker": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        },
-        "ExpSkill": {
-          "exp1": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp2": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp3": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        }
-      }
-    },
-    "advisor1": {
-      "Id": 112166,
-      "Name": "Hallie Muldoon",
-      "Age": 30,
+      "Id": 113240,
+      "Name": "Dillon Cromar",
+      "Age": 35,
       "Gender": "female",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 25,
-            "Full": 25
-          },
-          "dex": {
-            "Unmodified": 22,
-            "Full": 22
-          },
-          "int": {
-            "Unmodified": 21,
-            "Full": 21
-          },
-          "wis": {
-            "Unmodified": 10,
-            "Full": 10
-          },
-          "cha": {
-            "Unmodified": 15,
-            "Full": 15
-          },
-          "ldr": {
-            "Unmodified": 24,
-            "Full": 24
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 23,
-            "Full": 23
-          },
-          "mntl": {
-            "Unmodified": 15,
-            "Full": 15
-          },
-          "socl": {
-            "Unmodified": 19,
-            "Full": 19
-          }
-        },
-        "Modifiers": []
-      },
       "Skills": {
         "VocSkill": {
           "Academia": {
@@ -239,1123 +17,49 @@
             "Unmodified": 0
           },
           "Blacksmithing": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Carpentry": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Drill": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Engineering": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "First Aid": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "History": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Hunting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
-            "Full": 35,
-            "Unmodified": 35
-          },
-          "Leatherworking": {
-            "Full": 19,
-            "Unmodified": 19
-          },
-          "Martial": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Medical": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Metalworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Pathfinding": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Persuation": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Politics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Prospecting": {
-            "Full": 23,
-            "Unmodified": 23
-          },
-          "Refining": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Quartermastery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Skullduggery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Stealth": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Survival": {
-            "Full": 17,
-            "Unmodified": 17
-          },
-          "Tactics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tinker": {
-            "Full": 22,
-            "Unmodified": 22
-          }
-        },
-        "ExpSkill": {
-          "exp1": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp2": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp3": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        }
-      }
-    },
-    "advisor2": {
-      "Id": 112225,
-      "Name": "Ursala Jordi",
-      "Age": 39,
-      "Gender": "non-binary",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 29,
-            "Full": 29
-          },
-          "dex": {
-            "Unmodified": 11,
-            "Full": 11
-          },
-          "int": {
-            "Unmodified": 21,
-            "Full": 21
-          },
-          "wis": {
-            "Unmodified": 16,
-            "Full": 16
-          },
-          "cha": {
-            "Unmodified": 15,
-            "Full": 15
-          },
-          "ldr": {
-            "Unmodified": 29,
-            "Full": 29
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 20,
-            "Full": 20
-          },
-          "mntl": {
-            "Unmodified": 18,
-            "Full": 18
-          },
-          "socl": {
-            "Unmodified": 22,
-            "Full": 22
-          }
-        },
-        "Modifiers": []
-      },
-      "Skills": {
-        "VocSkill": {
-          "Academia": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Animal Handling": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Blacksmithing": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Carpentry": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Drill": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Engineering": {
-            "Full": 21,
-            "Unmodified": 21
-          },
-          "First Aid": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "History": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Hunting": {
-            "Full": 23,
-            "Unmodified": 23
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
-            "Full": 22,
-            "Unmodified": 22
-          },
-          "Leatherworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Martial": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Medical": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Metalworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Pathfinding": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Persuation": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Politics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Prospecting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Refining": {
-            "Full": 35,
-            "Unmodified": 35
-          },
-          "Quartermastery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Skullduggery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Stealth": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Survival": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tactics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tinker": {
-            "Full": 18,
-            "Unmodified": 18
-          }
-        },
-        "ExpSkill": {
-          "exp1": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp2": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp3": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        }
-      }
-    },
-    "advisor3": {
-      "Id": 112310,
-      "Name": "Desirae Faragher",
-      "Age": 36,
-      "Gender": "female",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 27,
-            "Full": 27
-          },
-          "dex": {
-            "Unmodified": 21,
-            "Full": 21
-          },
-          "int": {
-            "Unmodified": 10,
-            "Full": 10
-          },
-          "wis": {
-            "Unmodified": 11,
-            "Full": 11
-          },
-          "cha": {
-            "Unmodified": 27,
-            "Full": 27
-          },
-          "ldr": {
-            "Unmodified": 16,
-            "Full": 16
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 24,
-            "Full": 24
-          },
-          "mntl": {
-            "Unmodified": 10,
-            "Full": 10
-          },
-          "socl": {
-            "Unmodified": 21,
-            "Full": 21
-          }
-        },
-        "Modifiers": []
-      },
-      "Skills": {
-        "VocSkill": {
-          "Academia": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Animal Handling": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Blacksmithing": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Carpentry": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Drill": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Engineering": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "First Aid": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "History": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Hunting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leatherworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Martial": {
-            "Full": 24,
-            "Unmodified": 24
-          },
-          "Medical": {
-            "Full": 17,
-            "Unmodified": 17
-          },
-          "Metalworking": {
-            "Full": 21,
-            "Unmodified": 21
-          },
-          "Pathfinding": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Persuation": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Politics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Prospecting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Refining": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Quartermastery": {
-            "Full": 39,
-            "Unmodified": 39
-          },
-          "Skullduggery": {
-            "Full": 17,
-            "Unmodified": 17
-          },
-          "Stealth": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Survival": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tactics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tinker": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        },
-        "ExpSkill": {
-          "exp1": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp2": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp3": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        }
-      }
-    },
-    "advisor4": {
-      "Id": 112259,
-      "Name": "Constancia Joisce",
-      "Age": 20,
-      "Gender": "female",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 27,
-            "Full": 27
-          },
-          "dex": {
-            "Unmodified": 18,
-            "Full": 18
-          },
-          "int": {
-            "Unmodified": 23,
-            "Full": 23
-          },
-          "wis": {
-            "Unmodified": 13,
-            "Full": 13
-          },
-          "cha": {
-            "Unmodified": 27,
-            "Full": 27
-          },
-          "ldr": {
-            "Unmodified": 22,
-            "Full": 22
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 22,
-            "Full": 22
-          },
-          "mntl": {
-            "Unmodified": 18,
-            "Full": 18
-          },
-          "socl": {
-            "Unmodified": 24,
-            "Full": 24
-          }
-        },
-        "Modifiers": []
-      },
-      "Skills": {
-        "VocSkill": {
-          "Academia": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Animal Handling": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Blacksmithing": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Carpentry": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Drill": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Engineering": {
-            "Full": 31,
-            "Unmodified": 31
-          },
-          "First Aid": {
-            "Full": 23,
-            "Unmodified": 23
-          },
-          "History": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Hunting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leatherworking": {
-            "Full": 18,
-            "Unmodified": 18
-          },
-          "Martial": {
-            "Full": 16,
-            "Unmodified": 16
-          },
-          "Medical": {
-            "Full": 22,
-            "Unmodified": 22
-          },
-          "Metalworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Pathfinding": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Persuation": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Politics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Prospecting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Refining": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Quartermastery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Skullduggery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Stealth": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Survival": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tactics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tinker": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        },
-        "ExpSkill": {
-          "exp1": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp2": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp3": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        }
-      }
-    },
-    "advisor5": {
-      "Id": 112155,
-      "Name": "Flynn Jouanny",
-      "Age": 15,
-      "Gender": "male",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 16,
-            "Full": 16
-          },
-          "dex": {
-            "Unmodified": 19,
-            "Full": 19
-          },
-          "int": {
-            "Unmodified": 15,
-            "Full": 15
-          },
-          "wis": {
-            "Unmodified": 19,
-            "Full": 19
-          },
-          "cha": {
-            "Unmodified": 10,
-            "Full": 10
-          },
-          "ldr": {
-            "Unmodified": 15,
-            "Full": 15
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 17,
-            "Full": 17
-          },
-          "mntl": {
-            "Unmodified": 17,
-            "Full": 17
-          },
-          "socl": {
-            "Unmodified": 12,
-            "Full": 12
-          }
-        },
-        "Modifiers": []
-      },
-      "Skills": {
-        "VocSkill": {
-          "Academia": {
-            "Full": 16,
-            "Unmodified": 16
-          },
-          "Animal Handling": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Blacksmithing": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Carpentry": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Drill": {
-            "Full": 21,
-            "Unmodified": 21
-          },
-          "Engineering": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "First Aid": {
-            "Full": 39,
-            "Unmodified": 39
-          },
-          "History": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Hunting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leatherworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Martial": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Medical": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Metalworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Pathfinding": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Persuation": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Politics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Prospecting": {
-            "Full": 17,
-            "Unmodified": 17
-          },
-          "Refining": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Quartermastery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Skullduggery": {
-            "Full": 23,
-            "Unmodified": 23
-          },
-          "Stealth": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Survival": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tactics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tinker": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        },
-        "ExpSkill": {
-          "exp1": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp2": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp3": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        }
-      }
-    },
-    "bench1": {
-      "Id": 112171,
-      "Name": "Kaia Stych",
-      "Age": 34,
-      "Gender": "non-binary",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 29,
-            "Full": 29
-          },
-          "dex": {
-            "Unmodified": 12,
-            "Full": 12
-          },
-          "int": {
-            "Unmodified": 12,
-            "Full": 12
-          },
-          "wis": {
-            "Unmodified": 20,
-            "Full": 20
-          },
-          "cha": {
-            "Unmodified": 14,
-            "Full": 14
-          },
-          "ldr": {
-            "Unmodified": 23,
-            "Full": 23
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 20,
-            "Full": 20
-          },
-          "mntl": {
-            "Unmodified": 16,
-            "Full": 16
-          },
-          "socl": {
-            "Unmodified": 18,
-            "Full": 18
-          }
-        },
-        "Modifiers": []
-      },
-      "Skills": {
-        "VocSkill": {
-          "Academia": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Animal Handling": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Blacksmithing": {
-            "Full": 21,
-            "Unmodified": 21
-          },
-          "Carpentry": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Drill": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Engineering": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "First Aid": {
-            "Full": 22,
-            "Unmodified": 22
-          },
-          "History": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Hunting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
-            "Full": 36,
-            "Unmodified": 36
-          },
-          "Leatherworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Martial": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Medical": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Metalworking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Pathfinding": {
-            "Full": 19,
-            "Unmodified": 19
-          },
-          "Persuation": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Politics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Prospecting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Refining": {
-            "Full": 15,
-            "Unmodified": 15
-          },
-          "Quartermastery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Skullduggery": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Stealth": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Survival": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tactics": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Tinker": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        },
-        "ExpSkill": {
-          "exp1": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp2": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "exp3": {
-            "Full": 0,
-            "Unmodified": 0
-          }
-        }
-      }
-    },
-    "bench2": {
-      "Id": 112405,
-      "Name": "Jefferey Wissby",
-      "Age": 33,
-      "Gender": "non-binary",
-      "Stats": {
-        "Primary": {
-          "str": {
-            "Unmodified": 26,
-            "Full": 26
-          },
-          "dex": {
-            "Unmodified": 20,
-            "Full": 20
-          },
-          "int": {
-            "Unmodified": 16,
-            "Full": 16
-          },
-          "wis": {
-            "Unmodified": 26,
-            "Full": 26
-          },
-          "cha": {
-            "Unmodified": 23,
-            "Full": 23
-          },
-          "ldr": {
-            "Unmodified": 13,
-            "Full": 13
-          }
-        },
-        "Derived": {
-          "phys": {
-            "Unmodified": 23,
-            "Full": 23
-          },
-          "mntl": {
-            "Unmodified": 21,
-            "Full": 21
-          },
-          "socl": {
-            "Unmodified": 18,
-            "Full": 18
-          }
-        },
-        "Modifiers": []
-      },
-      "Skills": {
-        "VocSkill": {
-          "Academia": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Animal Handling": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Blacksmithing": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Carpentry": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Cooking": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Diplomacy": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Drill": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Engineering": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "First Aid": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "History": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Hunting": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Law": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Leadership": {
             "Full": 20,
             "Unmodified": 20
           },
+          "Carpentry": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Cooking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Diplomacy": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Drill": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Engineering": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "First Aid": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 0,
+            "Unmodified": 0
+          },
           "Leatherworking": {
             "Full": 0,
             "Unmodified": 0
@@ -1365,12 +69,12 @@
             "Unmodified": 0
           },
           "Medical": {
-            "Full": 0,
-            "Unmodified": 0
-          },
-          "Metalworking": {
             "Full": 16,
             "Unmodified": 16
+          },
+          "Metalworking": {
+            "Full": 36,
+            "Unmodified": 36
           },
           "Pathfinding": {
             "Full": 0,
@@ -1385,12 +89,12 @@
             "Unmodified": 0
           },
           "Prospecting": {
-            "Full": 0,
-            "Unmodified": 0
+            "Full": 23,
+            "Unmodified": 23
           },
           "Refining": {
-            "Full": 34,
-            "Unmodified": 34
+            "Full": 19,
+            "Unmodified": 19
           },
           "Quartermastery": {
             "Full": 0,
@@ -1401,12 +105,12 @@
             "Unmodified": 0
           },
           "Stealth": {
-            "Full": 23,
-            "Unmodified": 23
+            "Full": 0,
+            "Unmodified": 0
           },
           "Survival": {
-            "Full": 24,
-            "Unmodified": 24
+            "Full": 0,
+            "Unmodified": 0
           },
           "Tactics": {
             "Full": 0,
@@ -1431,350 +135,1780 @@
             "Unmodified": 0
           }
         }
-      }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 29,
+          "Full": 29
+        },
+        "dex": {
+          "Unmodified": 20,
+          "Full": 20
+        },
+        "int": {
+          "Unmodified": 25,
+          "Full": 25
+        },
+        "wis": {
+          "Unmodified": 25,
+          "Full": 25
+        },
+        "cha": {
+          "Unmodified": 20,
+          "Full": 20
+        },
+        "ldr": {
+          "Unmodified": 10,
+          "Full": 10
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 24,
+          "Full": 24
+        },
+        "mntl": {
+          "Unmodified": 25,
+          "Full": 25
+        },
+        "socl": {
+          "Unmodified": 15,
+          "Full": 15
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
+    },
+    "advisor1": {
+      "Id": 113141,
+      "Name": "Bryn Bexley",
+      "Age": 28,
+      "Gender": "female",
+      "Skills": {
+        "VocSkill": {
+          "Academia": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Animal Handling": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Blacksmithing": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Carpentry": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Cooking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Diplomacy": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Drill": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Engineering": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "First Aid": {
+            "Full": 19,
+            "Unmodified": 19
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 37,
+            "Unmodified": 37
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leatherworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Martial": {
+            "Full": 21,
+            "Unmodified": 21
+          },
+          "Medical": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Metalworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Pathfinding": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Persuation": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Politics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Prospecting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Refining": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Quartermastery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Skullduggery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Stealth": {
+            "Full": 24,
+            "Unmodified": 24
+          },
+          "Survival": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tactics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tinker": {
+            "Full": 20,
+            "Unmodified": 20
+          }
+        },
+        "ExpSkill": {
+          "exp1": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp2": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp3": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 21,
+          "Full": 21
+        },
+        "dex": {
+          "Unmodified": 29,
+          "Full": 29
+        },
+        "int": {
+          "Unmodified": 11,
+          "Full": 11
+        },
+        "wis": {
+          "Unmodified": 13,
+          "Full": 13
+        },
+        "cha": {
+          "Unmodified": 10,
+          "Full": 10
+        },
+        "ldr": {
+          "Unmodified": 10,
+          "Full": 10
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 25,
+          "Full": 25
+        },
+        "mntl": {
+          "Unmodified": 12,
+          "Full": 12
+        },
+        "socl": {
+          "Unmodified": 10,
+          "Full": 10
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
+    },
+    "advisor2": {
+      "Id": 113148,
+      "Name": "Leola Crampton",
+      "Age": 31,
+      "Gender": "male",
+      "Skills": {
+        "VocSkill": {
+          "Academia": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Animal Handling": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Blacksmithing": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Carpentry": {
+            "Full": 23,
+            "Unmodified": 23
+          },
+          "Cooking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Diplomacy": {
+            "Full": 19,
+            "Unmodified": 19
+          },
+          "Drill": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Engineering": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "First Aid": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leatherworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Martial": {
+            "Full": 22,
+            "Unmodified": 22
+          },
+          "Medical": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Metalworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Pathfinding": {
+            "Full": 37,
+            "Unmodified": 37
+          },
+          "Persuation": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Politics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Prospecting": {
+            "Full": 15,
+            "Unmodified": 15
+          },
+          "Refining": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Quartermastery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Skullduggery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Stealth": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Survival": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tactics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tinker": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        },
+        "ExpSkill": {
+          "exp1": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp2": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp3": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 15,
+          "Full": 15
+        },
+        "dex": {
+          "Unmodified": 13,
+          "Full": 13
+        },
+        "int": {
+          "Unmodified": 10,
+          "Full": 10
+        },
+        "wis": {
+          "Unmodified": 10,
+          "Full": 10
+        },
+        "cha": {
+          "Unmodified": 25,
+          "Full": 25
+        },
+        "ldr": {
+          "Unmodified": 18,
+          "Full": 18
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 14,
+          "Full": 14
+        },
+        "mntl": {
+          "Unmodified": 10,
+          "Full": 10
+        },
+        "socl": {
+          "Unmodified": 21,
+          "Full": 21
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
+    },
+    "advisor3": {
+      "Id": 113185,
+      "Name": "Lira Cornier",
+      "Age": 19,
+      "Gender": "non-binary",
+      "Skills": {
+        "VocSkill": {
+          "Academia": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Animal Handling": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Blacksmithing": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Carpentry": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Cooking": {
+            "Full": 20,
+            "Unmodified": 20
+          },
+          "Diplomacy": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Drill": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Engineering": {
+            "Full": 23,
+            "Unmodified": 23
+          },
+          "First Aid": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 23,
+            "Unmodified": 23
+          },
+          "Leatherworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Martial": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Medical": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Metalworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Pathfinding": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Persuation": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Politics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Prospecting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Refining": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Quartermastery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Skullduggery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Stealth": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Survival": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tactics": {
+            "Full": 24,
+            "Unmodified": 24
+          },
+          "Tinker": {
+            "Full": 35,
+            "Unmodified": 35
+          }
+        },
+        "ExpSkill": {
+          "exp1": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp2": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp3": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 11,
+          "Full": 11
+        },
+        "dex": {
+          "Unmodified": 15,
+          "Full": 15
+        },
+        "int": {
+          "Unmodified": 12,
+          "Full": 12
+        },
+        "wis": {
+          "Unmodified": 15,
+          "Full": 15
+        },
+        "cha": {
+          "Unmodified": 16,
+          "Full": 16
+        },
+        "ldr": {
+          "Unmodified": 17,
+          "Full": 17
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 13,
+          "Full": 13
+        },
+        "mntl": {
+          "Unmodified": 13,
+          "Full": 13
+        },
+        "socl": {
+          "Unmodified": 16,
+          "Full": 16
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
+    },
+    "advisor4": {
+      "Id": 113125,
+      "Name": "Jaymie Guiet",
+      "Age": 16,
+      "Gender": "non-binary",
+      "Skills": {
+        "VocSkill": {
+          "Academia": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Animal Handling": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Blacksmithing": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Carpentry": {
+            "Full": 16,
+            "Unmodified": 16
+          },
+          "Cooking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Diplomacy": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Drill": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Engineering": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "First Aid": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leatherworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Martial": {
+            "Full": 17,
+            "Unmodified": 17
+          },
+          "Medical": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Metalworking": {
+            "Full": 15,
+            "Unmodified": 15
+          },
+          "Pathfinding": {
+            "Full": 34,
+            "Unmodified": 34
+          },
+          "Persuation": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Politics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Prospecting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Refining": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Quartermastery": {
+            "Full": 24,
+            "Unmodified": 24
+          },
+          "Skullduggery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Stealth": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Survival": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tactics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tinker": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        },
+        "ExpSkill": {
+          "exp1": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp2": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp3": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 29,
+          "Full": 29
+        },
+        "dex": {
+          "Unmodified": 19,
+          "Full": 19
+        },
+        "int": {
+          "Unmodified": 22,
+          "Full": 22
+        },
+        "wis": {
+          "Unmodified": 23,
+          "Full": 23
+        },
+        "cha": {
+          "Unmodified": 18,
+          "Full": 18
+        },
+        "ldr": {
+          "Unmodified": 14,
+          "Full": 14
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 24,
+          "Full": 24
+        },
+        "mntl": {
+          "Unmodified": 22,
+          "Full": 22
+        },
+        "socl": {
+          "Unmodified": 16,
+          "Full": 16
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
+    },
+    "advisor5": {
+      "Id": 113320,
+      "Name": "Mateo Munton",
+      "Age": 39,
+      "Gender": "non-binary",
+      "Skills": {
+        "VocSkill": {
+          "Academia": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Animal Handling": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Blacksmithing": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Carpentry": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Cooking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Diplomacy": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Drill": {
+            "Full": 19,
+            "Unmodified": 19
+          },
+          "Engineering": {
+            "Full": 30,
+            "Unmodified": 30
+          },
+          "First Aid": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 18,
+            "Unmodified": 18
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leatherworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Martial": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Medical": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Metalworking": {
+            "Full": 17,
+            "Unmodified": 17
+          },
+          "Pathfinding": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Persuation": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Politics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Prospecting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Refining": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Quartermastery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Skullduggery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Stealth": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Survival": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tactics": {
+            "Full": 22,
+            "Unmodified": 22
+          },
+          "Tinker": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        },
+        "ExpSkill": {
+          "exp1": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp2": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp3": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 29,
+          "Full": 29
+        },
+        "dex": {
+          "Unmodified": 25,
+          "Full": 25
+        },
+        "int": {
+          "Unmodified": 25,
+          "Full": 25
+        },
+        "wis": {
+          "Unmodified": 10,
+          "Full": 10
+        },
+        "cha": {
+          "Unmodified": 23,
+          "Full": 23
+        },
+        "ldr": {
+          "Unmodified": 25,
+          "Full": 25
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 27,
+          "Full": 27
+        },
+        "mntl": {
+          "Unmodified": 17,
+          "Full": 17
+        },
+        "socl": {
+          "Unmodified": 24,
+          "Full": 24
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
+    },
+    "bench1": {
+      "Id": 113068,
+      "Name": "Tabb Brownjohn",
+      "Age": 25,
+      "Gender": "non-binary",
+      "Skills": {
+        "VocSkill": {
+          "Academia": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Animal Handling": {
+            "Full": 18,
+            "Unmodified": 18
+          },
+          "Blacksmithing": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Carpentry": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Cooking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Diplomacy": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Drill": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Engineering": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "First Aid": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 19,
+            "Unmodified": 19
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leatherworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Martial": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Medical": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Metalworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Pathfinding": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Persuation": {
+            "Full": 34,
+            "Unmodified": 34
+          },
+          "Politics": {
+            "Full": 24,
+            "Unmodified": 24
+          },
+          "Prospecting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Refining": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Quartermastery": {
+            "Full": 17,
+            "Unmodified": 17
+          },
+          "Skullduggery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Stealth": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Survival": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tactics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tinker": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        },
+        "ExpSkill": {
+          "exp1": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp2": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp3": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 11,
+          "Full": 11
+        },
+        "dex": {
+          "Unmodified": 24,
+          "Full": 24
+        },
+        "int": {
+          "Unmodified": 28,
+          "Full": 28
+        },
+        "wis": {
+          "Unmodified": 19,
+          "Full": 19
+        },
+        "cha": {
+          "Unmodified": 14,
+          "Full": 14
+        },
+        "ldr": {
+          "Unmodified": 23,
+          "Full": 23
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 17,
+          "Full": 17
+        },
+        "mntl": {
+          "Unmodified": 23,
+          "Full": 23
+        },
+        "socl": {
+          "Unmodified": 18,
+          "Full": 18
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
+    },
+    "bench2": {
+      "Id": 113100,
+      "Name": "Jason Bruckmann",
+      "Age": 25,
+      "Gender": "male",
+      "Skills": {
+        "VocSkill": {
+          "Academia": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Animal Handling": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Blacksmithing": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Carpentry": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Cooking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Diplomacy": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Drill": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Engineering": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "First Aid": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "History": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Hunting": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Law": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leadership": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Leatherworking": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Martial": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Medical": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Metalworking": {
+            "Full": 23,
+            "Unmodified": 23
+          },
+          "Pathfinding": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Persuation": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Politics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Prospecting": {
+            "Full": 18,
+            "Unmodified": 18
+          },
+          "Refining": {
+            "Full": 37,
+            "Unmodified": 37
+          },
+          "Quartermastery": {
+            "Full": 17,
+            "Unmodified": 17
+          },
+          "Skullduggery": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Stealth": {
+            "Full": 20,
+            "Unmodified": 20
+          },
+          "Survival": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tactics": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "Tinker": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        },
+        "ExpSkill": {
+          "exp1": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp2": {
+            "Full": 0,
+            "Unmodified": 0
+          },
+          "exp3": {
+            "Full": 0,
+            "Unmodified": 0
+          }
+        }
+      },
+      "PrimaryStats": {
+        "str": {
+          "Unmodified": 28,
+          "Full": 28
+        },
+        "dex": {
+          "Unmodified": 17,
+          "Full": 17
+        },
+        "int": {
+          "Unmodified": 10,
+          "Full": 10
+        },
+        "wis": {
+          "Unmodified": 29,
+          "Full": 29
+        },
+        "cha": {
+          "Unmodified": 29,
+          "Full": 29
+        },
+        "ldr": {
+          "Unmodified": 24,
+          "Full": 24
+        }
+      },
+      "DerivedStats": {
+        "phys": {
+          "Unmodified": 22,
+          "Full": 22
+        },
+        "mntl": {
+          "Unmodified": 19,
+          "Full": 19
+        },
+        "socl": {
+          "Unmodified": 26,
+          "Full": 26
+        }
+      },
+      "Attributes": {
+        "Health": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Happiness": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Motivation": {
+          "Full": 10,
+          "Unmodified": 10
+        },
+        "Psyche": {
+          "Full": 10,
+          "Unmodified": 10
+        }
+      },
+      "Traits": [],
+      "Modifiers": []
     }
   },
-  "Social": {
-    "Relationships": {
-      "112166-112230": {
-        "Id": "112166-112230",
-        "Citizen1Name": "Hallie Muldoon",
-        "Citizen2Name": "Dory Grinaugh",
-        "Friendliness": -3,
-        "Teamwork": 9,
-        "Connection": 0
-      },
-      "112225-112230": {
-        "Id": "112225-112230",
-        "Citizen1Name": "Ursala Jordi",
-        "Citizen2Name": "Dory Grinaugh",
-        "Friendliness": -7,
-        "Teamwork": 8,
-        "Connection": 0
-      },
-      "112166-112225": {
-        "Id": "112166-112225",
-        "Citizen1Name": "Hallie Muldoon",
-        "Citizen2Name": "Ursala Jordi",
-        "Friendliness": 10,
-        "Teamwork": -2,
-        "Connection": 0
-      },
-      "112230-112310": {
-        "Id": "112230-112310",
-        "Citizen1Name": "Dory Grinaugh",
-        "Citizen2Name": "Desirae Faragher",
-        "Friendliness": 1,
-        "Teamwork": 0,
-        "Connection": 0
-      },
-      "112166-112310": {
-        "Id": "112166-112310",
-        "Citizen1Name": "Hallie Muldoon",
-        "Citizen2Name": "Desirae Faragher",
-        "Friendliness": 10,
-        "Teamwork": 3,
-        "Connection": 0
-      },
-      "112225-112310": {
-        "Id": "112225-112310",
-        "Citizen1Name": "Ursala Jordi",
-        "Citizen2Name": "Desirae Faragher",
-        "Friendliness": -1,
-        "Teamwork": 3,
-        "Connection": 0
-      },
-      "112230-112259": {
-        "Id": "112230-112259",
-        "Citizen1Name": "Dory Grinaugh",
-        "Citizen2Name": "Constancia Joisce",
-        "Friendliness": 11,
-        "Teamwork": 17,
-        "Connection": 0
-      },
-      "112166-112259": {
-        "Id": "112166-112259",
-        "Citizen1Name": "Hallie Muldoon",
-        "Citizen2Name": "Constancia Joisce",
-        "Friendliness": -9,
-        "Teamwork": 0,
-        "Connection": 0
-      },
-      "112225-112259": {
-        "Id": "112225-112259",
-        "Citizen1Name": "Ursala Jordi",
-        "Citizen2Name": "Constancia Joisce",
-        "Friendliness": -7,
-        "Teamwork": -7,
-        "Connection": 0
-      },
-      "112259-112310": {
-        "Id": "112259-112310",
-        "Citizen1Name": "Constancia Joisce",
-        "Citizen2Name": "Desirae Faragher",
-        "Friendliness": -2,
-        "Teamwork": -3,
-        "Connection": 0
-      },
-      "112155-112230": {
-        "Id": "112155-112230",
-        "Citizen1Name": "Flynn Jouanny",
-        "Citizen2Name": "Dory Grinaugh",
-        "Friendliness": -9,
-        "Teamwork": 10,
-        "Connection": 0
-      },
-      "112155-112166": {
-        "Id": "112155-112166",
-        "Citizen1Name": "Flynn Jouanny",
-        "Citizen2Name": "Hallie Muldoon",
-        "Friendliness": -2,
-        "Teamwork": -8,
-        "Connection": 0
-      },
-      "112155-112225": {
-        "Id": "112155-112225",
-        "Citizen1Name": "Flynn Jouanny",
-        "Citizen2Name": "Ursala Jordi",
-        "Friendliness": 14,
-        "Teamwork": -10,
-        "Connection": 0
-      },
-      "112155-112310": {
-        "Id": "112155-112310",
-        "Citizen1Name": "Flynn Jouanny",
-        "Citizen2Name": "Desirae Faragher",
-        "Friendliness": -5,
-        "Teamwork": 16,
-        "Connection": 0
-      },
-      "112155-112259": {
-        "Id": "112155-112259",
-        "Citizen1Name": "Flynn Jouanny",
-        "Citizen2Name": "Constancia Joisce",
-        "Friendliness": 17,
-        "Teamwork": -7,
-        "Connection": 0
-      },
-      "112171-112230": {
-        "Id": "112171-112230",
-        "Citizen1Name": "Kaia Stych",
-        "Citizen2Name": "Dory Grinaugh",
-        "Friendliness": -8,
-        "Teamwork": -7,
-        "Connection": 0
-      },
-      "112166-112171": {
-        "Id": "112166-112171",
-        "Citizen1Name": "Hallie Muldoon",
-        "Citizen2Name": "Kaia Stych",
-        "Friendliness": -8,
-        "Teamwork": -2,
-        "Connection": 0
-      },
-      "112171-112225": {
-        "Id": "112171-112225",
-        "Citizen1Name": "Kaia Stych",
-        "Citizen2Name": "Ursala Jordi",
-        "Friendliness": 5,
-        "Teamwork": 6,
-        "Connection": 0
-      },
-      "112171-112310": {
-        "Id": "112171-112310",
-        "Citizen1Name": "Kaia Stych",
-        "Citizen2Name": "Desirae Faragher",
-        "Friendliness": 10,
-        "Teamwork": 6,
-        "Connection": 0
-      },
-      "112171-112259": {
-        "Id": "112171-112259",
-        "Citizen1Name": "Kaia Stych",
-        "Citizen2Name": "Constancia Joisce",
-        "Friendliness": -2,
-        "Teamwork": 10,
-        "Connection": 0
-      },
-      "112155-112171": {
-        "Id": "112155-112171",
-        "Citizen1Name": "Flynn Jouanny",
-        "Citizen2Name": "Kaia Stych",
-        "Friendliness": 4,
-        "Teamwork": 15,
-        "Connection": 0
-      },
-      "112230-112405": {
-        "Id": "112230-112405",
-        "Citizen1Name": "Dory Grinaugh",
-        "Citizen2Name": "Jefferey Wissby",
-        "Friendliness": 4,
-        "Teamwork": 5,
-        "Connection": 0
-      },
-      "112166-112405": {
-        "Id": "112166-112405",
-        "Citizen1Name": "Hallie Muldoon",
-        "Citizen2Name": "Jefferey Wissby",
-        "Friendliness": 7,
-        "Teamwork": 16,
-        "Connection": 0
-      },
-      "112225-112405": {
-        "Id": "112225-112405",
-        "Citizen1Name": "Ursala Jordi",
-        "Citizen2Name": "Jefferey Wissby",
-        "Friendliness": 8,
-        "Teamwork": -3,
-        "Connection": 0
-      },
-      "112310-112405": {
-        "Id": "112310-112405",
-        "Citizen1Name": "Desirae Faragher",
-        "Citizen2Name": "Jefferey Wissby",
-        "Friendliness": 15,
-        "Teamwork": 15,
-        "Connection": 0
-      },
-      "112259-112405": {
-        "Id": "112259-112405",
-        "Citizen1Name": "Constancia Joisce",
-        "Citizen2Name": "Jefferey Wissby",
-        "Friendliness": 9,
-        "Teamwork": -1,
-        "Connection": 0
-      },
-      "112155-112405": {
-        "Id": "112155-112405",
-        "Citizen1Name": "Flynn Jouanny",
-        "Citizen2Name": "Jefferey Wissby",
-        "Friendliness": 13,
-        "Teamwork": 8,
-        "Connection": 0
-      },
-      "112171-112405": {
-        "Id": "112171-112405",
-        "Citizen1Name": "Kaia Stych",
-        "Citizen2Name": "Jefferey Wissby",
-        "Friendliness": 12,
-        "Teamwork": 2,
-        "Connection": 0
-      }
+  "Relationships": {
+    "113141-113240": {
+      "Id": "113141-113240",
+      "Citizen1Name": "Bryn Bexley",
+      "Citizen2Name": "Dillon Cromar",
+      "Friendliness": 2,
+      "Teamwork": 12,
+      "Connection": 0
+    },
+    "113148-113240": {
+      "Id": "113148-113240",
+      "Citizen1Name": "Leola Crampton",
+      "Citizen2Name": "Dillon Cromar",
+      "Friendliness": 6,
+      "Teamwork": 11,
+      "Connection": 0
+    },
+    "113141-113148": {
+      "Id": "113141-113148",
+      "Citizen1Name": "Bryn Bexley",
+      "Citizen2Name": "Leola Crampton",
+      "Friendliness": 7,
+      "Teamwork": 0,
+      "Connection": 0
+    },
+    "113185-113240": {
+      "Id": "113185-113240",
+      "Citizen1Name": "Lira Cornier",
+      "Citizen2Name": "Dillon Cromar",
+      "Friendliness": 11,
+      "Teamwork": 19,
+      "Connection": 0
+    },
+    "113141-113185": {
+      "Id": "113141-113185",
+      "Citizen1Name": "Bryn Bexley",
+      "Citizen2Name": "Lira Cornier",
+      "Friendliness": 2,
+      "Teamwork": 15,
+      "Connection": 0
+    },
+    "113148-113185": {
+      "Id": "113148-113185",
+      "Citizen1Name": "Leola Crampton",
+      "Citizen2Name": "Lira Cornier",
+      "Friendliness": -6,
+      "Teamwork": 2,
+      "Connection": 0
+    },
+    "113125-113240": {
+      "Id": "113125-113240",
+      "Citizen1Name": "Jaymie Guiet",
+      "Citizen2Name": "Dillon Cromar",
+      "Friendliness": 15,
+      "Teamwork": -7,
+      "Connection": 0
+    },
+    "113125-113141": {
+      "Id": "113125-113141",
+      "Citizen1Name": "Jaymie Guiet",
+      "Citizen2Name": "Bryn Bexley",
+      "Friendliness": -1,
+      "Teamwork": 6,
+      "Connection": 0
+    },
+    "113125-113148": {
+      "Id": "113125-113148",
+      "Citizen1Name": "Jaymie Guiet",
+      "Citizen2Name": "Leola Crampton",
+      "Friendliness": 0,
+      "Teamwork": 0,
+      "Connection": 0
+    },
+    "113125-113185": {
+      "Id": "113125-113185",
+      "Citizen1Name": "Jaymie Guiet",
+      "Citizen2Name": "Lira Cornier",
+      "Friendliness": -2,
+      "Teamwork": 16,
+      "Connection": 0
+    },
+    "113240-113320": {
+      "Id": "113240-113320",
+      "Citizen1Name": "Dillon Cromar",
+      "Citizen2Name": "Mateo Munton",
+      "Friendliness": 10,
+      "Teamwork": 12,
+      "Connection": 0
+    },
+    "113141-113320": {
+      "Id": "113141-113320",
+      "Citizen1Name": "Bryn Bexley",
+      "Citizen2Name": "Mateo Munton",
+      "Friendliness": 8,
+      "Teamwork": 5,
+      "Connection": 0
+    },
+    "113148-113320": {
+      "Id": "113148-113320",
+      "Citizen1Name": "Leola Crampton",
+      "Citizen2Name": "Mateo Munton",
+      "Friendliness": -8,
+      "Teamwork": 5,
+      "Connection": 0
+    },
+    "113185-113320": {
+      "Id": "113185-113320",
+      "Citizen1Name": "Lira Cornier",
+      "Citizen2Name": "Mateo Munton",
+      "Friendliness": -5,
+      "Teamwork": 0,
+      "Connection": 0
+    },
+    "113125-113320": {
+      "Id": "113125-113320",
+      "Citizen1Name": "Jaymie Guiet",
+      "Citizen2Name": "Mateo Munton",
+      "Friendliness": -8,
+      "Teamwork": 8,
+      "Connection": 0
+    },
+    "113068-113240": {
+      "Id": "113068-113240",
+      "Citizen1Name": "Tabb Brownjohn",
+      "Citizen2Name": "Dillon Cromar",
+      "Friendliness": 6,
+      "Teamwork": 13,
+      "Connection": 0
+    },
+    "113068-113141": {
+      "Id": "113068-113141",
+      "Citizen1Name": "Tabb Brownjohn",
+      "Citizen2Name": "Bryn Bexley",
+      "Friendliness": -6,
+      "Teamwork": 10,
+      "Connection": 0
+    },
+    "113068-113148": {
+      "Id": "113068-113148",
+      "Citizen1Name": "Tabb Brownjohn",
+      "Citizen2Name": "Leola Crampton",
+      "Friendliness": 7,
+      "Teamwork": -8,
+      "Connection": 0
+    },
+    "113068-113185": {
+      "Id": "113068-113185",
+      "Citizen1Name": "Tabb Brownjohn",
+      "Citizen2Name": "Lira Cornier",
+      "Friendliness": -7,
+      "Teamwork": -4,
+      "Connection": 0
+    },
+    "113068-113125": {
+      "Id": "113068-113125",
+      "Citizen1Name": "Tabb Brownjohn",
+      "Citizen2Name": "Jaymie Guiet",
+      "Friendliness": 10,
+      "Teamwork": 18,
+      "Connection": 0
+    },
+    "113068-113320": {
+      "Id": "113068-113320",
+      "Citizen1Name": "Tabb Brownjohn",
+      "Citizen2Name": "Mateo Munton",
+      "Friendliness": 2,
+      "Teamwork": -4,
+      "Connection": 0
+    },
+    "113100-113240": {
+      "Id": "113100-113240",
+      "Citizen1Name": "Jason Bruckmann",
+      "Citizen2Name": "Dillon Cromar",
+      "Friendliness": 19,
+      "Teamwork": 1,
+      "Connection": 0
+    },
+    "113100-113141": {
+      "Id": "113100-113141",
+      "Citizen1Name": "Jason Bruckmann",
+      "Citizen2Name": "Bryn Bexley",
+      "Friendliness": -8,
+      "Teamwork": -2,
+      "Connection": 0
+    },
+    "113100-113148": {
+      "Id": "113100-113148",
+      "Citizen1Name": "Jason Bruckmann",
+      "Citizen2Name": "Leola Crampton",
+      "Friendliness": -7,
+      "Teamwork": 6,
+      "Connection": 0
+    },
+    "113100-113185": {
+      "Id": "113100-113185",
+      "Citizen1Name": "Jason Bruckmann",
+      "Citizen2Name": "Lira Cornier",
+      "Friendliness": 13,
+      "Teamwork": -6,
+      "Connection": 0
+    },
+    "113100-113125": {
+      "Id": "113100-113125",
+      "Citizen1Name": "Jason Bruckmann",
+      "Citizen2Name": "Jaymie Guiet",
+      "Friendliness": 17,
+      "Teamwork": -1,
+      "Connection": 0
+    },
+    "113100-113320": {
+      "Id": "113100-113320",
+      "Citizen1Name": "Jason Bruckmann",
+      "Citizen2Name": "Mateo Munton",
+      "Friendliness": 13,
+      "Teamwork": -3,
+      "Connection": 0
+    },
+    "113068-113100": {
+      "Id": "113068-113100",
+      "Citizen1Name": "Tabb Brownjohn",
+      "Citizen2Name": "Jason Bruckmann",
+      "Friendliness": 8,
+      "Teamwork": -4,
+      "Connection": 0
     }
   },
   "Skills": {
     "VocSkill": {
       "Academia": {
-        "Full": 8,
-        "Unmodified": 8
+        "Full": 0,
+        "Unmodified": 0
       },
       "Animal Handling": {
-        "Full": 8,
-        "Unmodified": 8
+        "Full": 9,
+        "Unmodified": 9
       },
       "Blacksmithing": {
         "Full": 10,
         "Unmodified": 10
       },
       "Carpentry": {
+        "Full": 19,
+        "Unmodified": 19
+      },
+      "Cooking": {
         "Full": 10,
         "Unmodified": 10
       },
-      "Cooking": {
-        "Full": 0,
-        "Unmodified": 0
-      },
       "Diplomacy": {
-        "Full": 15,
-        "Unmodified": 15
+        "Full": 9,
+        "Unmodified": 9
       },
       "Drill": {
-        "Full": 21,
-        "Unmodified": 21
+        "Full": 9,
+        "Unmodified": 9
       },
       "Engineering": {
         "Full": 26,
         "Unmodified": 26
       },
       "First Aid": {
-        "Full": 31,
-        "Unmodified": 31
+        "Full": 9,
+        "Unmodified": 9
       },
       "History": {
-        "Full": 8,
-        "Unmodified": 8
+        "Full": 0,
+        "Unmodified": 0
       },
       "Hunting": {
-        "Full": 11,
-        "Unmodified": 11
+        "Full": 28,
+        "Unmodified": 28
       },
       "Law": {
         "Full": 0,
         "Unmodified": 0
       },
       "Leadership": {
+        "Full": 11,
+        "Unmodified": 11
+      },
+      "Leatherworking": {
+        "Full": 0,
+        "Unmodified": 0
+      },
+      "Martial": {
+        "Full": 21,
+        "Unmodified": 21
+      },
+      "Medical": {
+        "Full": 8,
+        "Unmodified": 8
+      },
+      "Metalworking": {
+        "Full": 29,
+        "Unmodified": 29
+      },
+      "Pathfinding": {
         "Full": 35,
         "Unmodified": 35
       },
-      "Leatherworking": {
-        "Full": 18,
-        "Unmodified": 18
-      },
-      "Martial": {
-        "Full": 20,
-        "Unmodified": 20
-      },
-      "Medical": {
-        "Full": 19,
-        "Unmodified": 19
-      },
-      "Metalworking": {
-        "Full": 18,
-        "Unmodified": 18
-      },
-      "Pathfinding": {
-        "Full": 9,
-        "Unmodified": 9
-      },
       "Persuation": {
-        "Full": 0,
-        "Unmodified": 0
+        "Full": 17,
+        "Unmodified": 17
       },
       "Politics": {
-        "Full": 0,
-        "Unmodified": 0
+        "Full": 12,
+        "Unmodified": 12
       },
       "Prospecting": {
         "Full": 20,
         "Unmodified": 20
       },
       "Refining": {
-        "Full": 34,
-        "Unmodified": 34
+        "Full": 28,
+        "Unmodified": 28
       },
       "Quartermastery": {
-        "Full": 19,
-        "Unmodified": 19
+        "Full": 20,
+        "Unmodified": 20
       },
       "Skullduggery": {
-        "Full": 20,
-        "Unmodified": 20
-      },
-      "Stealth": {
-        "Full": 11,
-        "Unmodified": 11
-      },
-      "Survival": {
-        "Full": 20,
-        "Unmodified": 20
-      },
-      "Tactics": {
         "Full": 0,
         "Unmodified": 0
       },
+      "Stealth": {
+        "Full": 22,
+        "Unmodified": 22
+      },
+      "Survival": {
+        "Full": 0,
+        "Unmodified": 0
+      },
+      "Tactics": {
+        "Full": 23,
+        "Unmodified": 23
+      },
       "Tinker": {
-        "Full": 20,
-        "Unmodified": 20
+        "Full": 27,
+        "Unmodified": 27
       }
     },
     "ExpSkill": {

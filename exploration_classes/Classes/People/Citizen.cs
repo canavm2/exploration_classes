@@ -31,7 +31,7 @@ namespace People
             List<string> derivedStats = new() { "phys", "mntl", "socl" };
             PrimaryStats = new();
             DerivedStats = new();
-            StatModifiers = new();
+            Modifiers = new();
 
             foreach (string pstat in primaryStats)
             {
@@ -50,7 +50,6 @@ namespace People
                 "Psyche"
             };
             Attributes = new();
-            AttributeModifiers = new();
             foreach (string attribute in attributes)
                 Attributes.Add(attribute, new Attribute());
             #endregion
@@ -69,9 +68,8 @@ namespace People
             Skills skills,
             Dictionary<string, Stat> primarystats,
             Dictionary<string, Stat> derivedstats,
-            List<Modifier> statmodifiers,
+            List<Modifier> modifiers,
             Dictionary<string, Attribute> attributes,
-            List<Modifier> attributemodifiers,
             List<Trait> traits
             )
         {
@@ -82,9 +80,8 @@ namespace People
             Skills = skills;
             PrimaryStats = primarystats;
             DerivedStats = derivedstats;
-            StatModifiers = statmodifiers;
+            Modifiers = modifiers;
             Attributes = attributes;
-            AttributeModifiers = attributemodifiers;
             Traits = traits;
         }
         #endregion
@@ -97,9 +94,8 @@ namespace People
         public Skills Skills;
         public Dictionary<string, Stat> PrimaryStats;
         public Dictionary<string, Stat> DerivedStats;
-        public List<Modifier> StatModifiers;
         public Dictionary<string, Attribute> Attributes;
-        public List<Modifier> AttributeModifiers;
+        public List<Modifier> Modifiers { get; }
         public List<Trait> Traits;
         #endregion
 
