@@ -1,1 +1,0 @@
-{"Name":"testmodifier","Description":"None.","Source":"test","ModifiedStat":"dex","Value":4,"Temporary":false,"Duration":0,"Id":"testmodifier-test"}
