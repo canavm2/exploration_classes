@@ -1,2 +1,3 @@
-﻿name,modifier1,modifier2,modifier3,modifier4
-smart,int10,wis10,null,null
+﻿name,tier,modifier1,modifier2,modifier3,modifier4
+Street Urchin,1,skullduggery10,diplomacy-5,persuation5
+Noble Birth,2,academia15,history10,cha-5

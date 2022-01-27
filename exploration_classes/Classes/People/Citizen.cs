@@ -138,12 +138,14 @@ namespace People
         }
         public class Trait
         {
-            public Trait(string name, List<Modifier> modifiers)
+            public Trait(string name, int tier, List<Modifier> modifiers)
             {
                 Name = name;
+                Tier = tier;
                 Modifiers = modifiers;
             }
             public readonly string Name;
+            public readonly int Tier;
             public readonly List<Modifier> Modifiers;
 
             public string Summary()

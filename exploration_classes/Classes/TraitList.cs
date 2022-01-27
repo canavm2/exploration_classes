@@ -17,14 +17,14 @@ namespace FileTools
             {
                 List<Modifier> modifiers = new();
                 string[] line = lines[i].Split(",");
-                for (int j = 1; j < line.Length; j++)
+                for (int j = 2; j < line.Length; j++)
                 {
                     if (line[j] != "null")
                     {
                         modifiers.Add(modifierlist.Modifiers[line[j]]);
                     }
                 }
-                Citizen.Trait trait = new Citizen.Trait(line[0],modifiers);
+                Citizen.Trait trait = new Citizen.Trait(line[0],Int32.Parse(line[1]),modifiers);
                 Traits[line[0]] = trait;
             }
         }

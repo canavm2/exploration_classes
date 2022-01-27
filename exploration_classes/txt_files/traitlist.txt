@@ -1,29 +1,80 @@
 {
   "Traits": {
-    "smart": {
-      "Name": "smart",
+    "Street Urchin": {
+      "Name": "Street Urchin",
+      "Tier": 1,
       "Modifiers": [
         {
-          "Name": "int10",
-          "Description": "+10 Int",
+          "Name": "skullduggery10",
+          "Description": "Skullduggery +10",
           "Source": "trait",
-          "Type": "stat",
-          "ModifiedValue": "int",
+          "Type": "skill",
+          "ModifiedValue": "Skullduggery",
           "Value": 10,
           "Temporary": false,
           "Duration": 0,
-          "Id": "int10-trait"
+          "Id": "skullduggery10-trait"
         },
         {
-          "Name": "wis10",
-          "Description": "+10 Wis",
+          "Name": "diplomacy-5",
+          "Description": "Diplomacy -5",
           "Source": "trait",
-          "Type": "stat",
-          "ModifiedValue": "wis",
+          "Type": "skill",
+          "ModifiedValue": "Diplomacy",
+          "Value": -5,
+          "Temporary": false,
+          "Duration": 0,
+          "Id": "diplomacy-5-trait"
+        },
+        {
+          "Name": "persuation5",
+          "Description": "Persuation +5",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Persuation",
+          "Value": 5,
+          "Temporary": false,
+          "Duration": 0,
+          "Id": "persuation5-trait"
+        }
+      ]
+    },
+    "Noble Birth": {
+      "Name": "Noble Birth",
+      "Tier": 2,
+      "Modifiers": [
+        {
+          "Name": "academia15",
+          "Description": "Academia +15",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Academia",
+          "Value": 15,
+          "Temporary": false,
+          "Duration": 0,
+          "Id": "academia15-trait"
+        },
+        {
+          "Name": "history10",
+          "Description": "History +10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "History",
           "Value": 10,
           "Temporary": false,
           "Duration": 0,
-          "Id": "wis10-trait"
+          "Id": "history10-trait"
+        },
+        {
+          "Name": "cha-5",
+          "Description": "CHA -5",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "cha",
+          "Value": -5,
+          "Temporary": false,
+          "Duration": 0,
+          "Id": "cha-5-trait"
         }
       ]
     }
