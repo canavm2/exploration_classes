@@ -9,14 +9,42 @@ namespace FileTools
     //An object that gets instatiated, it holds the filepath to the folder everything is saved in.
     public class FileTool
     {
-        //TODO better way than instantiating the filetool?
-        //I just need to store the filepath, but don't want to do it in every method.
-        #region constructor
-        //Constructor, needed to store the txt_files folder Path
+        #region Constructor and Lists
         public FileTool() { }
-        //used with the System.Text.Json
-        //JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
         string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
+        List<string> VocSkillsList = new()
+        {
+            "Academia",
+            "Animal Handling",
+            "Blacksmithing",
+            "Carpentry",
+            "Cooking",
+            "Diplomacy",
+            "Drill",
+            "Engineering",
+            "First Aid",
+            "History",
+            "Hunting",
+            "Law",
+            "Leadership",
+            "Leatherworking",
+            "Martial",
+            "Medical",
+            "Metalworking",
+            "Pathfinding",
+            "Persuation",
+            "Politics",
+            "Prospecting",
+            "Refining",
+            "Quartermastery",
+            "Skullduggery",
+            "Stealth",
+            "Survival",
+            "Tactics",
+            "Tinker"
+        };
+
+        List<string> ExpSkillsList = new() { "exp1", "exp2", "exp3" };
         #endregion
 
         #region methods
@@ -156,5 +184,50 @@ namespace FileTools
         {
             filetool.StoreIndex(currentindex);
         }
+    }
+    public class ListTool
+    {
+        public ListTool(){}
+        public List<string> VocSkillsList = new()
+        {
+            "Academia",
+            "Animal Handling",
+            "Blacksmithing",
+            "Carpentry",
+            "Cooking",
+            "Diplomacy",
+            "Drill",
+            "Engineering",
+            "First Aid",
+            "History",
+            "Hunting",
+            "Law",
+            "Leadership",
+            "Leatherworking",
+            "Martial",
+            "Medical",
+            "Metalworking",
+            "Pathfinding",
+            "Persuation",
+            "Politics",
+            "Prospecting",
+            "Refining",
+            "Quartermastery",
+            "Skullduggery",
+            "Stealth",
+            "Survival",
+            "Tactics",
+            "Tinker"
+        };
+
+        public List<string> ExpSkillsList = new() { "exp1", "exp2", "exp3" };
+        public List<string> PrimaryStats = new() { "str", "dex", "int", "wis", "cha", "ldr" };
+        public List<string> DerivedStats = new() { "phys", "mntl", "socl" };
+        public List<string> Attributes = new List<string>() {
+                "Health",
+                "Happiness",
+                "Motivation",
+                "Psyche"
+            };
     }
 }

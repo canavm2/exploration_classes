@@ -93,9 +93,13 @@ namespace People
             else if (modifier.Type == "stat")
             {
                 if (PrimaryStats.ContainsKey(modifier.ModifiedValue))
+                {
                     PrimaryStats[modifier.ModifiedValue].Full += Value;
+                    RefreshDerived();
+                }
                 else if (DerivedStats.ContainsKey(modifier.ModifiedValue))
-                    DerivedStats[modifier.ModifiedValue].Full += Value;
+                    throw new Exception($"Derived stats shouldnt have modifiers: {modifier.ModifiedValue}"); //If derived stats had modifiers, then refreshing modifiers would be tough (not impossible)
+                //DerivedStats[modifier.ModifiedValue].Full += Value;
                 else throw new Exception($"Stat Modifier ModifiedValue not found: {modifier.ModifiedValue}");
             }
             else if (modifier.Type == "attribute")

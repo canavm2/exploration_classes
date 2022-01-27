@@ -7,10 +7,10 @@ FileTool fileTool = new FileTool();
 Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
 IndexId index = new IndexId(fileTool.ReadIndex());
 //RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
-ModifierList modifierlist = new ModifierList();
+//ModifierList modifierlist = new ModifierList();
 //ModifierList modifierlist = fileTool.ReadModifierList("modifierlist");
-TraitList traitlist = new(modifierlist);
-//TraitList traitlist = fileTool.ReadTraitList("traitlist");
+//TraitList traitlist = new();
+TraitList traitlist = fileTool.ReadTraitList("traitlist");
 CitizenCache citizens;
 PlayerCompany testcompany = fileTool.ReadCompany("company");
 //Console.WriteLine(testcompany.Describe());
@@ -49,10 +49,6 @@ citizens = fileTool.ReadCitizens("citizens");
 //Relationships.ReplaceAdvisor(replacementadvisor, testcompany, "advisor1", citizens, relationshipcache);
 #endregion
 
-foreach (Modifier modifier in modifierlist.Modifiers.Values)
-{
-    Console.WriteLine(modifier.Summary());
-}
 foreach (Citizen.Trait trait in traitlist.Traits.Values)
 {
     Console.WriteLine(trait.Summary());
@@ -63,6 +59,6 @@ foreach (Citizen.Trait trait in traitlist.Traits.Values)
 index.StoreIndex(fileTool);
 fileTool.StoreCitizens(citizens, "citizens");
 fileTool.StoreCompany(testcompany, "company");
-fileTool.StoreModifierList(modifierlist, "modifierlist");
+//fileTool.StoreModifierList(modifierlist, "modifierlist");
 fileTool.StoreTraitList(traitlist, "traitlist");
 //fileTool.StoreRelationshipCache(relationshipcache, "relationships");

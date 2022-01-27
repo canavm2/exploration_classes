@@ -27,30 +27,21 @@ namespace People
             Skills = new();
 
             #region ConstructStats
-            List<string> primaryStats = new() { "str", "dex", "int", "wis", "cha", "ldr" };
-            List<string> derivedStats = new() { "phys", "mntl", "socl" };
+            ListTool listTool = new ListTool();
             PrimaryStats = new();
             DerivedStats = new();
             Modifiers = new();
 
-            foreach (string pstat in primaryStats)
+            foreach (string pstat in listTool.PrimaryStats)
             {
                 PrimaryStats[pstat] = new(random.Next(10, 30));
             }
-            DerivedStats["phys"] = new((PrimaryStats["str"].Unmodified + PrimaryStats["dex"].Unmodified) / 2);
-            DerivedStats["mntl"] = new((PrimaryStats["int"].Unmodified + PrimaryStats["wis"].Unmodified) / 2);
-            DerivedStats["socl"] = new((PrimaryStats["cha"].Unmodified + PrimaryStats["ldr"].Unmodified) / 2);
+            RefreshDerived();
             #endregion
 
             #region ConstructAttributes
-            List<string> attributes = new List<string>() {
-                "Health",
-                "Happiness",
-                "Motivation",
-                "Psyche"
-            };
             Attributes = new();
-            foreach (string attribute in attributes)
+            foreach (string attribute in listTool.Attributes)
                 Attributes.Add(attribute, new Attribute());
             #endregion
 
