@@ -8,6 +8,9 @@ namespace People
 {
     public partial class Citizen
     {
+        #region Methods
+
+        //Updates Citizen's Derived stats based on their PrimaryStats
         public void RefreshDerived()
         {
             DerivedStats["PHYS"].Full = (PrimaryStats["STR"].Full + PrimaryStats["DEX"].Full) / 2;
@@ -55,6 +58,8 @@ namespace People
             return description;
         }
 
+        //Adds a temporary modifier to Modifiers(unless already exists) and then applies the modifier
+        //Should not be used with trait modifiers, which are stored in the trait
         public void AddModifier(Modifier modifier)
         {
             if (Modifiers.ContainsKey(modifier.Name))
@@ -65,6 +70,8 @@ namespace People
             //TODO Determine what happens if the modifier is a duplicate name
         }
 
+        //Removes a temprorary modifier from Modifiers and unapplies it
+        //Should not be used with trait modifiers, which are stored in the trait
         public void RemoveModifier(string name)
         {
             if (Modifiers.ContainsKey(name))
@@ -75,6 +82,8 @@ namespace People
             else throw new Exception($"Modifiers key not found: {name}");
         }
 
+        //Reads a modifier and determines what it should be applied to
+        //Can be used to unapply modifiers with "remove" as a parameter
         public void ApplyModifier(Modifier modifier, string action = "add")
         {
             int Value = modifier.Value;
@@ -108,6 +117,8 @@ namespace People
             else throw new Exception($"Modifier Type not found: {modifier.Type}");
         }
 
+        //Adds a trait to the citizen's trait list (unless already exists) and then applies the modifiers
+        //Company skills need to be recalculated after
         public void AddTrait(Trait trait)
         {
             if (!Traits.ContainsKey(trait.Name))
@@ -120,6 +131,8 @@ namespace People
             }
         }
 
+        //Removes a trait from teh citizen's trait list and then unapplies the modifiers
+        //Company skills need to be recalculated after
         public void RemoveTrait(string name)
         {
             if (Traits.ContainsKey(name))
@@ -131,5 +144,6 @@ namespace People
                 Traits.Remove(name);
             }
         }
+        #endregion
     }
 }

@@ -9,8 +9,6 @@ namespace People
     public class Modifier
     {
         #region Constructors
-        // IMPORTANT: Json Deserialization uses the name of the property as the parameter
-        // if the property is readonly it must match or it will not be able to change it after the constructor
         public Modifier(string name, string source, string type, string modifiedvalue, int value, string description, bool temporary=false, int duration=0)
         {
             List<string> possibletypes = new List<string>() {"skill", "stat", "attribute"};

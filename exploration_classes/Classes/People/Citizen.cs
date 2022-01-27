@@ -11,6 +11,7 @@ namespace People
     public partial class Citizen
     {
         #region Constructors
+        //Builds a random citizen
         public Citizen(string name, string gender, IndexId indexer, int age = 0)
         {
             Random random = new();
@@ -97,6 +98,7 @@ namespace People
         #endregion
 
         #region Subclasses
+        //Objects to contain Full and Unmodified values of things like skills
         public class Attribute
         {
             #region Constructors

@@ -9,6 +9,8 @@ using FileTools;
 
 namespace FileTools
 {
+    //An object that get instatiated to hold all the available traits
+    //It reads them from the .csv files
     public class TraitList
     {
         public TraitList()
@@ -47,6 +49,9 @@ namespace FileTools
         string path = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\csv_files\traits.csv";
     }
 
+
+    //An Object to hold all the modifiers, currently not needed, since the traits hold the modifiers
+    //new modifiers will probably get built from simple strings that can be parsed into modifiers.
     public class ModifierList
     {
         public ModifierList()

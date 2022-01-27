@@ -7,48 +7,15 @@ using Relation;
 namespace FileTools
 {
     //An object that gets instatiated, it holds the filepath to the folder everything is saved in.
+    //It also holds all the methods used to read/write to the .txt files
     public class FileTool
     {
         #region Constructor and Lists
         public FileTool() { }
         string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
-        List<string> VocSkillsList = new()
-        {
-            "Academia",
-            "Animal Handling",
-            "Blacksmithing",
-            "Carpentry",
-            "Cooking",
-            "Diplomacy",
-            "Drill",
-            "Engineering",
-            "First Aid",
-            "History",
-            "Hunting",
-            "Law",
-            "Leadership",
-            "Leatherworking",
-            "Martial",
-            "Medical",
-            "Metalworking",
-            "Pathfinding",
-            "Persuation",
-            "Politics",
-            "Prospecting",
-            "Refining",
-            "Quartermastery",
-            "Skullduggery",
-            "Stealth",
-            "Survival",
-            "Tactics",
-            "Tinker"
-        };
-
-        List<string> ExpSkillsList = new() { "exp1", "exp2", "exp3" };
         #endregion
 
         #region methods
-        //All these methods combine the folder path with the filename provided for reading and writing to the txt files
         public void StoreCitizens(CitizenCache citizens, string filename)
         {
             filename += ".txt";
@@ -159,8 +126,7 @@ namespace FileTools
         #endregion
     }
 
-    //An object that gets instantiated to holds the current index
-    //need to call the method to get the next index
+    //An object that gets instantiated to holds the current index and method to call the next index.
     public class IndexId
     {
         public IndexId(int index)
@@ -185,6 +151,8 @@ namespace FileTools
             filetool.StoreIndex(currentindex);
         }
     }
+
+    //An object that can be isntatiated to hold the lists of skills, stats, and attributes
     public class ListTool
     {
         public ListTool(){}

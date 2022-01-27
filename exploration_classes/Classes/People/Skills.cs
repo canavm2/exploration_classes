@@ -10,12 +10,14 @@ namespace People
 {
     public class Skills
     {
+        //Skills is maintained as a seperate object unlike stats and attributes because it exists and both the citizen and company level
         #region Constructors
+
+        //Takes type="company" parameter to produce a set of company skills
         public Skills(string type = "citizen")
         {
             ListTool listTool = new ListTool();
             Random random = new();
-
             foreach (string skill in listTool.VocSkillsList)
             {
                 if (type == "company") VocSkill[skill] = new(0);
@@ -38,7 +40,7 @@ namespace People
                 }
             }
 
-            //Sets all the experiential skills between 0 and 10
+            //Sets all the experiential skills to 0
             foreach (string skill in listTool.ExpSkillsList)
             {
                 if (type == "company") ExpSkill[skill] = new(0);
