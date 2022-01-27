@@ -25,14 +25,14 @@ namespace FileTools
                     string modifiedvalue = split[0];
                     int value = int.Parse(split[1]);
                     string type = "";
-                    if (listTool.primaryStats.Contains(modifiedvalue)) type = "stat";
+                    if (listTool.PrimaryStats.Contains(modifiedvalue)) type = "stat";
                     if (listTool.VocSkillsList.Contains(modifiedvalue)) type = "skill";
-                    if (listTool.primaryStats.Contains(modifiedvalue)) type = "attribute";
+                    if (listTool.Attributes.Contains(modifiedvalue)) type = "attribute";
                     string description = $"{modifiedvalue} {value}";
 
                     modifiers.Add(new Modifier(line[j], "trait", type, modifiedvalue, value, description));
                 }
-                Citizen.Trait trait = new Citizen.Trait(line[0],Int32.Parse(line[1]),modifiers);
+                Citizen.Trait trait = new Citizen.Trait(line[0],int.Parse(line[1]),modifiers);
                 Traits[line[0]] = trait;
             }
         }

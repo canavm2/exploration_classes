@@ -11,13 +11,12 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 //ModifierList modifierlist = fileTool.ReadModifierList("modifierlist");
 //TraitList traitlist = new();
 TraitList traitlist = fileTool.ReadTraitList("traitlist");
-CitizenCache citizens;
 PlayerCompany testcompany = fileTool.ReadCompany("company");
 //Console.WriteLine(testcompany.Describe());
-citizens = fileTool.ReadCitizens("citizens");
+CitizenCache citizens = fileTool.ReadCitizens("citizens");
 
 #region createcitizens
-//citizens = new CitizenCache(index, 100);
+//CitizenCache citizens = new CitizenCache(index, 100);
 //Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].DescribeCitizen()}");
 //Console.WriteLine($"malecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].DescribeCitizen()}");
 //Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].DescribeCitizen()}");
@@ -49,9 +48,13 @@ citizens = fileTool.ReadCitizens("citizens");
 //Relationships.ReplaceAdvisor(replacementadvisor, testcompany, "advisor1", citizens, relationshipcache);
 #endregion
 
+//foreach (Citizen.Trait trait in traitlist.Traits.Values)
+//{
+//    Console.WriteLine(trait.Summary());
+//}
 foreach (Citizen.Trait trait in traitlist.Traits.Values)
 {
-    Console.WriteLine(trait.Summary());
+    testcompany.Advisors["master"].RemoveTrait(trait.Name);
 }
 
 

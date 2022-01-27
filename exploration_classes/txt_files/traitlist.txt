@@ -3,78 +3,377 @@
     "Street Urchin": {
       "Name": "Street Urchin",
       "Tier": 1,
+      "Known": false,
       "Modifiers": [
         {
-          "Name": "skullduggery10",
-          "Description": "Skullduggery +10",
+          "Name": "Skullduggery.10",
+          "Description": "Skullduggery 10",
           "Source": "trait",
           "Type": "skill",
           "ModifiedValue": "Skullduggery",
           "Value": 10,
           "Temporary": false,
-          "Duration": 0,
-          "Id": "skullduggery10-trait"
+          "Duration": 0
         },
         {
-          "Name": "diplomacy-5",
+          "Name": "Diplomacy.-5",
           "Description": "Diplomacy -5",
           "Source": "trait",
           "Type": "skill",
           "ModifiedValue": "Diplomacy",
           "Value": -5,
           "Temporary": false,
-          "Duration": 0,
-          "Id": "diplomacy-5-trait"
+          "Duration": 0
         },
         {
-          "Name": "persuation5",
-          "Description": "Persuation +5",
+          "Name": "Persuation.5",
+          "Description": "Persuation 5",
           "Source": "trait",
           "Type": "skill",
           "ModifiedValue": "Persuation",
           "Value": 5,
           "Temporary": false,
-          "Duration": 0,
-          "Id": "persuation5-trait"
+          "Duration": 0
         }
       ]
     },
     "Noble Birth": {
       "Name": "Noble Birth",
       "Tier": 2,
+      "Known": false,
       "Modifiers": [
         {
-          "Name": "academia15",
-          "Description": "Academia +15",
+          "Name": "Academia.15",
+          "Description": "Academia 15",
           "Source": "trait",
           "Type": "skill",
           "ModifiedValue": "Academia",
           "Value": 15,
           "Temporary": false,
-          "Duration": 0,
-          "Id": "academia15-trait"
+          "Duration": 0
         },
         {
-          "Name": "history10",
-          "Description": "History +10",
+          "Name": "History.10",
+          "Description": "History 10",
           "Source": "trait",
           "Type": "skill",
           "ModifiedValue": "History",
           "Value": 10,
           "Temporary": false,
-          "Duration": 0,
-          "Id": "history10-trait"
+          "Duration": 0
         },
         {
-          "Name": "cha-5",
+          "Name": "CHA.-5",
           "Description": "CHA -5",
           "Source": "trait",
           "Type": "stat",
-          "ModifiedValue": "cha",
+          "ModifiedValue": "CHA",
           "Value": -5,
           "Temporary": false,
-          "Duration": 0,
-          "Id": "cha-5-trait"
+          "Duration": 0
+        }
+      ]
+    },
+    "Simple": {
+      "Name": "Simple",
+      "Tier": -1,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "Academia.-10",
+          "Description": "Academia -10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Academia",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "INT.-10",
+          "Description": "INT -10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "INT",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "Happiness.10",
+          "Description": "Happiness 10",
+          "Source": "trait",
+          "Type": "attribute",
+          "ModifiedValue": "Happiness",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Brute": {
+      "Name": "Brute",
+      "Tier": 0,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "STR.10",
+          "Description": "STR 10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "STR",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "CHA.-10",
+          "Description": "CHA -10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "CHA",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "Athletics.10",
+          "Description": "Athletics 10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Athletics",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "Stealth.-10",
+          "Description": "Stealth -10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Stealth",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Lithe": {
+      "Name": "Lithe",
+      "Tier": 1,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "DEX.10",
+          "Description": "DEX 10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "DEX",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "STR.-10",
+          "Description": "STR -10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "STR",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "Stealth.10",
+          "Description": "Stealth 10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Stealth",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Soldier": {
+      "Name": "Soldier",
+      "Tier": 2,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "Martial.10",
+          "Description": "Martial 10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Martial",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "Athletics.10",
+          "Description": "Athletics 10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Athletics",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Woodsmen": {
+      "Name": "Woodsmen",
+      "Tier": 2,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "Hunting.10",
+          "Description": "Hunting 10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Hunting",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "Survival.10",
+          "Description": "Survival 10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Survival",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "Pathfinding.10",
+          "Description": "Pathfinding 10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Pathfinding",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "LDR.-15",
+          "Description": "LDR -15",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "LDR",
+          "Value": -15,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Permanent Injury": {
+      "Name": "Permanent Injury",
+      "Tier": -2,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "Athletics.-10",
+          "Description": "Athletics -10",
+          "Source": "trait",
+          "Type": "skill",
+          "ModifiedValue": "Athletics",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "DEX.-10",
+          "Description": "DEX -10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "DEX",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Head Injury": {
+      "Name": "Head Injury",
+      "Tier": -2,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "INT.-10",
+          "Description": "INT -10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "INT",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "WIS.-10",
+          "Description": "WIS -10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "WIS",
+          "Value": -10,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Hale": {
+      "Name": "Hale",
+      "Tier": 1,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "Health.10",
+          "Description": "Health 10",
+          "Source": "trait",
+          "Type": "attribute",
+          "ModifiedValue": "Health",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        }
+      ]
+    },
+    "Alpha": {
+      "Name": "Alpha",
+      "Tier": 1,
+      "Known": false,
+      "Modifiers": [
+        {
+          "Name": "Motivation.10",
+          "Description": "Motivation 10",
+          "Source": "trait",
+          "Type": "attribute",
+          "ModifiedValue": "Motivation",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "LDR.10",
+          "Description": "LDR 10",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "LDR",
+          "Value": 10,
+          "Temporary": false,
+          "Duration": 0
+        },
+        {
+          "Name": "CHA.-5",
+          "Description": "CHA -5",
+          "Source": "trait",
+          "Type": "stat",
+          "ModifiedValue": "CHA",
+          "Value": -5,
+          "Temporary": false,
+          "Duration": 0
         }
       ]
     }

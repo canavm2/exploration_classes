@@ -10,12 +10,12 @@ namespace People
     {
         public void RefreshDerived()
         {
-            DerivedStats["phys"].Full = (PrimaryStats["str"].Full + PrimaryStats["dex"].Full) / 2;
-            DerivedStats["mntl"].Full = (PrimaryStats["int"].Full + PrimaryStats["wis"].Full) / 2;
-            DerivedStats["socl"].Full = (PrimaryStats["cha"].Full + PrimaryStats["ldr"].Full) / 2;
-            DerivedStats["phys"].Unmodified = (PrimaryStats["str"].Unmodified + PrimaryStats["dex"].Unmodified) / 2;
-            DerivedStats["mntl"].Unmodified = (PrimaryStats["int"].Unmodified + PrimaryStats["wis"].Unmodified) / 2;
-            DerivedStats["socl"].Unmodified = (PrimaryStats["cha"].Unmodified + PrimaryStats["ldr"].Unmodified) / 2;
+            DerivedStats["PHYS"].Full = (PrimaryStats["STR"].Full + PrimaryStats["DEX"].Full) / 2;
+            DerivedStats["MNTL"].Full = (PrimaryStats["INT"].Full + PrimaryStats["WIS"].Full) / 2;
+            DerivedStats["SOCL"].Full = (PrimaryStats["CHA"].Full + PrimaryStats["LDR"].Full) / 2;
+            DerivedStats["PHYS"].Unmodified = (PrimaryStats["STR"].Unmodified + PrimaryStats["DEX"].Unmodified) / 2;
+            DerivedStats["MNTL"].Unmodified = (PrimaryStats["INT"].Unmodified + PrimaryStats["WIS"].Unmodified) / 2;
+            DerivedStats["SOCL"].Unmodified = (PrimaryStats["CHA"].Unmodified + PrimaryStats["LDR"].Unmodified) / 2;
         }
 
         public string DescribeCitizen()
@@ -57,25 +57,22 @@ namespace People
 
         public void AddModifier(Modifier modifier)
         {
-            if (!Modifiers.Where(m => m.Name == modifier.Name).Any())
+            if (Modifiers.ContainsKey(modifier.Name))
             {
-                Modifiers.Add(modifier);
-                ApplyModifier(modifier);
+                Modifiers[modifier.Name] = modifier;
+                ApplyModifier(Modifiers[modifier.Name]);
             }
             //TODO Determine what happens if the modifier is a duplicate name
         }
+
         public void RemoveModifier(string name)
         {
-            for (int i = 0; i < Modifiers.Count; i++)
+            if (Modifiers.ContainsKey(name))
             {
-                if (Modifiers[i].Name == name)
-                {
-                    Modifier toremove = Modifiers[i];
-                    ApplyModifier(toremove, "remove");
-                    Modifiers.RemoveAt(i);
-                    break;
-                }
+                ApplyModifier(Modifiers[name],"remove");
+                Modifiers.Remove(name);
             }
+            else throw new Exception($"Modifiers key not found: {name}");
         }
 
         public void ApplyModifier(Modifier modifier, string action = "add")
@@ -111,6 +108,28 @@ namespace People
             else throw new Exception($"Modifier Type not found: {modifier.Type}");
         }
 
-        
+        public void AddTrait(Trait trait)
+        {
+            if (!Traits.ContainsKey(trait.Name))
+            {
+                Traits[trait.Name] = trait;
+                foreach (Modifier modifier in Traits[trait.Name].Modifiers)
+                {
+                    ApplyModifier(modifier);
+                }
+            }
+        }
+
+        public void RemoveTrait(string name)
+        {
+            if (Traits.ContainsKey(name))
+            {
+                foreach (Modifier modifier in Traits[name].Modifiers)
+                {
+                    ApplyModifier(modifier, "remove");
+                }
+                Traits.Remove(name);
+            }
+        }
     }
 }

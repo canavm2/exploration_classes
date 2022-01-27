@@ -191,6 +191,7 @@ namespace FileTools
         public List<string> VocSkillsList = new()
         {
             "Academia",
+            "Athletics",
             "Animal Handling",
             "Blacksmithing",
             "Carpentry",
@@ -221,8 +222,8 @@ namespace FileTools
         };
 
         public List<string> ExpSkillsList = new() { "exp1", "exp2", "exp3" };
-        public List<string> PrimaryStats = new() { "str", "dex", "int", "wis", "cha", "ldr" };
-        public List<string> DerivedStats = new() { "phys", "mntl", "socl" };
+        public List<string> PrimaryStats = new() { "STR", "DEX", "INT", "WIS", "CHA", "LDR" };
+        public List<string> DerivedStats = new() { "PHYS", "MNTL", "SOCL" };
         public List<string> Attributes = new List<string>() {
                 "Health",
                 "Happiness",

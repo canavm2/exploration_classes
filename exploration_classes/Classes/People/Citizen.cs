@@ -25,6 +25,8 @@ namespace People
                 Gender = "non-binary";
             Id = indexer.GetIndex();
             Skills = new();
+            Modifiers = new();
+            Traits = new();
 
             #region ConstructStats
             ListTool listTool = new ListTool();
@@ -35,6 +37,10 @@ namespace People
             foreach (string pstat in listTool.PrimaryStats)
             {
                 PrimaryStats[pstat] = new(random.Next(10, 30));
+            }
+            foreach (string dstat in listTool.DerivedStats)
+            {
+                DerivedStats[dstat] = new(0);
             }
             RefreshDerived();
             #endregion
@@ -59,9 +65,9 @@ namespace People
             Skills skills,
             Dictionary<string, Stat> primarystats,
             Dictionary<string, Stat> derivedstats,
-            List<Modifier> modifiers,
+            Dictionary<string, Modifier> modifiers,
             Dictionary<string, Attribute> attributes,
-            List<Trait> traits
+            Dictionary<string, Trait> traits
             )
         {
             Name = name;
@@ -86,8 +92,8 @@ namespace People
         public Dictionary<string, Stat> PrimaryStats;
         public Dictionary<string, Stat> DerivedStats;
         public Dictionary<string, Attribute> Attributes;
-        public List<Modifier> Modifiers { get; }
-        public List<Trait> Traits;
+        public Dictionary<string,Modifier> Modifiers { get; }
+        public Dictionary<string,Trait> Traits { get; }
         #endregion
 
         #region Subclasses
@@ -134,9 +140,20 @@ namespace People
                 Name = name;
                 Tier = tier;
                 Modifiers = modifiers;
+                Known = false;
             }
+            [JsonConstructor]
+            public Trait(string name, int tier, List<Modifier> modifiers, Boolean known)
+            {
+                Name = name;
+                Tier = tier;
+                Modifiers = modifiers;
+                Known = known;
+            }
+
             public readonly string Name;
             public readonly int Tier;
+            public Boolean Known;
             public readonly List<Modifier> Modifiers;
 
             public string Summary()
