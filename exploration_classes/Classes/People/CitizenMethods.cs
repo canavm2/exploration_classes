@@ -70,11 +70,8 @@ namespace People
             //TODO Determine what happens if the modifier is a duplicate name
         }
 
-<<<<<<< HEAD
-=======
         //Removes a temprorary modifier from Modifiers and unapplies it
         //Should not be used with trait modifiers, which are stored in the trait
->>>>>>> 029fe45795bab9b36d985988641c642455bf0611
         public void RemoveModifier(string name)
         {
             if (Modifiers.ContainsKey(name))
@@ -119,8 +116,6 @@ namespace People
             }
             else throw new Exception($"Modifier Type not found: {modifier.Type}");
         }
-<<<<<<< HEAD
-=======
 
         //Adds a trait to the citizen's trait list (unless already exists) and then applies the modifiers
         //Company skills need to be recalculated after
@@ -150,6 +145,5 @@ namespace People
             }
         }
         #endregion
->>>>>>> 029fe45795bab9b36d985988641c642455bf0611
     }
 }
