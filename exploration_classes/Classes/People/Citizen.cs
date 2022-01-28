@@ -11,6 +11,7 @@ namespace People
     public partial class Citizen
     {
         #region Constructors
+        //Builds a random citizen
         public Citizen(string name, string gender, IndexId indexer, int age = 0)
         {
             Random random = new();
@@ -25,32 +26,29 @@ namespace People
                 Gender = "non-binary";
             Id = indexer.GetIndex();
             Skills = new();
+            Modifiers = new();
+            Traits = new();
 
             #region ConstructStats
-            List<string> primaryStats = new() { "str", "dex", "int", "wis", "cha", "ldr" };
-            List<string> derivedStats = new() { "phys", "mntl", "socl" };
+            ListTool listTool = new ListTool();
             PrimaryStats = new();
             DerivedStats = new();
             Modifiers = new();
 
-            foreach (string pstat in primaryStats)
+            foreach (string pstat in listTool.PrimaryStats)
             {
                 PrimaryStats[pstat] = new(random.Next(10, 30));
             }
-            DerivedStats["phys"] = new((PrimaryStats["str"].Unmodified + PrimaryStats["dex"].Unmodified) / 2);
-            DerivedStats["mntl"] = new((PrimaryStats["int"].Unmodified + PrimaryStats["wis"].Unmodified) / 2);
-            DerivedStats["socl"] = new((PrimaryStats["cha"].Unmodified + PrimaryStats["ldr"].Unmodified) / 2);
+            foreach (string dstat in listTool.DerivedStats)
+            {
+                DerivedStats[dstat] = new(0);
+            }
+            RefreshDerived();
             #endregion
 
             #region ConstructAttributes
-            List<string> attributes = new List<string>() {
-                "Health",
-                "Happiness",
-                "Motivation",
-                "Psyche"
-            };
             Attributes = new();
-            foreach (string attribute in attributes)
+            foreach (string attribute in listTool.Attributes)
                 Attributes.Add(attribute, new Attribute());
             #endregion
 
@@ -68,9 +66,9 @@ namespace People
             Skills skills,
             Dictionary<string, Stat> primarystats,
             Dictionary<string, Stat> derivedstats,
-            List<Modifier> modifiers,
+            Dictionary<string, Modifier> modifiers,
             Dictionary<string, Attribute> attributes,
-            List<Trait> traits
+            Dictionary<string, Trait> traits
             )
         {
             Name = name;
@@ -95,11 +93,12 @@ namespace People
         public Dictionary<string, Stat> PrimaryStats;
         public Dictionary<string, Stat> DerivedStats;
         public Dictionary<string, Attribute> Attributes;
-        public List<Modifier> Modifiers { get; }
-        public List<Trait> Traits;
+        public Dictionary<string,Modifier> Modifiers { get; }
+        public Dictionary<string,Trait> Traits { get; }
         #endregion
 
         #region Subclasses
+        //Objects to contain Full and Unmodified values of things like skills
         public class Attribute
         {
             #region Constructors
@@ -138,13 +137,35 @@ namespace People
         }
         public class Trait
         {
-            public Trait(string name, List<Modifier> modifiers)
+            public Trait(string name, int tier, List<Modifier> modifiers)
             {
                 Name = name;
+                Tier = tier;
                 Modifiers = modifiers;
+                Known = false;
             }
+            [JsonConstructor]
+            public Trait(string name, int tier, List<Modifier> modifiers, Boolean known)
+            {
+                Name = name;
+                Tier = tier;
+                Modifiers = modifiers;
+                Known = known;
+            }
+
             public readonly string Name;
+            public readonly int Tier;
+            public Boolean Known;
             public readonly List<Modifier> Modifiers;
+
+            public string Summary()
+            {
+                string returnstring = $"\nTrait: {Name}." +
+                    $"\nModifiers:\n";
+                foreach (Modifier modifier in Modifiers)
+                    returnstring += modifier.Summary();
+                return returnstring;
+            }
         }
         #endregion
     }

@@ -8,8 +8,11 @@ using FileTools;
 
 namespace People
 {
+    //Stores the citizens that are not in companies
     public class CitizenCache
     {
+        #region Constructors
+        //Creates a cache with full lists of every citizen sex
         public CitizenCache(IndexId index, int size = 0)
         {
             NameList nameList = new();
@@ -33,16 +36,25 @@ namespace People
             MaleCitizens = malecitizens;
             NBCitizens = nbcitizens;
         }
+        #endregion
+
+        #region Dictionaries and Properties
         public List<Citizen> FemaleCitizens { get; }
         public List<Citizen> MaleCitizens { get; }
         public List<Citizen> NBCitizens { get; }
+        #endregion
 
+        #region Methods
+
+        //Stores a citizen in the appropriate list by sex
         public void CacheCitizen(Citizen citizen)
         {
             if (citizen.Gender == "female") FemaleCitizens.Add(citizen);
             else if (citizen.Gender == "male") MaleCitizens.Add(citizen);
             else NBCitizens.Add(citizen);
         }
+
+        //Retrieves a random citizen and removes them from the cache to prevent duplication
         public Citizen GetRandomCitizen(string gender = "random")
         {
             Citizen returncitizen;
@@ -74,5 +86,6 @@ namespace People
             }
             return returncitizen;
         }
+        #endregion
     }
 }

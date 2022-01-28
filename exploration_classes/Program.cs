@@ -1,22 +1,22 @@
-﻿using People;
+﻿using FileTools;
+using People;
 using Company;
-using FileTools;
-using Relation;
-using Newtonsoft.Json;
 
 
 FileTool fileTool = new FileTool();
 Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
 IndexId index = new IndexId(fileTool.ReadIndex());
-RelationshipCache relationshipcache;
-CitizenCache citizens;
+//RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
+//ModifierList modifierlist = new ModifierList();
+//ModifierList modifierlist = fileTool.ReadModifierList("modifierlist");
+//TraitList traitlist = new();
+TraitList traitlist = fileTool.ReadTraitList("traitlist");
 PlayerCompany testcompany = fileTool.ReadCompany("company");
-Console.WriteLine(testcompany.Describe());
-citizens = fileTool.ReadCitizens("citizens");
-relationshipcache = fileTool.ReadRelationshipCache("relationships");
+//Console.WriteLine(testcompany.Describe());
+CitizenCache citizens = fileTool.ReadCitizens("citizens");
 
 #region createcitizens
-//citizens = new CitizenCache(index, 100);
+//CitizenCache citizens = new CitizenCache(index, 100);
 //Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].DescribeCitizen()}");
 //Console.WriteLine($"malecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].DescribeCitizen()}");
 //Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].DescribeCitizen()}");
@@ -48,8 +48,20 @@ relationshipcache = fileTool.ReadRelationshipCache("relationships");
 //Relationships.ReplaceAdvisor(replacementadvisor, testcompany, "advisor1", citizens, relationshipcache);
 #endregion
 
+//foreach (Citizen.Trait trait in traitlist.Traits.Values)
+//{
+//    Console.WriteLine(trait.Summary());
+//}
+foreach (Citizen.Trait trait in traitlist.Traits.Values)
+{
+    testcompany.Advisors["master"].RemoveTrait(trait.Name);
+}
+
+
 //Stores everything again
 index.StoreIndex(fileTool);
 fileTool.StoreCitizens(citizens, "citizens");
 fileTool.StoreCompany(testcompany, "company");
-fileTool.StoreRelationshipCache(relationshipcache, "relationships");
+//fileTool.StoreModifierList(modifierlist, "modifierlist");
+fileTool.StoreTraitList(traitlist, "traitlist");
+//fileTool.StoreRelationshipCache(relationshipcache, "relationships");

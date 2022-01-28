@@ -4,49 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using FileTools;
 
 namespace People
 {
     public class Skills
     {
+        //Skills is maintained as a seperate object unlike stats and attributes because it exists and both the citizen and company level
         #region Constructors
+
+        //Takes type="company" parameter to produce a set of company skills
         public Skills(string type = "citizen")
         {
+            ListTool listTool = new ListTool();
             Random random = new();
-            List<string> VocSkillsList = new()
-            {
-                "Academia",
-                "Animal Handling",
-                "Blacksmithing",
-                "Carpentry",
-                "Cooking",
-                "Diplomacy",
-                "Drill",
-                "Engineering",
-                "First Aid",
-                "History",
-                "Hunting",
-                "Law",
-                "Leadership",
-                "Leatherworking",
-                "Martial",
-                "Medical",
-                "Metalworking",
-                "Pathfinding",
-                "Persuation",
-                "Politics",
-                "Prospecting",
-                "Refining",
-                "Quartermastery",
-                "Skullduggery",
-                "Stealth",
-                "Survival",
-                "Tactics",
-                "Tinker"
-            };
-            List<string> ExpSkillsList = new() { "exp1", "exp2", "exp3" };
-
-            foreach (string skill in VocSkillsList)
+            foreach (string skill in listTool.VocSkillsList)
             {
                 if (type == "company") VocSkill[skill] = new(0);
                 else VocSkill[skill] = new(0);//random.Next(0, 10);
@@ -54,7 +26,7 @@ namespace People
 
             if (type != "company")
             {
-                List<string> tempVocSkillsList = VocSkillsList;
+                List<string> tempVocSkillsList = listTool.VocSkillsList;
                 int index = random.Next(tempVocSkillsList.Count);
                 string highskill = tempVocSkillsList[index];
                 tempVocSkillsList.RemoveAt(index);
@@ -68,8 +40,8 @@ namespace People
                 }
             }
 
-            //Sets all the experiential skills between 0 and 10
-            foreach (string skill in ExpSkillsList)
+            //Sets all the experiential skills to 0
+            foreach (string skill in listTool.ExpSkillsList)
             {
                 if (type == "company") ExpSkill[skill] = new(0);
                 else ExpSkill[skill] = new(0);// random.Next(0, 10);

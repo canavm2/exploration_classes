@@ -9,9 +9,7 @@ namespace People
     public class Modifier
     {
         #region Constructors
-        // IMPORTANT: Json Deserialization uses the name of the property as the parameter
-        // if the property is readonly it must match or it will not be able to change it after the constructor
-        public Modifier(string name, string source, string type, string modifiedvalue, int value, bool temporary, int duration, string description)
+        public Modifier(string name, string source, string type, string modifiedvalue, int value, string description, bool temporary=false, int duration=0)
         {
             List<string> possibletypes = new List<string>() {"skill", "stat", "attribute"};
             if (!possibletypes.Contains(type)) throw new Exception($"Modifier type not found: {type}.");
@@ -25,7 +23,6 @@ namespace People
             Duration = duration;
             //TODO change exception
             if (duration < 0) throw new Exception($"Negative Duration: {duration}");
-            Id = name + "-" + source;
         }
         #endregion
 
@@ -38,7 +35,6 @@ namespace People
         public readonly int Value;
         public readonly bool Temporary;
         public readonly int Duration;
-        public readonly string Id;
         #endregion
 
         #region Methods
@@ -46,10 +42,9 @@ namespace People
         {
             string returnSummary = $"Citizen Stat Modifier: {Name}\n" +
                 $"{ModifiedValue}: {Value}\n" +
-                $"Description: {Description}\n" +
-                $"ID: {Id}";
+                $"Description: {Description}\n";
             if (Temporary)
-                returnSummary = returnSummary + $"\n" +
+                returnSummary = returnSummary + 
                     $"Duration: {Duration}\n";
             return returnSummary;
         }
