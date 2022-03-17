@@ -22,18 +22,24 @@ app.UseHttpsRedirection();
 
 
 FileTool fileTool = new FileTool();
-IndexId index = new IndexId(fileTool.ReadIndex());
-RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
-CitizenCache citizens = fileTool.ReadCitizens("citizens");
-PlayerCompany playercompany = fileTool.ReadCompany("company");
+//IndexId index = new IndexId(fileTool.ReadIndex());
+//RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
+//CitizenCache citizens = fileTool.ReadCitizens("citizens");
+//PlayerCompany playercompany = fileTool.ReadCompany("company");
+
+#region TestMapping
+app.MapGet("/test", () => CitizenDB.ReturnTest());
+
+#endregion 
 
 
 
-#region HTTPCallMapping
-app.MapGet("/test", () => CitizenDB.ReturnCitizen(citizens));
-app.MapGet("/company", () => playercompany.Describe());//() => CitizenDB.ReturnCitizen(citizens));
-app.MapGet("/company/citizen/{id}", (int id) => CitizenDB.ReturnCitizenFromCompany(playercompany, id));//() => CitizenDB.ReturnCitizen(citizens));
-#endregion
+
+//#region HTTPCallMapping
+//app.MapGet("/test", () => CitizenDB.ReturnCitizen(citizens));
+//app.MapGet("/company", () => playercompany.Describe());//() => CitizenDB.ReturnCitizen(citizens));
+//app.MapGet("/company/citizen/{id}", (int id) => CitizenDB.ReturnCitizenFromCompany(playercompany, id));//() => CitizenDB.ReturnCitizen(citizens));
+//#endregion
 
 
 

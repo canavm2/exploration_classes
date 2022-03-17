@@ -12,7 +12,7 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 //TraitList traitlist = new();
 TraitList traitlist = fileTool.ReadTraitList("traitlist");
 PlayerCompany testcompany = fileTool.ReadCompany("company");
-//Console.WriteLine(testcompany.Describe());
+Console.WriteLine(testcompany.Describe());
 CitizenCache citizens = fileTool.ReadCitizens("citizens");
 
 #region createcitizens
@@ -52,10 +52,10 @@ CitizenCache citizens = fileTool.ReadCitizens("citizens");
 //{
 //    Console.WriteLine(trait.Summary());
 //}
-foreach (Citizen.Trait trait in traitlist.Traits.Values)
-{
-    testcompany.Advisors["master"].RemoveTrait(trait.Name);
-}
+//foreach (Citizen.Trait trait in traitlist.Traits.Values)
+//{
+//    testcompany.Advisors["master"].RemoveTrait(trait.Name);
+//}
 
 
 //Stores everything again

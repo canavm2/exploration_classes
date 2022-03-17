@@ -1,0 +1,27 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "APIFirstPass, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/test": {
+      "get": {
+        "tags": [
+          "APIFirstPass, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
