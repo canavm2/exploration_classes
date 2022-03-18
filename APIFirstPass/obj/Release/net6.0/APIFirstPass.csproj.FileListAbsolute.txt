@@ -31,3 +31,9 @@ C:\Users\canav\Documents\ExplorationProject\APIFirstPass\obj\Release\net6.0\APIF
 C:\Users\canav\Documents\ExplorationProject\APIFirstPass\obj\Release\net6.0\ref\APIFirstPass.dll
 C:\Users\canav\Documents\ExplorationProject\APIFirstPass\obj\Release\net6.0\APIFirstPass.pdb
 C:\Users\canav\Documents\ExplorationProject\APIFirstPass\obj\Release\net6.0\APIFirstPass.genruntimeconfig.cache
+C:\Users\canav\Documents\ExplorationProject\APIFirstPass\bin\Release\net6.0\Azure.Core.dll
+C:\Users\canav\Documents\ExplorationProject\APIFirstPass\bin\Release\net6.0\Azure.Storage.Blobs.dll
+C:\Users\canav\Documents\ExplorationProject\APIFirstPass\bin\Release\net6.0\Azure.Storage.Common.dll
+C:\Users\canav\Documents\ExplorationProject\APIFirstPass\bin\Release\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\canav\Documents\ExplorationProject\APIFirstPass\bin\Release\net6.0\System.IO.Hashing.dll
+C:\Users\canav\Documents\ExplorationProject\APIFirstPass\bin\Release\net6.0\System.Memory.Data.dll

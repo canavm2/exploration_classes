@@ -20,8 +20,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 #endregion
 
-
-FileTool fileTool = new FileTool();
+AzureFileTool azureFileTool = new AzureFileTool();
+//FileTool fileTool = new FileTool();
 //IndexId index = new IndexId(fileTool.ReadIndex());
 //RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
 //CitizenCache citizens = fileTool.ReadCitizens("citizens");

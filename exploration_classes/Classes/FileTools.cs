@@ -2,6 +2,7 @@
 using People;
 using Company;
 using Relation;
+using Azure.Storage.Blobs;
 //using System.Text.Json;
 
 namespace FileTools
@@ -124,6 +125,32 @@ namespace FileTools
             return modifier;
         }
         #endregion
+    }
+
+    public class AzureFileTool
+    {
+        #region Constructor and Lists
+        public AzureFileTool() { }
+        string BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=wQq7oEuxJVmUfwCvu9lM8VunwmTzNfimeHmyi7c3g5vC9aIvw82X6tUQkK03c4q0FSXlMGFwYK6jYGiK+kUjKA==;EndpointSuffix=core.windows.net";
+        string ExplorationCSVContainerName = "explorationcsv";
+        #endregion
+
+        public void ReadCitizens(string filename)
+        {
+            //creates the container, which is like a folder on blob storage
+            BlobContainerClient container = new BlobContainerClient(BlobStorageConnectionString, ExplorationCSVContainerName);
+            //blobclient is the file
+            BlobClient blob = container.GetBlobClient("test.csv");
+            // https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.openreadasync?view=azure-dotnet#azure-storage-blobs-specialized-blobbaseclient-openreadasync(azure-storage-blobs-models-blobopenreadoptions-system-threading-cancellationtoken)
+            var stream = blob.OpenReadAsync();
+
+            //filename += ".txt";
+            //string filepath = Path.Combine(TxtFilePath, filename);
+            //string fileJson = File.ReadAllText(filepath);
+            //CitizenCache citizens;
+            //citizens = JsonConvert.DeserializeObject<CitizenCache>(fileJson);
+            //return citizens;
+        }
     }
 
     //An object that gets instantiated to holds the current index and method to call the next index.
