@@ -18,6 +18,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
+// This call the data stored in secrets.json
+string AzureStorageAccessKey = builder.Configuration["AzureCSVStorage:AccessApiKey"];
 #endregion
 
 AzureFileTool azureFileTool = new AzureFileTool();

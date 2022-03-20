@@ -130,8 +130,11 @@ namespace FileTools
     public class AzureFileTool
     {
         #region Constructor and Lists
-        public AzureFileTool() { }
-        string BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=wQq7oEuxJVmUfwCvu9lM8VunwmTzNfimeHmyi7c3g5vC9aIvw82X6tUQkK03c4q0FSXlMGFwYK6jYGiK+kUjKA==;EndpointSuffix=core.windows.net";
+        public AzureFileTool(string accessKey)
+        {
+            BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=" + accessKey + ";EndpointSuffix=core.windows.net";
+        }
+        string BlobStorageConnectionString;
         string ExplorationCSVContainerName = "explorationcsv";
         #endregion
 
