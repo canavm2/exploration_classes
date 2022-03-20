@@ -22,7 +22,7 @@ app.UseHttpsRedirection();
 string AzureStorageAccessKey = builder.Configuration["AzureCSVStorage:AccessApiKey"];
 #endregion
 
-AzureFileTool azureFileTool = new AzureFileTool();
+AzureFileTool azureFileTool = new AzureFileTool(AzureStorageAccessKey);
 //FileTool fileTool = new FileTool();
 //IndexId index = new IndexId(fileTool.ReadIndex());
 //RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
