@@ -14,17 +14,47 @@ namespace FileTools
     public class FileTool
     {
         #region Constructor and Lists
-        public FileTool() { }
-        string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
+        public FileTool(string accessKey)
+        {
+            BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=" + accessKey + ";EndpointSuffix=core.windows.net";
+            //creates the container, which is like a folder on blob storage
+            container = new BlobContainerClient(BlobStorageConnectionString, ExplorationTXTContainerName);
+        }
+        BlobContainerClient container;
+        string BlobStorageConnectionString;
+        string ExplorationTXTContainerName = "explorationtxt";
+        public string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
         #endregion
 
         #region methods
-        public void StoreCitizens(CitizenCache citizens, string filename)
+
+        public async Task<string> ReadTest()
+        {
+            //blobclient is the file
+            BlobClient blob = container.GetBlobClient("testtxt.txt");
+            if (await blob.ExistsAsync())
+            {
+                BlobDownloadInfo download = await blob.DownloadAsync();
+                byte[] result = new byte[download.ContentLength];
+                await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
+
+                return Encoding.UTF8.GetString(result);
+            }
+            return "error, read didnt happen";
+
+        }
+
+        public async Task StoreCitizens(CitizenCache citizens, string filename)
         {
             filename += ".txt";
             string jsoncitizen = JsonConvert.SerializeObject(citizens, Formatting.Indented);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsoncitizen);
+            BlobClient blobClient = container.GetBlobClient(filename);
+            string localFilePath = TxtFilePath + filename;
+            using FileStream uploadFileStream = File.OpenRead(localFilePath);
+            await blobClient.UploadAsync(uploadFileStream, true);
+            uploadFileStream.Close();
         }
         public CitizenCache ReadCitizens(string filename)
         {
@@ -135,18 +165,18 @@ namespace FileTools
         public AzureFileTool(string accessKey)
         {
             BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=" + accessKey + ";EndpointSuffix=core.windows.net";
+            //creates the container, which is like a folder on blob storage
+            container = new BlobContainerClient(BlobStorageConnectionString, ExplorationTXTContainerName);
         }
+        BlobContainerClient container;
         string BlobStorageConnectionString;
-        string ExplorationCSVContainerName = "explorationcsv";
+        string ExplorationTXTContainerName = "explorationtxt";
         #endregion
 
-        public async Task<string> ReadCitizens()
+        public async Task<string> ReadTest()
         {
-            //creates the container, which is like a folder on blob storage
-            BlobContainerClient container = new BlobContainerClient(BlobStorageConnectionString, ExplorationCSVContainerName);
             //blobclient is the file
-            BlobClient blob = container.GetBlobClient("test.csv");
-            // https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.openreadasync?view=azure-dotnet#azure-storage-blobs-specialized-blobbaseclient-openreadasync(azure-storage-blobs-models-blobopenreadoptions-system-threading-cancellationtoken)
+            BlobClient blob = container.GetBlobClient("testtxt.txt");
             if (await blob.ExistsAsync())
             {
                 BlobDownloadInfo download = await blob.DownloadAsync();
@@ -157,15 +187,25 @@ namespace FileTools
             }
             return "error, read didnt happen";
 
+        }
 
-            var stream = blob.OpenReadAsync();
 
-            //filename += ".txt";
-            //string filepath = Path.Combine(TxtFilePath, filename);
-            //string fileJson = File.ReadAllText(filepath);
-            //CitizenCache citizens;
-            //citizens = JsonConvert.DeserializeObject<CitizenCache>(fileJson);
-            //return citizens;
+
+        //NEED TO do this in filetool and then get rid of azure filetool  TODO!!!!!!
+        public async Task<string> AzureReadCitizens(string filename)
+        {
+            filename += ".txt";
+            //blobclient is the file
+            BlobClient blob = container.GetBlobClient(filename);
+            if (await blob.ExistsAsync())
+            {
+                BlobDownloadInfo download = await blob.DownloadAsync();
+                byte[] result = new byte[download.ContentLength];
+                await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
+                return Encoding.UTF8.GetString(result);
+            }
+            else throw new Exception();
+
         }
     }
 

@@ -22,15 +22,14 @@ app.UseHttpsRedirection();
 string AzureStorageAccessKey = builder.Configuration["AzureCSVStorage:AccessApiKey"];
 #endregion
 
-AzureFileTool azureFileTool = new AzureFileTool(AzureStorageAccessKey);
-//FileTool fileTool = new FileTool();
+FileTool fileTool = new FileTool(AzureStorageAccessKey);
 //IndexId index = new IndexId(fileTool.ReadIndex());
 //RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
 //CitizenCache citizens = fileTool.ReadCitizens("citizens");
 //PlayerCompany playercompany = fileTool.ReadCompany("company");
 
 #region TestMapping
-app.MapGet("/test", () => azureFileTool.ReadCitizens());
+app.MapGet("/test", () => fileTool.ReadTest());
 //app.MapGet("/test", () => CitizenDB.ReturnTest());
 //app.MapGet("/test", () => CitizenDB.ReturnTest(AzureStorageAccessKey));
 

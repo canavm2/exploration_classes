@@ -2,24 +2,23 @@
 using People;
 using Company;
 
-
-FileTool fileTool = new FileTool();
+FileTool fileTool = new FileTool("REPLACE");
 Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
 IndexId index = new IndexId(fileTool.ReadIndex());
 //RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
 //ModifierList modifierlist = new ModifierList();
 //ModifierList modifierlist = fileTool.ReadModifierList("modifierlist");
 //TraitList traitlist = new();
-TraitList traitlist = fileTool.ReadTraitList("traitlist");
-PlayerCompany testcompany = fileTool.ReadCompany("company");
-Console.WriteLine(testcompany.Describe());
-CitizenCache citizens = fileTool.ReadCitizens("citizens");
+//TraitList traitlist = fileTool.ReadTraitList("traitlist");
+//PlayerCompany testcompany = fileTool.ReadCompany("company");
+//Console.WriteLine(testcompany.Describe());
+//CitizenCache citizens = fileTool.ReadCitizens("citizens");
 
 #region createcitizens
-//CitizenCache citizens = new CitizenCache(index, 100);
-//Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].DescribeCitizen()}");
-//Console.WriteLine($"malecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].DescribeCitizen()}");
-//Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].DescribeCitizen()}");
+CitizenCache citizens = new CitizenCache(index, 100);
+Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].DescribeCitizen()}");
+Console.WriteLine($"malecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].DescribeCitizen()}");
+Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].DescribeCitizen()}");
 #endregion
 
 #region testingmodifiers
@@ -60,8 +59,8 @@ CitizenCache citizens = fileTool.ReadCitizens("citizens");
 
 //Stores everything again
 index.StoreIndex(fileTool);
-fileTool.StoreCitizens(citizens, "citizens");
-fileTool.StoreCompany(testcompany, "company");
+await fileTool.StoreCitizens(citizens, "citizens");
+//fileTool.StoreCompany(testcompany, "company");
 //fileTool.StoreModifierList(modifierlist, "modifierlist");
-fileTool.StoreTraitList(traitlist, "traitlist");
+//fileTool.StoreTraitList(traitlist, "traitlist");
 //fileTool.StoreRelationshipCache(relationshipcache, "relationships");
