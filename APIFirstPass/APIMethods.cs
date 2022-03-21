@@ -4,9 +4,9 @@ using Company;
 
 public class CitizenDB
 {
-    public static string ReturnTest()
+    public static string ReturnTest(string returnString)
     {
-        return "test ReturnTest";
+        return returnString;
     }
 
     public static string ReturnCitizen(CitizenCache cache)

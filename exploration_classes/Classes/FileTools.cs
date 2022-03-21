@@ -3,6 +3,8 @@ using People;
 using Company;
 using Relation;
 using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using System.Text;
 //using System.Text.Json;
 
 namespace FileTools
@@ -138,13 +140,24 @@ namespace FileTools
         string ExplorationCSVContainerName = "explorationcsv";
         #endregion
 
-        public void ReadCitizens(string filename)
+        public async Task<string> ReadCitizens()
         {
             //creates the container, which is like a folder on blob storage
             BlobContainerClient container = new BlobContainerClient(BlobStorageConnectionString, ExplorationCSVContainerName);
             //blobclient is the file
             BlobClient blob = container.GetBlobClient("test.csv");
             // https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.openreadasync?view=azure-dotnet#azure-storage-blobs-specialized-blobbaseclient-openreadasync(azure-storage-blobs-models-blobopenreadoptions-system-threading-cancellationtoken)
+            if (await blob.ExistsAsync())
+            {
+                BlobDownloadInfo download = await blob.DownloadAsync();
+                byte[] result = new byte[download.ContentLength];
+                await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
+
+                return Encoding.UTF8.GetString(result);
+            }
+            return "error, read didnt happen";
+
+
             var stream = blob.OpenReadAsync();
 
             //filename += ".txt";

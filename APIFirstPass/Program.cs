@@ -30,7 +30,9 @@ AzureFileTool azureFileTool = new AzureFileTool(AzureStorageAccessKey);
 //PlayerCompany playercompany = fileTool.ReadCompany("company");
 
 #region TestMapping
-app.MapGet("/test", () => CitizenDB.ReturnTest());
+app.MapGet("/test", () => azureFileTool.ReadCitizens());
+//app.MapGet("/test", () => CitizenDB.ReturnTest());
+//app.MapGet("/test", () => CitizenDB.ReturnTest(AzureStorageAccessKey));
 
 #endregion 
 
