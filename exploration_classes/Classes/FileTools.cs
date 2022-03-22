@@ -44,25 +44,50 @@ namespace FileTools
 
         }
 
-        public async Task StoreCitizens(CitizenCache citizens, string filename)
+        public async Task StoreTxt(string jsonInfo, string filename)
         {
             filename += ".txt";
-            string jsoncitizen = JsonConvert.SerializeObject(citizens, Formatting.Indented);
             string filepath = Path.Combine(TxtFilePath, filename);
-            File.WriteAllText(filepath, jsoncitizen);
+            File.WriteAllText(filepath, jsonInfo);
             BlobClient blobClient = container.GetBlobClient(filename);
-            string localFilePath = TxtFilePath + filename;
-            using FileStream uploadFileStream = File.OpenRead(localFilePath);
+            using FileStream uploadFileStream = File.OpenRead(filepath);
             await blobClient.UploadAsync(uploadFileStream, true);
             uploadFileStream.Close();
         }
-        public CitizenCache ReadCitizens(string filename)
+
+        public async Task<string> ReadTxt(string filename, Boolean azure = false)
         {
             filename += ".txt";
-            string filepath = Path.Combine(TxtFilePath, filename);
-            string fileJson = File.ReadAllText(filepath);
-            CitizenCache citizens;
-            citizens = JsonConvert.DeserializeObject<CitizenCache>(fileJson);
+            if (azure)
+            {
+                BlobClient blob = container.GetBlobClient(filename);
+                if (await blob.ExistsAsync())
+                {
+                    BlobDownloadInfo download = await blob.DownloadAsync();
+                    byte[] result = new byte[download.ContentLength];
+                    await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
+                    return Encoding.UTF8.GetString(result);
+                }
+                else throw new Exception();
+            }
+            else
+            {
+                string filepath = Path.Combine(TxtFilePath, filename);
+                string infoJson = File.ReadAllText(filepath);
+                Console.WriteLine(infoJson);
+                return infoJson;
+            }
+        }
+
+        public async Task StoreCitizens(CitizenCache citizens, string filename)
+        {
+            string jsoncitizen = JsonConvert.SerializeObject(citizens, Formatting.Indented);
+            await StoreTxt(jsoncitizen, filename);
+        }
+        public async Task<CitizenCache> ReadCitizens(string filename, Boolean azure = false)
+        {
+            string infoJson = await ReadTxt(filename, azure);
+            CitizenCache citizens = JsonConvert.DeserializeObject<CitizenCache>(infoJson);
             return citizens;
         }
         public void StoreCompany(PlayerCompany playercompany, string filename)
@@ -77,6 +102,7 @@ namespace FileTools
             filename += ".txt";
             string filepath = Path.Combine(TxtFilePath, filename);
             string fileJson = File.ReadAllText(filepath);
+            Console.WriteLine(fileJson);
             PlayerCompany playercompany = JsonConvert.DeserializeObject<PlayerCompany>(fileJson);
             return playercompany;
         }
@@ -173,21 +199,6 @@ namespace FileTools
         string ExplorationTXTContainerName = "explorationtxt";
         #endregion
 
-        public async Task<string> ReadTest()
-        {
-            //blobclient is the file
-            BlobClient blob = container.GetBlobClient("testtxt.txt");
-            if (await blob.ExistsAsync())
-            {
-                BlobDownloadInfo download = await blob.DownloadAsync();
-                byte[] result = new byte[download.ContentLength];
-                await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
-
-                return Encoding.UTF8.GetString(result);
-            }
-            return "error, read didnt happen";
-
-        }
 
 
 

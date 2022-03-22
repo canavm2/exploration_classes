@@ -12,13 +12,13 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 //TraitList traitlist = fileTool.ReadTraitList("traitlist");
 //PlayerCompany testcompany = fileTool.ReadCompany("company");
 //Console.WriteLine(testcompany.Describe());
-//CitizenCache citizens = fileTool.ReadCitizens("citizens");
+CitizenCache citizens = await fileTool.ReadCitizens("citizens", true);
 
 #region createcitizens
-CitizenCache citizens = new CitizenCache(index, 100);
-Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].DescribeCitizen()}");
-Console.WriteLine($"malecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].DescribeCitizen()}");
-Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].DescribeCitizen()}");
+//CitizenCache citizens = new CitizenCache(index, 100);
+//Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].DescribeCitizen()}");
+//Console.WriteLine($"malecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].DescribeCitizen()}");
+//Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].DescribeCitizen()}");
 #endregion
 
 #region testingmodifiers
@@ -59,7 +59,7 @@ Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe firs
 
 //Stores everything again
 index.StoreIndex(fileTool);
-await fileTool.StoreCitizens(citizens, "citizens");
+//await fileTool.StoreCitizens(citizens, "citizens");
 //fileTool.StoreCompany(testcompany, "company");
 //fileTool.StoreModifierList(modifierlist, "modifierlist");
 //fileTool.StoreTraitList(traitlist, "traitlist");
