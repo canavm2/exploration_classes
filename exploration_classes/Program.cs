@@ -40,7 +40,25 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 //TraitList traitlist = fileTool.ReadTraitList("traitlist");
 //PlayerCompany testcompany = fileTool.ReadCompany("company");
 //Console.WriteLine(testcompany.Describe());
-CitizenCache citizens = fileTool.ReadCitizens("citizens");
+
+//string sqlQueryText = "SELECT * FROM testContainer c WHERE c.id = \"testname.122637\"";
+//QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
+//Azure.AsyncPageable<CitizenCache> azureresponse = container.GetItemQueryIterator<CitizenCache>(queryDefinition);
+
+
+#region ReadfromCosmos
+ItemResponse<CitizenCache> response = await container.ReadItemAsync<CitizenCache>(partitionKey: new PartitionKey("testname"), id: "testname.122637");
+CitizenCache citizens = (CitizenCache)response;
+Console.WriteLine(citizens.FemaleCitizens[0].DescribeCitizen());
+#endregion
+
+
+#region ReadfromDisk-WritetoCosmos
+//CitizenCache citizens = fileTool.ReadCitizens("citizens");
+//Console.WriteLine(citizens.id);
+//ItemResponse<CitizenCache> andersenFamilyResponse = await container.CreateItemAsync<CitizenCache>(citizens, new PartitionKey(citizens.LastName));
+#endregion
+
 
 #region createcitizens
 //CitizenCache citizens = new CitizenCache(index, 100);
@@ -87,8 +105,13 @@ CitizenCache citizens = fileTool.ReadCitizens("citizens");
 
 //Stores everything again
 index.StoreIndex(fileTool);
-await fileTool.StoreCitizens(citizens, "citizens");
+//await fileTool.StoreCitizens(citizens, "citizens");
 //fileTool.StoreCompany(testcompany, "company");
 //fileTool.StoreModifierList(modifierlist, "modifierlist");
 //fileTool.StoreTraitList(traitlist, "traitlist");
 //fileTool.StoreRelationshipCache(relationshipcache, "relationships");
+
+
+
+
+

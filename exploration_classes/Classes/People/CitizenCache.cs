@@ -17,7 +17,8 @@ namespace People
         //Creates a cache with full lists of every citizen sex
         public CitizenCache(IndexId index, int size = 0)
         {
-            Id = index.GetIndex();
+            LastName = "testname";
+            id = LastName + "." + index.GetIndex().ToString();
             NameList nameList = new();
             FemaleCitizens = new();
             MaleCitizens = new();
@@ -34,9 +35,10 @@ namespace People
         }
 
         [JsonConstructor]
-        public CitizenCache(int id, List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
+        public CitizenCache(string Id, string lastName, List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
         {
-            Id=id;
+            id=Id;
+            LastName=lastName;
             FemaleCitizens = femalecitizens;
             MaleCitizens = malecitizens;
             NBCitizens = nbcitizens;
@@ -44,7 +46,8 @@ namespace People
         #endregion
 
         #region Dictionaries and Properties
-        public int Id { get; set; }
+        public string id { get; set; }
+        public string LastName { get; set; }
         public List<Citizen> FemaleCitizens { get; set; }
         public List<Citizen> MaleCitizens { get; set; }
         public List<Citizen> NBCitizens { get; set; }
