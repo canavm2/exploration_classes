@@ -16,11 +16,12 @@ var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
 
 string AzureAccess = config["AzureCSVStorage:AccessApiKey"];
-FileTool fileTool = new FileTool(config[AzureAccess]);
+Console.WriteLine(AzureAccess);
+FileTool fileTool = new FileTool(AzureAccess);
 Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
 
 
-//AzureCosmos
+#region azurecosmos
 string azureUri = config["AzureCosmos:URI"];
 string azureKey = config["AzureCosmos:PrimaryKey"];
 string databaseId = "testDB";
@@ -28,7 +29,7 @@ string containerId = "testContainer";
 CosmosClient cosmosClient = new CosmosClient(azureUri, azureKey);
 CosmosDatabase database = await cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
 CosmosContainer container = await cosmosClient.GetDatabase(databaseId).CreateContainerIfNotExistsAsync(containerId, "/LastName");
-
+#endregion
 
 
 IndexId index = new IndexId(fileTool.ReadIndex());
@@ -39,7 +40,7 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 //TraitList traitlist = fileTool.ReadTraitList("traitlist");
 //PlayerCompany testcompany = fileTool.ReadCompany("company");
 //Console.WriteLine(testcompany.Describe());
-//CitizenCache citizens = await fileTool.ReadCitizens("citizens", true);
+CitizenCache citizens = fileTool.ReadCitizens("citizens");
 
 #region createcitizens
 //CitizenCache citizens = new CitizenCache(index, 100);
@@ -86,7 +87,7 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 
 //Stores everything again
 index.StoreIndex(fileTool);
-//await fileTool.StoreCitizens(citizens, "citizens");
+await fileTool.StoreCitizens(citizens, "citizens");
 //fileTool.StoreCompany(testcompany, "company");
 //fileTool.StoreModifierList(modifierlist, "modifierlist");
 //fileTool.StoreTraitList(traitlist, "traitlist");

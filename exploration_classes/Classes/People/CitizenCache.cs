@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using FileTools;
 
 namespace People
@@ -15,6 +17,7 @@ namespace People
         //Creates a cache with full lists of every citizen sex
         public CitizenCache(IndexId index, int size = 0)
         {
+            Id = index.GetIndex();
             NameList nameList = new();
             FemaleCitizens = new();
             MaleCitizens = new();
@@ -29,9 +32,11 @@ namespace People
                 NBCitizens.Add(nbCitizen);
             }
         }
+
         [JsonConstructor]
-        public CitizenCache(List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
+        public CitizenCache(int id, List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
         {
+            Id=id;
             FemaleCitizens = femalecitizens;
             MaleCitizens = malecitizens;
             NBCitizens = nbcitizens;
@@ -39,9 +44,10 @@ namespace People
         #endregion
 
         #region Dictionaries and Properties
-        public List<Citizen> FemaleCitizens { get; }
-        public List<Citizen> MaleCitizens { get; }
-        public List<Citizen> NBCitizens { get; }
+        public int Id { get; set; }
+        public List<Citizen> FemaleCitizens { get; set; }
+        public List<Citizen> MaleCitizens { get; set; }
+        public List<Citizen> NBCitizens { get; set; }
         #endregion
 
         #region Methods

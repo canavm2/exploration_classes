@@ -13,17 +13,24 @@ namespace Relation
     //these are relationships between citizens that are no longer in the same company
     public class RelationshipCache
     {
+        #region constructors
         public RelationshipCache()
         {
             OldRelationships = new();
         }
+
         [JsonConstructor]
         public RelationshipCache(Dictionary<string, Relationship> oldrelationships)
         {
             OldRelationships = oldrelationships;
         }
-        public Dictionary<string, Relationship> OldRelationships { get; }
+        #endregion
 
+        #region dictionaries and attributes
+        public Dictionary<string, Relationship> OldRelationships { get; set; }
+        #endregion
+
+        #region methods
         public void CacheRelationship(Relationship relationship)
         {
             if (!OldRelationships.ContainsKey(relationship.Id))
@@ -40,6 +47,7 @@ namespace Relation
         {
             return OldRelationships.ContainsKey(id);
         }
+        #endregion
     }
 
     //Object that holds the various relationships between 2 citizens, only 1 object should exist, not one for each citizen
@@ -79,12 +87,12 @@ namespace Relation
         #endregion
 
         #region Dictionaries and Properties
-        public readonly string Id;
-        public readonly string Citizen1Name;
-        public readonly string Citizen2Name;
-        public int Friendliness;
-        public int Teamwork;
-        public int Connection;
+        public string Id { get; set; }
+        public string Citizen1Name { get; set; }
+        public string Citizen2Name { get; set; }
+        public int Friendliness { get; set; }
+        public int Teamwork { get; set; }
+        public int Connection { get; set; }
         #endregion
 
         #region Methods

@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿//using Newtonsoft.Json;
 using People;
 using Company;
 using Relation;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -24,11 +26,14 @@ namespace FileTools
             BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=" + accessKey + ";EndpointSuffix=core.windows.net";
             //creates the container, which is like a folder on blob storage
             container = new BlobContainerClient(BlobStorageConnectionString, ExplorationTXTContainerName);
+            options.WriteIndented = true;
         }
         BlobContainerClient container;
         string BlobStorageConnectionString;
         string ExplorationTXTContainerName = "explorationtxt";
         public string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
+        JsonSerializerOptions options = new JsonSerializerOptions();
+        
         #endregion
 
         #region methods
@@ -60,45 +65,29 @@ namespace FileTools
             uploadFileStream.Close();
         }
 
-        public async Task<string> ReadTxt(string filename, Boolean azure = false)
+        public string ReadTxt(string filename)
         {
-            filename += ".txt";
-            if (azure)
-            {
-                BlobClient blob = container.GetBlobClient(filename);
-                if (await blob.ExistsAsync())
-                {
-                    BlobDownloadInfo download = await blob.DownloadAsync();
-                    byte[] result = new byte[download.ContentLength];
-                    await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
-                    return Encoding.UTF8.GetString(result);
-                }
-                else throw new Exception();
-            }
-            else
-            {
-                string filepath = Path.Combine(TxtFilePath, filename);
-                string infoJson = File.ReadAllText(filepath);
-                Console.WriteLine(infoJson);
-                return infoJson;
-            }
+            string filepath = Path.Combine(TxtFilePath, filename);
+            string infoJson = File.ReadAllText(filepath);
+            return infoJson;
         }
 
         public async Task StoreCitizens(CitizenCache citizens, string filename)
         {
-            string jsoncitizen = JsonConvert.SerializeObject(citizens, Formatting.Indented);
+            string jsoncitizen = JsonSerializer.Serialize(citizens, options);
             await StoreTxt(jsoncitizen, filename);
         }
-        public async Task<CitizenCache> ReadCitizens(string filename, Boolean azure = false)
+        public CitizenCache ReadCitizens(string filename)
         {
-            string infoJson = await ReadTxt(filename, azure);
-            CitizenCache citizens = JsonConvert.DeserializeObject<CitizenCache>(infoJson);
+            filename += ".txt";
+            string infoJson = ReadTxt(filename);
+            CitizenCache citizens = JsonSerializer.Deserialize<CitizenCache>(infoJson);
             return citizens;
         }
         public void StoreCompany(PlayerCompany playercompany, string filename)
         {
             filename += ".txt";
-            string jsoncompany = JsonConvert.SerializeObject(playercompany, Formatting.Indented);
+            string jsoncompany = JsonSerializer.Serialize(playercompany, options);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsoncompany);
         }
@@ -108,13 +97,13 @@ namespace FileTools
             string filepath = Path.Combine(TxtFilePath, filename);
             string fileJson = File.ReadAllText(filepath);
             Console.WriteLine(fileJson);
-            PlayerCompany playercompany = JsonConvert.DeserializeObject<PlayerCompany>(fileJson);
+            PlayerCompany playercompany = JsonSerializer.Deserialize<PlayerCompany>(fileJson);
             return playercompany;
         }
         public void StoreRelationshipCache(RelationshipCache relationships, string filename)
         {
             filename += ".txt";
-            string jsonrelationshipcache = JsonConvert.SerializeObject(relationships, Formatting.Indented);
+            string jsonrelationshipcache = JsonSerializer.Serialize(relationships, options);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsonrelationshipcache);
         }
@@ -123,13 +112,13 @@ namespace FileTools
             filename += ".txt";
             string filepath = Path.Combine(TxtFilePath, filename);
             string fileJson = File.ReadAllText(filepath);
-            RelationshipCache relationshipcache = JsonConvert.DeserializeObject<RelationshipCache>(fileJson);
+            RelationshipCache relationshipcache = JsonSerializer.Deserialize<RelationshipCache>(fileJson);
             return relationshipcache;
         }
         public void StoreModifierList(ModifierList modifierlist, string filename)
         {
             filename += ".txt";
-            string jsonmodifierlist = JsonConvert.SerializeObject(modifierlist, Formatting.Indented);
+            string jsonmodifierlist = JsonSerializer.Serialize(modifierlist, options);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsonmodifierlist);
         }
@@ -138,13 +127,13 @@ namespace FileTools
             filename += ".txt";
             string filepath = Path.Combine(TxtFilePath, filename);
             string fileJson = File.ReadAllText(filepath);
-            ModifierList modifierlist = JsonConvert.DeserializeObject<ModifierList>(fileJson);
+            ModifierList modifierlist = JsonSerializer.Deserialize<ModifierList>(fileJson);
             return modifierlist;
         }
         public void StoreTraitList(TraitList traitlist, string filename)
         {
             filename += ".txt";
-            string jsontraitlist = JsonConvert.SerializeObject(traitlist, Formatting.Indented);
+            string jsontraitlist = JsonSerializer.Serialize(traitlist, options);
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsontraitlist);
         }
@@ -153,7 +142,7 @@ namespace FileTools
             filename += ".txt";
             string filepath = Path.Combine(TxtFilePath, filename);
             string fileJson = File.ReadAllText(filepath);
-            TraitList traitlist = JsonConvert.DeserializeObject<TraitList>(fileJson);
+            TraitList traitlist = JsonSerializer.Deserialize<TraitList>(fileJson);
             return traitlist;
         }
         public void StoreIndex(int currentindex)
@@ -163,7 +152,7 @@ namespace FileTools
             {
                 throw new Exception($"Error: Index too small: {currentindex}");
             }
-            string jsoncitizen = JsonConvert.SerializeObject(currentindex);
+            string jsoncitizen = JsonSerializer.Serialize(currentindex);
             File.WriteAllText(filepath, jsoncitizen);
         }
         public int ReadIndex()
@@ -171,20 +160,20 @@ namespace FileTools
             string filepath = Path.Combine(TxtFilePath, "index.txt");
             string fileJson = File.ReadAllText(filepath);
             int currentindex = 0;
-            currentindex = JsonConvert.DeserializeObject<int>(fileJson);
+            currentindex = JsonSerializer.Deserialize<int>(fileJson);
             return currentindex;
         }
         public void StoreModifier(Modifier modifier)
         {
             string filepath = Path.Combine(TxtFilePath, "modifier.txt");
-            string jsoncitizen = JsonConvert.SerializeObject(modifier, Formatting.Indented);
+            string jsoncitizen = JsonSerializer.Serialize(modifier, options);
             File.WriteAllText(filepath, jsoncitizen);
         }
         public Modifier ReadModifier()
         {
             string filepath = Path.Combine(TxtFilePath, "modifier.txt");
             string fileJson = File.ReadAllText(filepath);
-            Modifier modifier = JsonConvert.DeserializeObject<Modifier>(fileJson);
+            Modifier modifier = JsonSerializer.Deserialize<Modifier>(fileJson);
             return modifier;
         }
         #endregion

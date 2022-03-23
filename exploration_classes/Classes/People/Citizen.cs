@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using FileTools;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace People
 {
@@ -85,16 +87,18 @@ namespace People
         #endregion
 
         #region Dictionaries and Properties
-        public readonly int Id;
-        public readonly string Name;
-        public int Age;
-        public readonly string Gender;
-        public Skills Skills;
-        public Dictionary<string, Stat> PrimaryStats;
-        public Dictionary<string, Stat> DerivedStats;
-        public Dictionary<string, Attribute> Attributes;
-        public Dictionary<string,Modifier> Modifiers { get; }
-        public Dictionary<string,Trait> Traits { get; }
+
+        [JsonPropertyName("Id")]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public Skills Skills { get; set; }
+        public Dictionary<string, Stat> PrimaryStats { get; set; }
+        public Dictionary<string, Stat> DerivedStats { get; set; }
+        public Dictionary<string, Attribute> Attributes { get; set; }
+        public Dictionary<string,Modifier> Modifiers { get; set; }
+        public Dictionary<string,Trait> Traits { get; set; }
         #endregion
 
         #region Subclasses
@@ -115,8 +119,8 @@ namespace People
                 Unmodified = unmodified;
             }
             #endregion
-            public int Full;
-            public int Unmodified;
+            public int Full { get; set; }
+            public int Unmodified { get; set; }
         }
         public class Stat
         {
@@ -132,8 +136,8 @@ namespace People
                 Unmodified = unmodified;
                 Full = full;
             }
-            public int Unmodified;
-            public int Full;
+            public int Unmodified { get; set; }
+            public int Full { get; set; }
         }
         public class Trait
         {
@@ -153,10 +157,10 @@ namespace People
                 Known = known;
             }
 
-            public readonly string Name;
-            public readonly int Tier;
-            public Boolean Known;
-            public readonly List<Modifier> Modifiers;
+            public string Name { get; set; }
+            public  int Tier { get; set; }
+            public Boolean Known { get; set; }
+            public  List<Modifier> Modifiers { get; set; }
 
             public string Summary()
             {

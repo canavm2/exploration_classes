@@ -15,6 +15,7 @@ namespace FileTools
     {
         public TraitList()
         {
+            Traits = new();
             ListTool listTool = new();
             string[] lines = System.IO.File.ReadAllLines(path);
             for (int i = 1; i < lines.Length; i++)
@@ -45,7 +46,7 @@ namespace FileTools
             Traits = traits;
         }
 
-        public Dictionary<string, Citizen.Trait> Traits = new();
+        public Dictionary<string, Citizen.Trait> Traits { get; set; }
         string path = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\csv_files\traits.csv";
     }
 
@@ -56,6 +57,7 @@ namespace FileTools
     {
         public ModifierList()
         {
+            Modifiers = new();
             string[] lines = System.IO.File.ReadAllLines(path);
             for (int i= 1; i < lines.Length; i++)
             {
@@ -80,7 +82,7 @@ namespace FileTools
             Modifiers = modifiers;
         }
 
-        public Dictionary<string, Modifier> Modifiers = new();
+        public Dictionary<string, Modifier> Modifiers { get; set; }
         string path = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\csv_files\modifiers.csv";
     }
 }

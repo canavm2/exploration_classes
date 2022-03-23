@@ -54,11 +54,11 @@ namespace Company
         #endregion
 
         #region Dictionaries and Properties
-        public string Name;
-        public readonly int CompanyId;
-        public Dictionary<string, Citizen> Advisors { get; }
-        public Dictionary<string, Relationship> Relationships { get; }
-        public Skills Skills;
+        public string Name { get; set; }
+        public int CompanyId { get; set; }
+        public Dictionary<string, Citizen> Advisors { get; set; }
+        public Dictionary<string, Relationship> Relationships { get; set; }
+        public Skills Skills { get; set; }
 
         #endregion
 

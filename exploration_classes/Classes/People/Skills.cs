@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using FileTools;
 
 namespace People
@@ -16,6 +18,8 @@ namespace People
         //Takes type="company" parameter to produce a set of company skills
         public Skills(string type = "citizen")
         {
+            VocSkill = new();
+            ExpSkill = new();
             ListTool listTool = new ListTool();
             Random random = new();
             foreach (string skill in listTool.VocSkillsList)
@@ -58,8 +62,8 @@ namespace People
         #endregion
 
         #region Dictionaries and Properties
-        public Dictionary<string, Skill> VocSkill = new();
-        public Dictionary<string, Skill> ExpSkill = new();
+        public Dictionary<string, Skill> VocSkill { get; set; }
+        public Dictionary<string, Skill> ExpSkill { get; set; }
         #endregion
 
         #region Methods
@@ -110,8 +114,8 @@ namespace People
             Full=full;
             Unmodified=unmodified;
         }
-        public int Full;
-        public int Unmodified;
+        public int Full { get; set; }
+        public int Unmodified { get; set; }
     }
 
     #endregion
