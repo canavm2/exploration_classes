@@ -1,9 +1,36 @@
 ﻿using FileTools;
 using People;
+using Microsoft.Extensions.Configuration;
 using Company;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using Azure.Cosmos;
+//  CL command: dotnet add package Azure.Cosmos 
 
-FileTool fileTool = new FileTool("REPLACE");
+//used to access user.secrets
+var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+
+
+
+
+string AzureAccess = config["AzureCSVStorage:AccessApiKey"];
+FileTool fileTool = new FileTool(config[AzureAccess]);
 Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
+
+
+//AzureCosmos
+string azureUri = config["AzureCosmos:URI"];
+string azureKey = config["AzureCosmos:PrimaryKey"];
+string databaseId = "testDB";
+string containerId = "testContainer";
+CosmosClient cosmosClient = new CosmosClient(azureUri, azureKey);
+CosmosDatabase database = await cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
+CosmosContainer container = await cosmosClient.GetDatabase(databaseId).CreateContainerIfNotExistsAsync(containerId, "/LastName");
+
+
+
 IndexId index = new IndexId(fileTool.ReadIndex());
 //RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
 //ModifierList modifierlist = new ModifierList();
@@ -12,7 +39,7 @@ IndexId index = new IndexId(fileTool.ReadIndex());
 //TraitList traitlist = fileTool.ReadTraitList("traitlist");
 //PlayerCompany testcompany = fileTool.ReadCompany("company");
 //Console.WriteLine(testcompany.Describe());
-CitizenCache citizens = await fileTool.ReadCitizens("citizens", true);
+//CitizenCache citizens = await fileTool.ReadCitizens("citizens", true);
 
 #region createcitizens
 //CitizenCache citizens = new CitizenCache(index, 100);
