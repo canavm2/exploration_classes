@@ -21,7 +21,7 @@ namespace Company
             if (advisors.Count != 7)
                 throw new ArgumentException($"There are {advisors.Count} advisors in the list, there must be 7.");
             Name = name;
-            CompanyId = index.GetIndex();
+            id = index.GetIndex().ToString();
             Advisors = new();
             AddAdvisor(master, "master");
             //Sets the first 5 citizens in advisors to the other advisors
@@ -41,10 +41,10 @@ namespace Company
         }
 
         [JsonConstructor]
-        public PlayerCompany(string name, int companyid, Dictionary<string, Citizen> advisors, Dictionary<string, Relationship> relationships, Skills skills)
+        public PlayerCompany(string name, string Id, Dictionary<string, Citizen> advisors, Dictionary<string, Relationship> relationships, Skills skills)
         {
             Name = name;
-            CompanyId = companyid;
+            id = Id;
             Advisors = advisors;
             Relationships = relationships;
             Skills = skills;
@@ -55,7 +55,7 @@ namespace Company
 
         #region Dictionaries and Properties
         public string Name { get; set; }
-        public int CompanyId { get; set; }
+        public string id { get; set; }
         public Dictionary<string, Citizen> Advisors { get; set; }
         public Dictionary<string, Relationship> Relationships { get; set; }
         public Skills Skills { get; set; }
@@ -79,7 +79,7 @@ namespace Company
             }
             string companyDescription =
                 $"The company's name is: {Name}.\n" +
-                $"ID: {CompanyId}\n\n" +
+                $"ID: {id}\n\n" +
                 $"The company master is {Advisors["master"].Name}.\n\n" +
                 $"The company advisors are:\n" +
                 advisorDescription +

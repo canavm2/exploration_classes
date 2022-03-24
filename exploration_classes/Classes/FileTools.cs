@@ -21,75 +21,69 @@ namespace FileTools
     public class FileTool
     {
         #region Constructor and Lists
-        public FileTool(string accessKey)
+        public FileTool(string azureUri, string azureKey)
         {
-            BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=" + accessKey + ";EndpointSuffix=core.windows.net";
-            //creates the container, which is like a folder on blob storage
-            container = new BlobContainerClient(BlobStorageConnectionString, ExplorationTXTContainerName);
             options.WriteIndented = true;
+            cosmosClient = new CosmosClient(azureUri, azureKey);
         }
-        BlobContainerClient container;
-        string BlobStorageConnectionString;
-        string ExplorationTXTContainerName = "explorationtxt";
         public string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
         JsonSerializerOptions options = new JsonSerializerOptions();
-        
+        string databaseId = "testDB";
+        CosmosClient cosmosClient;
+        CosmosContainer container;
         #endregion
 
         #region methods
 
-        public async Task<string> ReadTest()
-        {
-            //blobclient is the file
-            BlobClient blob = container.GetBlobClient("testtxt.txt");
-            if (await blob.ExistsAsync())
-            {
-                BlobDownloadInfo download = await blob.DownloadAsync();
-                byte[] result = new byte[download.ContentLength];
-                await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
+        //public async Task<string> ReadTest()
+        //{
+        //    //blobclient is the file
+        //    BlobClient blob = container.GetBlobClient("testtxt.txt");
+        //    if (await blob.ExistsAsync())
+        //    {
+        //        BlobDownloadInfo download = await blob.DownloadAsync();
+        //        byte[] result = new byte[download.ContentLength];
+        //        await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
 
-                return Encoding.UTF8.GetString(result);
-            }
-            return "error, read didnt happen";
+        //        return Encoding.UTF8.GetString(result);
+        //    }
+        //    return "error, read didnt happen";
 
-        }
+        //}
 
-        public async Task StoreTxt(string jsonInfo, string filename)
+
+        public void StoreLocal(string jsonInfo, string filename)
         {
             filename += ".txt";
             string filepath = Path.Combine(TxtFilePath, filename);
             File.WriteAllText(filepath, jsonInfo);
-            BlobClient blobClient = container.GetBlobClient(filename);
-            using FileStream uploadFileStream = File.OpenRead(filepath);
-            await blobClient.UploadAsync(uploadFileStream, true);
-            uploadFileStream.Close();
         }
-
-        public string ReadTxt(string filename)
+        public string ReadLocal(string filename)
         {
+            filename += ".txt";
             string filepath = Path.Combine(TxtFilePath, filename);
             string infoJson = File.ReadAllText(filepath);
             return infoJson;
         }
 
-        public async Task StoreCitizens(CitizenCache citizens, string filename)
+        public async Task StoreCitizens(CitizenCache citizens, string id, string partitionKeyString)
         {
-            string jsoncitizen = JsonSerializer.Serialize(citizens, options);
-            await StoreTxt(jsoncitizen, filename);
+            string containerId = "CitizenCache";
+            container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<CitizenCache> response = await container.UpsertItemAsync<CitizenCache>(citizens);
         }
-        public CitizenCache ReadCitizens(string filename)
+        public async Task<CitizenCache> ReadCitizens(string partitionKeyString, string id)
         {
-            filename += ".txt";
-            string infoJson = ReadTxt(filename);
-            CitizenCache citizens = JsonSerializer.Deserialize<CitizenCache>(infoJson);
-            return citizens;
+            string containerId = "CitizenCache";
+            container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<CitizenCache> response = await container.ReadItemAsync<CitizenCache>(id: id, partitionKey: new PartitionKey(id));
+            return (CitizenCache)response;
         }
-        public void StoreCompany(PlayerCompany playercompany, string filename)
+        public async Task StoreCompany(PlayerCompany playerCompany)
         {
-            filename += ".txt";
-            string jsoncompany = JsonSerializer.Serialize(playercompany, options);
-            string filepath = Path.Combine(TxtFilePath, filename);
-            File.WriteAllText(filepath, jsoncompany);
+            string containerId = "PlayerCompanies";
+            container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<PlayerCompany> response = await container.UpsertItemAsync<PlayerCompany>(playerCompany);
         }
         public PlayerCompany ReadCompany(string filename)
         {
@@ -177,41 +171,6 @@ namespace FileTools
             return modifier;
         }
         #endregion
-    }
-
-    public class AzureFileTool
-    {
-        #region Constructor and Lists
-        public AzureFileTool(string accessKey)
-        {
-            BlobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=exploration202203;AccountKey=" + accessKey + ";EndpointSuffix=core.windows.net";
-            //creates the container, which is like a folder on blob storage
-            container = new BlobContainerClient(BlobStorageConnectionString, ExplorationTXTContainerName);
-        }
-        BlobContainerClient container;
-        string BlobStorageConnectionString;
-        string ExplorationTXTContainerName = "explorationtxt";
-        #endregion
-
-
-
-
-        //NEED TO do this in filetool and then get rid of azure filetool  TODO!!!!!!
-        public async Task<string> AzureReadCitizens(string filename)
-        {
-            filename += ".txt";
-            //blobclient is the file
-            BlobClient blob = container.GetBlobClient(filename);
-            if (await blob.ExistsAsync())
-            {
-                BlobDownloadInfo download = await blob.DownloadAsync();
-                byte[] result = new byte[download.ContentLength];
-                await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
-                return Encoding.UTF8.GetString(result);
-            }
-            else throw new Exception();
-
-        }
     }
 
     //An object that gets instantiated to holds the current index and method to call the next index.
