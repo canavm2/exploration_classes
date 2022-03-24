@@ -29,7 +29,7 @@ namespace People
                 DescribeStats() +
                 $"\nTheir skills are:\n\n" +
                 Skills.Describe() +
-                $"\nThis citizen's ID: {Id}\n\n";
+                $"\nThis citizen's ID: {id}\n\n";
 
             return returnDescription;
         }

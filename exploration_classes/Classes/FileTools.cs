@@ -30,84 +30,60 @@ namespace FileTools
         JsonSerializerOptions options = new JsonSerializerOptions();
         string databaseId = "testDB";
         CosmosClient cosmosClient;
-        CosmosContainer container;
         #endregion
 
         #region methods
-
-        //public async Task<string> ReadTest()
+        //public void StoreLocal(string jsonInfo, string filename)
         //{
-        //    //blobclient is the file
-        //    BlobClient blob = container.GetBlobClient("testtxt.txt");
-        //    if (await blob.ExistsAsync())
-        //    {
-        //        BlobDownloadInfo download = await blob.DownloadAsync();
-        //        byte[] result = new byte[download.ContentLength];
-        //        await download.Content.ReadAsync(result, 0, (int)download.ContentLength);
-
-        //        return Encoding.UTF8.GetString(result);
-        //    }
-        //    return "error, read didnt happen";
-
+        //    filename += ".txt";
+        //    string filepath = Path.Combine(TxtFilePath, filename);
+        //    File.WriteAllText(filepath, jsonInfo);
         //}
-
-
-        public void StoreLocal(string jsonInfo, string filename)
-        {
-            filename += ".txt";
-            string filepath = Path.Combine(TxtFilePath, filename);
-            File.WriteAllText(filepath, jsonInfo);
-        }
-        public string ReadLocal(string filename)
-        {
-            filename += ".txt";
-            string filepath = Path.Combine(TxtFilePath, filename);
-            string infoJson = File.ReadAllText(filepath);
-            return infoJson;
-        }
-
-        public async Task StoreCitizens(CitizenCache citizens, string id, string partitionKeyString)
+        //public string ReadLocal(string filename)
+        //{
+        //    filename += ".txt";
+        //    string filepath = Path.Combine(TxtFilePath, filename);
+        //    string infoJson = File.ReadAllText(filepath);
+        //    return infoJson;
+        //}
+        public async Task StoreCitizens(CitizenCache citizens)
         {
             string containerId = "CitizenCache";
-            container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
             ItemResponse<CitizenCache> response = await container.UpsertItemAsync<CitizenCache>(citizens);
         }
-        public async Task<CitizenCache> ReadCitizens(string partitionKeyString, string id)
+        public async Task<CitizenCache> ReadCitizens(string id)
         {
             string containerId = "CitizenCache";
-            container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
             ItemResponse<CitizenCache> response = await container.ReadItemAsync<CitizenCache>(id: id, partitionKey: new PartitionKey(id));
             return (CitizenCache)response;
         }
         public async Task StoreCompany(PlayerCompany playerCompany)
         {
             string containerId = "PlayerCompanies";
-            container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
             ItemResponse<PlayerCompany> response = await container.UpsertItemAsync<PlayerCompany>(playerCompany);
         }
-        public PlayerCompany ReadCompany(string filename)
+        public async Task<PlayerCompany> ReadCompany(string id)
         {
-            filename += ".txt";
-            string filepath = Path.Combine(TxtFilePath, filename);
-            string fileJson = File.ReadAllText(filepath);
-            Console.WriteLine(fileJson);
-            PlayerCompany playercompany = JsonSerializer.Deserialize<PlayerCompany>(fileJson);
-            return playercompany;
+            string containerId = "PlayerCompanies";
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<PlayerCompany> response = await container.ReadItemAsync<PlayerCompany>(id: id, partitionKey: new PartitionKey(id));
+            return (PlayerCompany)response;
         }
-        public void StoreRelationshipCache(RelationshipCache relationships, string filename)
+        public async Task StoreRelationshipCache(RelationshipCache relationships)
         {
-            filename += ".txt";
-            string jsonrelationshipcache = JsonSerializer.Serialize(relationships, options);
-            string filepath = Path.Combine(TxtFilePath, filename);
-            File.WriteAllText(filepath, jsonrelationshipcache);
+            string containerId = "CitizenCache";
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<RelationshipCache> response = await container.UpsertItemAsync<RelationshipCache>(relationships);
         }
-        public RelationshipCache ReadRelationshipCache(string filename)
+        public async Task<RelationshipCache> ReadRelationshipCache(string id)
         {
-            filename += ".txt";
-            string filepath = Path.Combine(TxtFilePath, filename);
-            string fileJson = File.ReadAllText(filepath);
-            RelationshipCache relationshipcache = JsonSerializer.Deserialize<RelationshipCache>(fileJson);
-            return relationshipcache;
+            string containerId = "CitizenCache";
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<RelationshipCache> response = await container.ReadItemAsync<RelationshipCache>(id: id, partitionKey: new PartitionKey(id));
+            return (RelationshipCache)response;
         }
         public void StoreModifierList(ModifierList modifierlist, string filename)
         {
@@ -139,24 +115,24 @@ namespace FileTools
             TraitList traitlist = JsonSerializer.Deserialize<TraitList>(fileJson);
             return traitlist;
         }
-        public void StoreIndex(int currentindex)
-        {
-            string filepath = Path.Combine(TxtFilePath, "index.txt");
-            if (currentindex < 100000)
-            {
-                throw new Exception($"Error: Index too small: {currentindex}");
-            }
-            string jsoncitizen = JsonSerializer.Serialize(currentindex);
-            File.WriteAllText(filepath, jsoncitizen);
-        }
-        public int ReadIndex()
-        {
-            string filepath = Path.Combine(TxtFilePath, "index.txt");
-            string fileJson = File.ReadAllText(filepath);
-            int currentindex = 0;
-            currentindex = JsonSerializer.Deserialize<int>(fileJson);
-            return currentindex;
-        }
+        //public void StoreIndex(int currentindex)
+        //{
+        //    string filepath = Path.Combine(TxtFilePath, "index.txt");
+        //    if (currentindex < 100000)
+        //    {
+        //        throw new Exception($"Error: Index too small: {currentindex}");
+        //    }
+        //    string jsoncitizen = JsonSerializer.Serialize(currentindex);
+        //    File.WriteAllText(filepath, jsoncitizen);
+        //}
+        //public int ReadIndex()
+        //{
+        //    string filepath = Path.Combine(TxtFilePath, "index.txt");
+        //    string fileJson = File.ReadAllText(filepath);
+        //    int currentindex = 0;
+        //    currentindex = JsonSerializer.Deserialize<int>(fileJson);
+        //    return currentindex;
+        //}
         public void StoreModifier(Modifier modifier)
         {
             string filepath = Path.Combine(TxtFilePath, "modifier.txt");
@@ -174,30 +150,31 @@ namespace FileTools
     }
 
     //An object that gets instantiated to holds the current index and method to call the next index.
-    public class IndexId
-    {
-        public IndexId(int index)
-        {
-            currentindex = index;
-        }
-        private int currentindex;
+    //public class IndexId
+    //{
+    //    public IndexId(int index)
+    //    {
+    //        currentindex = index;
+    //    }
+    //    public string id = "devindex";
+    //    public int currentindex { get; set; }
 
-        //method to call to get the next unused index
-        public int GetIndex()
-        {
-            currentindex++;
-            return currentindex;
-        }
-        public string CurrentIndex()
-        {
-            //converts to a string so it isnt used as an indexer.
-            return ("!"+ currentindex.ToString() + "!");
-        }
-        public void StoreIndex(FileTool filetool)
-        {
-            filetool.StoreIndex(currentindex);
-        }
-    }
+    //    //method to call to get the next unused index
+    //    public int GetIndex()
+    //    {
+    //        currentindex++;
+    //        return currentindex;
+    //    }
+    //    public string CurrentIndex()
+    //    {
+    //        //converts to a string so it isnt used as an indexer.
+    //        return ("!"+ currentindex.ToString() + "!");
+    //    }
+    //    public void StoreIndex(FileTool filetool)
+    //    {
+    //        filetool.StoreIndex(currentindex);
+    //    }
+    //}
 
     //An object that can be isntatiated to hold the lists of skills, stats, and attributes
     public class ListTool

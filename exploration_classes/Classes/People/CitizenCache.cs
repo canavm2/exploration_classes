@@ -15,27 +15,27 @@ namespace People
     {
         #region Constructors
         //Creates a cache with full lists of every citizen sex
-        public CitizenCache(IndexId index, int size = 0)
+        public CitizenCache(int size = 0)
         {
             Name = "Testing";
-            id = index.GetIndex().ToString();
+            id = Guid.NewGuid();
             NameList nameList = new();
             FemaleCitizens = new();
             MaleCitizens = new();
             NBCitizens = new();
             for (int i = 0; i < size; i++)
             {
-                Citizen femaleCitizen = new(nameList.generateName("female"), "female", index);
+                Citizen femaleCitizen = new(nameList.generateName("female"), "female");
                 FemaleCitizens.Add(femaleCitizen);
-                Citizen maleCitizen = new(nameList.generateName("male"), "male", index);
+                Citizen maleCitizen = new(nameList.generateName("male"), "male");
                 MaleCitizens.Add(maleCitizen);
-                Citizen nbCitizen = new(nameList.generateName("non-binary"), "non-binary", index);
+                Citizen nbCitizen = new(nameList.generateName("non-binary"), "non-binary");
                 NBCitizens.Add(nbCitizen);
             }
         }
 
         [JsonConstructor]
-        public CitizenCache(string Id, string name, List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
+        public CitizenCache(Guid Id, string name, List<Citizen> femalecitizens, List<Citizen> malecitizens, List<Citizen> nbcitizens)
         {
             id=Id;
             Name=name;
@@ -46,7 +46,7 @@ namespace People
         #endregion
 
         #region Dictionaries and Properties
-        public string id { get; set; }
+        public Guid id { get; set; }
         public string Name { get; set; }
         public List<Citizen> FemaleCitizens { get; set; }
         public List<Citizen> MaleCitizens { get; set; }

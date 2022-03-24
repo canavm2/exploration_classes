@@ -2,6 +2,7 @@
 using People;
 using Microsoft.Extensions.Configuration;
 using Company;
+using Relation;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,10 +14,24 @@ using Azure.Cosmos;
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 string azureUri = config["AzureCosmos:URI"];
 string azureKey = config["AzureCosmos:PrimaryKey"];
-string citizensId = "123540";
-string partitionKey = citizensId;
+string citizensId = "59558795-f812-4258-90bd-c4bdd0f9ddf4";
+string companyId = "3c29a4b7-ad9d-414d-9124-e7e09ab9f699";
+string relationshipId;
+
+
+
 FileTool fileTool = new FileTool(azureUri, azureKey);
-Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
+
+CitizenCache citizens = await fileTool.ReadCitizens(citizensId);
+Console.WriteLine("Female Citizen[0] age is: " + citizens.FemaleCitizens[0].Age);
+citizens.FemaleCitizens[0].Age += 1;
+
+Console.WriteLine("Female Citizen[0] age is now: " + citizens.FemaleCitizens[0].Age);
+PlayerCompany testcompany = await fileTool.ReadCompany(companyId);
+Console.WriteLine(testcompany.Describe());
+
+RelationshipCache relationshipCache = new RelationshipCache();
+
 
 
 #region azurecosmos
@@ -28,39 +43,25 @@ Console.WriteLine($"The current index is: {fileTool.ReadIndex()}");
 #endregion
 
 
-IndexId index = new IndexId(fileTool.ReadIndex());
 //RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
 //ModifierList modifierlist = new ModifierList();
 //ModifierList modifierlist = fileTool.ReadModifierList("modifierlist");
 //TraitList traitlist = new();
 //TraitList traitlist = fileTool.ReadTraitList("traitlist");
-//PlayerCompany testcompany = fileTool.ReadCompany("company");
-//Console.WriteLine(testcompany.Describe());
-CitizenCache citizens = await fileTool.ReadCitizens(partitionKey, citizensId);
-Console.WriteLine("Female Citizen[0] age is: " + citizens.FemaleCitizens[0].Age);
-citizens.FemaleCitizens[0].Age += 1;
-Console.WriteLine("Female Citizen[0] age is now: " + citizens.FemaleCitizens[0].Age);
-
-
-
-
-#region ReadfromCosmos
-//ItemResponse<CitizenCache> response = await container.ReadItemAsync<CitizenCache>(partitionKey: new PartitionKey("testname"), id: "testname.122637");
-//CitizenCache citizens = (CitizenCache)response;
-//Console.WriteLine(citizens.FemaleCitizens[0].DescribeCitizen());
-#endregion
-
-#region ReadfromDisk-WritetoCosmos
-//CitizenCache citizens = fileTool.ReadCitizens("citizens");
-//Console.WriteLine(citizens.id);
-//ItemResponse<CitizenCache> andersenFamilyResponse = await container.CreateItemAsync<CitizenCache>(citizens, new PartitionKey(citizens.LastName));
-#endregion
 
 #region createcitizens
-//CitizenCache citizens = new CitizenCache(index, 100);
+//CitizenCache citizens = new CitizenCache(100);
 //Console.WriteLine($"femalecitizens has: {citizens.FemaleCitizens.Count} items.\nThe first female is:\n{citizens.FemaleCitizens[0].DescribeCitizen()}");
 //Console.WriteLine($"malecitizens has: {citizens.MaleCitizens.Count} items.\nThe first male is:\n{citizens.MaleCitizens[0].DescribeCitizen()}");
 //Console.WriteLine($"nbcitizens has: {citizens.NBCitizens.Count} items.\nThe first non-binary is:\n{citizens.NBCitizens[0].DescribeCitizen()}");
+#endregion
+
+#region createcompany
+//List<Citizen> advisors = new List<Citizen>();
+//for (int i = 0; i < 7; i++)
+//    advisors.Add(citizens.GetRandomCitizen());
+//Citizen master = citizens.GetRandomCitizen();
+//PlayerCompany testcompany = new("testcompany", master, advisors);
 #endregion
 
 #region testingmodifiers
@@ -71,38 +72,17 @@ Console.WriteLine("Female Citizen[0] age is now: " + citizens.FemaleCitizens[0].
 //Console.WriteLine(testcompany.Advisors["master"].DescribeCitizen());
 #endregion
 
-#region createcompany
-//List<Citizen> advisors = new List<Citizen>();
-//for (int i = 0; i < 7; i++)
-//    advisors.Add(citizens.GetRandomCitizen());
-//Citizen master = citizens.GetRandomCitizen();
-//PlayerCompany testcompany = new("testcompany", index, master, advisors);
-#endregion
-
-#region readcompany
-//Relationships.UpdateRelationships(testcompany,relationshipcache);
-#endregion
-
 #region advisortesting
 //Citizen replacementadvisor = citizens.GetRandomCitizen();
 //Console.WriteLine(replacementadvisor.Describe());
 //Relationships.ReplaceAdvisor(replacementadvisor, testcompany, "advisor1", citizens, relationshipcache);
 #endregion
 
-//foreach (Citizen.Trait trait in traitlist.Traits.Values)
-//{
-//    Console.WriteLine(trait.Summary());
-//}
-//foreach (Citizen.Trait trait in traitlist.Traits.Values)
-//{
-//    testcompany.Advisors["master"].RemoveTrait(trait.Name);
-//}
-
 
 //Stores everything again
-index.StoreIndex(fileTool);
-await fileTool.StoreCitizens(citizens, citizensId, partitionKey);
-//fileTool.StoreCompany(testcompany, "company");
+await fileTool.StoreCitizens(citizens);
+await fileTool.StoreCompany(testcompany);
+await fileTool.StoreRelationshipCache(relationshipCache);
 //fileTool.StoreModifierList(modifierlist, "modifierlist");
 //fileTool.StoreTraitList(traitlist, "traitlist");
 //fileTool.StoreRelationshipCache(relationshipcache, "relationships");

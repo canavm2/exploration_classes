@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using People;
 using Company;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace Relation
 {
@@ -17,25 +18,28 @@ namespace Relation
         public RelationshipCache()
         {
             OldRelationships = new();
+            id = Guid.NewGuid();
         }
 
         [JsonConstructor]
-        public RelationshipCache(Dictionary<string, Relationship> oldrelationships)
+        public RelationshipCache(Dictionary<string, Relationship> oldrelationships, Guid Id)
         {
             OldRelationships = oldrelationships;
+            id = Id;
         }
         #endregion
 
         #region dictionaries and attributes
+        public Guid id { get; set; }
         public Dictionary<string, Relationship> OldRelationships { get; set; }
         #endregion
 
         #region methods
         public void CacheRelationship(Relationship relationship)
         {
-            if (!OldRelationships.ContainsKey(relationship.Id))
-                OldRelationships[relationship.Id] = relationship;
-            else throw new Exception($"Relationship Cache already contains relationship: {relationship.Id}");
+            if (!OldRelationships.ContainsKey(relationship.id))
+                OldRelationships[relationship.id] = relationship;
+            else throw new Exception($"Relationship Cache already contains relationship: {relationship.id}");
         }
         public Relationship RetrieveRelationship(string id)
         {
@@ -61,8 +65,9 @@ namespace Relation
             Teamwork = random.Next(-10, 20);
             Connection = 0;
             //Creates an ID with the citizen's IDs as: XXXX-YYYY, where XXXX is smaller than YYYY
-            Id = CreateRelationshipId(citizen1.Id, citizen2.Id);
-            if (citizen1.Id < citizen2.Id)
+            int compare = citizen1.id.CompareTo(citizen2.id);
+            id = CreateRelationshipId(citizen1.id.ToString(), citizen2.id.ToString(), compare);
+            if (compare < 0)
             {
                 Citizen1Name = citizen1.Name;
                 Citizen2Name = citizen2.Name;
@@ -75,19 +80,20 @@ namespace Relation
         }
 
         [JsonConstructor]
-        public Relationship(int friendliness, int teamwork, int connection, string id, string citizen1name, string citizen2name)
+        public Relationship(int friendliness, int teamwork, int connection, string Id, string citizen1name, string citizen2name)
         {
             Friendliness = friendliness;
             Teamwork = teamwork;
             Connection = connection;
-            Id = id;
+            id = Id;
             Citizen1Name = citizen1name;
             Citizen2Name = citizen2name;
         }
         #endregion
 
         #region Dictionaries and Properties
-        public string Id { get; set; }
+        //This is not a Guid because its stored as two Guids merged with an "&"
+        public string id { get; set; }
         public string Citizen1Name { get; set; }
         public string Citizen2Name { get; set; }
         public int Friendliness { get; set; }
@@ -97,21 +103,21 @@ namespace Relation
 
         #region Methods
         //Creates an ID with the citizen's IDs as: XXXX-YYYY, where XXXX is smaller than YYYY
-        public static string CreateRelationshipId(int citId1, int citId2)
+        public static string CreateRelationshipId(string id1, string id2, int compare)
         {
-            int Id1;
-            int Id2;
-            if (citId1 < citId2)
+            string Id1;
+            string Id2;
+            if (compare < 0)
             {
-                Id1 = citId1;
-                Id2 = citId2;
+                Id1 = id1;
+                Id2 = id2;
             }
             else
             {
-                Id1 = citId2;
-                Id2 = citId1;
+                Id1 = id2;
+                Id2 = id1;
             }
-            return $"{Id1}-{Id2}";
+            return $"{Id1}&{Id2}";
         }
         #endregion
     }

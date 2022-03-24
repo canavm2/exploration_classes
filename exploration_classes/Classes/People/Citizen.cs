@@ -14,7 +14,7 @@ namespace People
     {
         #region Constructors
         //Builds a random citizen
-        public Citizen(string name, string gender, IndexId indexer, int age = 0)
+        public Citizen(string name, string gender, int age = 0)
         {
             Random random = new();
             if (age == 0)
@@ -26,7 +26,7 @@ namespace People
                 Gender = gender;
             else
                 Gender = "non-binary";
-            Id = indexer.GetIndex();
+            id = Guid.NewGuid();
             Skills = new();
             Modifiers = new();
             Traits = new();
@@ -64,7 +64,7 @@ namespace People
         public Citizen(
             string name,
             string gender,
-            int id, int age,
+            Guid Id, int age,
             Skills skills,
             Dictionary<string, Stat> primarystats,
             Dictionary<string, Stat> derivedstats,
@@ -75,7 +75,7 @@ namespace People
         {
             Name = name;
             Gender = gender;
-            Id = id;
+            id = Id;
             Age = age;
             Skills = skills;
             PrimaryStats = primarystats;
@@ -88,8 +88,7 @@ namespace People
 
         #region Dictionaries and Properties
 
-        [JsonPropertyName("Id")]
-        public int Id { get; set; }
+        public Guid id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using People;
 using FileTools;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using Relation;
 
 namespace Company
@@ -15,13 +16,13 @@ namespace Company
     {
         //Initialy building a company
         #region Constructor
-        public PlayerCompany(string name, IndexId index, Citizen master, List<Citizen> advisors)
+        public PlayerCompany(string name, Citizen master, List<Citizen> advisors)
         {
             Relationships = new();
             if (advisors.Count != 7)
                 throw new ArgumentException($"There are {advisors.Count} advisors in the list, there must be 7.");
             Name = name;
-            id = index.GetIndex().ToString();
+            id = Guid.NewGuid();
             Advisors = new();
             AddAdvisor(master, "master");
             //Sets the first 5 citizens in advisors to the other advisors
@@ -41,7 +42,7 @@ namespace Company
         }
 
         [JsonConstructor]
-        public PlayerCompany(string name, string Id, Dictionary<string, Citizen> advisors, Dictionary<string, Relationship> relationships, Skills skills)
+        public PlayerCompany(string name, Guid Id, Dictionary<string, Citizen> advisors, Dictionary<string, Relationship> relationships, Skills skills)
         {
             Name = name;
             id = Id;
@@ -55,7 +56,7 @@ namespace Company
 
         #region Dictionaries and Properties
         public string Name { get; set; }
-        public string id { get; set; }
+        public Guid id { get; set; }
         public Dictionary<string, Citizen> Advisors { get; set; }
         public Dictionary<string, Relationship> Relationships { get; set; }
         public Skills Skills { get; set; }
@@ -138,10 +139,10 @@ namespace Company
             Advisors[role] = citizen;
             foreach (Citizen advisor in Advisors.Values)
             {
-                if (advisor.Id != citizen.Id)
+                if (advisor.id != citizen.id)
                 {
                     Relationship relationship = new Relationship(citizen, advisor);
-                    Relationships[relationship.Id] = relationship;
+                    Relationships[relationship.id] = relationship;
                 }
             }
         }
@@ -157,11 +158,14 @@ namespace Company
             UpdateCompanySkills();
         }
 
-        public string CreateRelationshipId(int citId1, int citId2)
+        public string CreateRelationshipId(string citId1, string citId2)
         {
-            int Id1;
-            int Id2;
-            if (citId1 < citId2)
+            string Id1;
+            string Id2;
+            Guid guid1 = new Guid(citId1);
+            Guid guid2 = new Guid(citId2);
+            int compare = guid1.CompareTo(guid2);
+            if (compare < 0)
             {
                 Id1 = citId1;
                 Id2 = citId2;
@@ -171,8 +175,9 @@ namespace Company
                 Id1 = citId2;
                 Id2 = citId1;
             }
-            return $"{Id1}-{Id2}";
+            return $"{Id1}&{Id2}";
         }
+
 
         //Long Important Method
         //Updates the relationships
@@ -181,21 +186,21 @@ namespace Company
         //takes missing relationships from the relationship cache and creates new ones for those that dont exist
         public void UpdateRelationships(RelationshipCache relationshipcache)
         {
-            List<int> advisorIds = new();
+            List<string> advisorIds = new();
             int relationshipCount = 0;
             int oldrelationships = 0;
             int newrelationships = 0;
             foreach (Citizen advisor in Advisors.Values)
             {
-                advisorIds.Add(advisor.Id);
+                advisorIds.Add(advisor.id.ToString());
             }
             //iterates through each relationship in Social
             foreach (KeyValuePair<string, Relationship> kvp in Relationships)
             {
                 string key = kvp.Key;
-                string[] ids = key.Split("-");
-                int id1 = int.Parse(ids[0]);
-                int id2 = int.Parse(ids[1]);
+                string[] ids = key.Split("&");
+                string id1 = ids[0];
+                string id2 = ids[1];
                 //check to see if the key contains ids from two current advisors
                 //if it doesnt match 2 current advisors, it removes it and stores it in the relationshipcache
                 if (advisorIds.Contains(id1) && advisorIds.Contains(id2))
@@ -210,9 +215,9 @@ namespace Company
                 }
             }
             //Iterates through each pair of advisors in the advisor list
-            foreach (int id in advisorIds)
+            foreach (string id in advisorIds)
             {
-                foreach (int id2 in advisorIds)
+                foreach (string id2 in advisorIds)
                 {
                     //skips looking for themselves
                     if (id != id2)
@@ -232,8 +237,8 @@ namespace Company
                             {
                                 //turns the Ids back into citizens, uses lambda functions to search the advisors dictionary by a property instead of a key
                                 //creates and then adds the new relationship to the playercompany
-                                Citizen citizen1 = Advisors.Where(x => x.Value.Id == id).FirstOrDefault().Value;
-                                Citizen citizen2 = Advisors.Where(x => x.Value.Id == id2).FirstOrDefault().Value;
+                                Citizen citizen1 = Advisors.Where(x => x.Value.id.ToString() == id).FirstOrDefault().Value;
+                                Citizen citizen2 = Advisors.Where(x => x.Value.id.ToString() == id2).FirstOrDefault().Value;
                                 Relationship newrelationship = new(citizen1, citizen2);
                                 Relationships.Add(relationshipId, newrelationship);
                             }
