@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Azure.Cosmos;
-//using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace FileTools
 {
@@ -20,32 +20,21 @@ namespace FileTools
     //It also holds all the methods used to read/write to the .txt files
     public class FileTool
     {
+
+
         #region Constructor and Lists
         public FileTool(string azureUri, string azureKey)
         {
             options.WriteIndented = true;
             cosmosClient = new CosmosClient(azureUri, azureKey);
         }
-        public string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
+        //public string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
         JsonSerializerOptions options = new JsonSerializerOptions();
         string databaseId = "testDB";
         CosmosClient cosmosClient;
         #endregion
 
         #region methods
-        //public void StoreLocal(string jsonInfo, string filename)
-        //{
-        //    filename += ".txt";
-        //    string filepath = Path.Combine(TxtFilePath, filename);
-        //    File.WriteAllText(filepath, jsonInfo);
-        //}
-        //public string ReadLocal(string filename)
-        //{
-        //    filename += ".txt";
-        //    string filepath = Path.Combine(TxtFilePath, filename);
-        //    string infoJson = File.ReadAllText(filepath);
-        //    return infoJson;
-        //}
         public async Task StoreCitizens(CitizenCache citizens)
         {
             string containerId = "CitizenCache";
@@ -85,97 +74,51 @@ namespace FileTools
             ItemResponse<RelationshipCache> response = await container.ReadItemAsync<RelationshipCache>(id: id, partitionKey: new PartitionKey(id));
             return (RelationshipCache)response;
         }
-        public void StoreModifierList(ModifierList modifierlist, string filename)
-        {
-            filename += ".txt";
-            string jsonmodifierlist = JsonSerializer.Serialize(modifierlist, options);
-            string filepath = Path.Combine(TxtFilePath, filename);
-            File.WriteAllText(filepath, jsonmodifierlist);
-        }
-        public ModifierList ReadModifierList(string filename)
-        {
-            filename += ".txt";
-            string filepath = Path.Combine(TxtFilePath, filename);
-            string fileJson = File.ReadAllText(filepath);
-            ModifierList modifierlist = JsonSerializer.Deserialize<ModifierList>(fileJson);
-            return modifierlist;
-        }
-        public void StoreTraitList(TraitList traitlist, string filename)
-        {
-            filename += ".txt";
-            string jsontraitlist = JsonSerializer.Serialize(traitlist, options);
-            string filepath = Path.Combine(TxtFilePath, filename);
-            File.WriteAllText(filepath, jsontraitlist);
-        }
-        public TraitList ReadTraitList(string filename)
-        {
-            filename += ".txt";
-            string filepath = Path.Combine(TxtFilePath, filename);
-            string fileJson = File.ReadAllText(filepath);
-            TraitList traitlist = JsonSerializer.Deserialize<TraitList>(fileJson);
-            return traitlist;
-        }
-        //public void StoreIndex(int currentindex)
+        //public void StoreModifierList(ModifierList modifierlist, string filename)
         //{
-        //    string filepath = Path.Combine(TxtFilePath, "index.txt");
-        //    if (currentindex < 100000)
-        //    {
-        //        throw new Exception($"Error: Index too small: {currentindex}");
-        //    }
-        //    string jsoncitizen = JsonSerializer.Serialize(currentindex);
+        //    filename += ".txt";
+        //    string jsonmodifierlist = JsonSerializer.Serialize(modifierlist, options);
+        //    string filepath = Path.Combine(TxtFilePath, filename);
+        //    File.WriteAllText(filepath, jsonmodifierlist);
+        //}
+        //public ModifierList ReadModifierList(string filename)
+        //{
+        //    filename += ".txt";
+        //    string filepath = Path.Combine(TxtFilePath, filename);
+        //    string fileJson = File.ReadAllText(filepath);
+        //    ModifierList modifierlist = JsonSerializer.Deserialize<ModifierList>(fileJson);
+        //    return modifierlist;
+        //}
+        //public void StoreTraitList(TraitList traitlist, string filename)
+        //{
+        //    filename += ".txt";
+        //    string jsontraitlist = JsonSerializer.Serialize(traitlist, options);
+        //    string filepath = Path.Combine(TxtFilePath, filename);
+        //    File.WriteAllText(filepath, jsontraitlist);
+        //}
+        //public TraitList ReadTraitList(string filename)
+        //{
+        //    filename += ".txt";
+        //    string filepath = Path.Combine(TxtFilePath, filename);
+        //    string fileJson = File.ReadAllText(filepath);
+        //    TraitList traitlist = JsonSerializer.Deserialize<TraitList>(fileJson);
+        //    return traitlist;
+        //}
+        //public void StoreModifier(Modifier modifier)
+        //{
+        //    string filepath = Path.Combine(TxtFilePath, "modifier.txt");
+        //    string jsoncitizen = JsonSerializer.Serialize(modifier, options);
         //    File.WriteAllText(filepath, jsoncitizen);
         //}
-        //public int ReadIndex()
+        //public Modifier ReadModifier()
         //{
-        //    string filepath = Path.Combine(TxtFilePath, "index.txt");
+        //    string filepath = Path.Combine(TxtFilePath, "modifier.txt");
         //    string fileJson = File.ReadAllText(filepath);
-        //    int currentindex = 0;
-        //    currentindex = JsonSerializer.Deserialize<int>(fileJson);
-        //    return currentindex;
+        //    Modifier modifier = JsonSerializer.Deserialize<Modifier>(fileJson);
+        //    return modifier;
         //}
-        public void StoreModifier(Modifier modifier)
-        {
-            string filepath = Path.Combine(TxtFilePath, "modifier.txt");
-            string jsoncitizen = JsonSerializer.Serialize(modifier, options);
-            File.WriteAllText(filepath, jsoncitizen);
-        }
-        public Modifier ReadModifier()
-        {
-            string filepath = Path.Combine(TxtFilePath, "modifier.txt");
-            string fileJson = File.ReadAllText(filepath);
-            Modifier modifier = JsonSerializer.Deserialize<Modifier>(fileJson);
-            return modifier;
-        }
         #endregion
     }
-
-    //An object that gets instantiated to holds the current index and method to call the next index.
-    //public class IndexId
-    //{
-    //    public IndexId(int index)
-    //    {
-    //        currentindex = index;
-    //    }
-    //    public string id = "devindex";
-    //    public int currentindex { get; set; }
-
-    //    //method to call to get the next unused index
-    //    public int GetIndex()
-    //    {
-    //        currentindex++;
-    //        return currentindex;
-    //    }
-    //    public string CurrentIndex()
-    //    {
-    //        //converts to a string so it isnt used as an indexer.
-    //        return ("!"+ currentindex.ToString() + "!");
-    //    }
-    //    public void StoreIndex(FileTool filetool)
-    //    {
-    //        filetool.StoreIndex(currentindex);
-    //    }
-    //}
-
     //An object that can be isntatiated to hold the lists of skills, stats, and attributes
     public class ListTool
     {

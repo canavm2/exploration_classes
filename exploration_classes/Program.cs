@@ -16,7 +16,7 @@ string azureUri = config["AzureCosmos:URI"];
 string azureKey = config["AzureCosmos:PrimaryKey"];
 string citizensId = "59558795-f812-4258-90bd-c4bdd0f9ddf4";
 string companyId = "3c29a4b7-ad9d-414d-9124-e7e09ab9f699";
-string relationshipId;
+string relationshipId = "4938643c-31b8-4e8c-9ff8-0816c09904da";
 
 
 
@@ -30,7 +30,8 @@ Console.WriteLine("Female Citizen[0] age is now: " + citizens.FemaleCitizens[0].
 PlayerCompany testcompany = await fileTool.ReadCompany(companyId);
 Console.WriteLine(testcompany.Describe());
 
-RelationshipCache relationshipCache = new RelationshipCache();
+RelationshipCache relationshipCache = await fileTool.ReadRelationshipCache(relationshipId);
+Console.WriteLine(relationshipCache.id);
 
 
 

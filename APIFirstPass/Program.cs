@@ -3,9 +3,19 @@ using FileTools;
 using Relation;
 using People;
 using Company;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 
-#region shitidontunderstand
+
 var builder = WebApplication.CreateBuilder(args);
+
+//keyvault stuff that doesnt work.
+//var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+//builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+
+
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -18,18 +28,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-// This call the data stored in secrets.json
-string AzureStorageAccessKey = builder.Configuration["AzureCSVStorage:AccessApiKey"];
-#endregion
 
-FileTool fileTool = new FileTool(AzureStorageAccessKey);
-//IndexId index = new IndexId(fileTool.ReadIndex());
-//RelationshipCache relationshipcache = fileTool.ReadRelationshipCache("relationships");
-//CitizenCache citizens = fileTool.ReadCitizens("citizens");
-//PlayerCompany playercompany = fileTool.ReadCompany("company");
+string azureUri = builder.Configuration["AzureCosmos:URI"];
+string azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
+string citizensId = "59558795-f812-4258-90bd-c4bdd0f9ddf4";
+string companyId = "3c29a4b7-ad9d-414d-9124-e7e09ab9f699";
+string relationshipId = "4938643c-31b8-4e8c-9ff8-0816c09904da";
+
+
+FileTool fileTool = new FileTool(azureUri, azureKey);
+//RelationshipCache relationshipcache = await fileTool.ReadRelationshipCache(relationshipId);
+//CitizenCache citizens = await fileTool.ReadCitizens(citizensId);
+//PlayerCompany playerCompany = await fileTool.ReadCompany(companyId);
 
 #region TestMapping
-app.MapGet("/test", () => fileTool.ReadTest());
+//app.MapGet("/test", () => playerCompany.Describe());
 //app.MapGet("/test", () => CitizenDB.ReturnTest());
 //app.MapGet("/test", () => CitizenDB.ReturnTest(AzureStorageAccessKey));
 

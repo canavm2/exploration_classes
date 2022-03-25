@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("6da80f65-1ba9-4f8b-9e88-e0c5602fe40e")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("APIFirstPass")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
