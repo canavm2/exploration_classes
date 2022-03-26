@@ -19,7 +19,6 @@ string companyId = "3c29a4b7-ad9d-414d-9124-e7e09ab9f699";
 string relationshipId = "4938643c-31b8-4e8c-9ff8-0816c09904da";
 
 
-
 FileTool fileTool = new FileTool(azureUri, azureKey);
 
 CitizenCache citizens = await fileTool.ReadCitizens(citizensId);

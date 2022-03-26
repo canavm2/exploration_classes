@@ -20,14 +20,15 @@ namespace FileTools
     //It also holds all the methods used to read/write to the .txt files
     public class FileTool
     {
-
-
         #region Constructor and Lists
         public FileTool(string azureUri, string azureKey)
         {
             options.WriteIndented = true;
             cosmosClient = new CosmosClient(azureUri, azureKey);
         }
+        #endregion
+
+        #region Dictionaries and Properties
         //public string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
         JsonSerializerOptions options = new JsonSerializerOptions();
         string databaseId = "testDB";
@@ -74,6 +75,20 @@ namespace FileTools
             ItemResponse<RelationshipCache> response = await container.ReadItemAsync<RelationshipCache>(id: id, partitionKey: new PartitionKey(id));
             return (RelationshipCache)response;
         }
+        public async Task StoreLoadTool(LoadTool loadTool)
+        {
+            string containerId = "CitizenCache";
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<LoadTool> response = await container.UpsertItemAsync<LoadTool>(loadTool);
+        }
+        public async Task<LoadTool> ReadLoadTool(string id)
+        {
+            string containerId = "CitizenCache";
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<LoadTool> response = await container.ReadItemAsync<LoadTool>(id: id, partitionKey: new PartitionKey(id));
+            return (LoadTool)response;
+        }
+
         //public void StoreModifierList(ModifierList modifierlist, string filename)
         //{
         //    filename += ".txt";
@@ -165,5 +180,28 @@ namespace FileTools
                 "Motivation",
                 "Psyche"
             };
+    }
+    public class LoadTool
+    {
+        public LoadTool()
+        {
+            id = Guid.NewGuid();
+            CitizensId = "empty";
+            CompanyId = "empty";
+            RelationshipId = "empty";
+        }
+
+        [JsonConstructor]
+        public LoadTool(Guid Id, string citizensId, string companyId, string relationshipId)
+        {
+            id = Id;
+            CitizensId = citizensId;
+            CompanyId = companyId;
+            RelationshipId = relationshipId;
+        }
+        public Guid id { get; set; }
+        public string CitizensId { get; set; }
+        public string CompanyId { get; set; }
+        public string RelationshipId { get; set; }
     }
 }
