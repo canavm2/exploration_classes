@@ -2,6 +2,7 @@
 using People;
 using Company;
 using Relation;
+using User;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System.Text;
@@ -29,7 +30,6 @@ namespace FileTools
         #endregion
 
         #region Dictionaries and Properties
-        //public string TxtFilePath = @"C:\Users\canav\Documents\ExplorationProject\exploration_classes\txt_files\";
         JsonSerializerOptions options = new JsonSerializerOptions();
         string databaseId = "testDB";
         CosmosClient cosmosClient;
@@ -42,25 +42,25 @@ namespace FileTools
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
             ItemResponse<CitizenCache> response = await container.UpsertItemAsync<CitizenCache>(citizens);
         }
-        public async Task<CitizenCache> ReadCitizens(string id)
+        public async Task<CitizenCache> ReadCitizens(Guid id)
         {
             string containerId = "CitizenCache";
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
-            ItemResponse<CitizenCache> response = await container.ReadItemAsync<CitizenCache>(id: id, partitionKey: new PartitionKey(id));
+            ItemResponse<CitizenCache> response = await container.ReadItemAsync<CitizenCache>(id: id.ToString(), partitionKey: new PartitionKey(id.ToString()));
             return (CitizenCache)response;
         }
-        public async Task StoreCompany(PlayerCompany playerCompany)
+        public async Task StoreCompanies(CompanyCache playerCompany)
         {
             string containerId = "PlayerCompanies";
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
-            ItemResponse<PlayerCompany> response = await container.UpsertItemAsync<PlayerCompany>(playerCompany);
+            ItemResponse<CompanyCache> response = await container.UpsertItemAsync<CompanyCache>(playerCompany);
         }
-        public async Task<PlayerCompany> ReadCompany(string id)
+        public async Task<CompanyCache> ReadCompanies(Guid id)
         {
             string containerId = "PlayerCompanies";
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
-            ItemResponse<PlayerCompany> response = await container.ReadItemAsync<PlayerCompany>(id: id, partitionKey: new PartitionKey(id));
-            return (PlayerCompany)response;
+            ItemResponse<CompanyCache> response = await container.ReadItemAsync<CompanyCache>(id: id.ToString(), partitionKey: new PartitionKey(id.ToString()));
+            return (CompanyCache)response;
         }
         public async Task StoreRelationshipCache(RelationshipCache relationships)
         {
@@ -68,11 +68,11 @@ namespace FileTools
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
             ItemResponse<RelationshipCache> response = await container.UpsertItemAsync<RelationshipCache>(relationships);
         }
-        public async Task<RelationshipCache> ReadRelationshipCache(string id)
+        public async Task<RelationshipCache> ReadRelationshipCache(Guid id)
         {
             string containerId = "CitizenCache";
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
-            ItemResponse<RelationshipCache> response = await container.ReadItemAsync<RelationshipCache>(id: id, partitionKey: new PartitionKey(id));
+            ItemResponse<RelationshipCache> response = await container.ReadItemAsync<RelationshipCache>(id: id.ToString(), partitionKey: new PartitionKey(id.ToString()));
             return (RelationshipCache)response;
         }
         public async Task StoreLoadTool(LoadTool loadTool)
@@ -81,12 +81,25 @@ namespace FileTools
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
             ItemResponse<LoadTool> response = await container.UpsertItemAsync<LoadTool>(loadTool);
         }
-        public async Task<LoadTool> ReadLoadTool(string id)
+        public async Task<LoadTool> ReadLoadTool(Guid id)
         {
             string containerId = "CitizenCache";
             CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
-            ItemResponse<LoadTool> response = await container.ReadItemAsync<LoadTool>(id: id, partitionKey: new PartitionKey(id));
+            ItemResponse<LoadTool> response = await container.ReadItemAsync<LoadTool>(id: id.ToString(), partitionKey: new PartitionKey(id.ToString()));
             return (LoadTool)response;
+        }
+        public async Task StoreUsers(UserCache userCache)
+        {
+            string containerId = "PlayerCompanies";
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<UserCache> response = await container.UpsertItemAsync<UserCache>(userCache);
+        }
+        public async Task<UserCache> ReadUsers(Guid id)
+        {
+            string containerId = "PlayerCompanies";
+            CosmosContainer container = cosmosClient.GetDatabase(databaseId).GetContainer(containerId);
+            ItemResponse<UserCache> response = await container.ReadItemAsync<UserCache>(id: id.ToString(), partitionKey: new PartitionKey(id.ToString()));
+            return (UserCache)response;
         }
 
         //public void StoreModifierList(ModifierList modifierlist, string filename)
@@ -186,22 +199,21 @@ namespace FileTools
         public LoadTool()
         {
             id = Guid.NewGuid();
-            CitizensId = "empty";
-            CompanyId = "empty";
-            RelationshipId = "empty";
         }
 
         [JsonConstructor]
-        public LoadTool(Guid Id, string citizensId, string companyId, string relationshipId)
+        public LoadTool(Guid Id, Guid citizenCacheId, Guid relationshipCacheId, Guid companyCacheId, Guid userCacheId)
         {
             id = Id;
-            CitizensId = citizensId;
-            CompanyId = companyId;
-            RelationshipId = relationshipId;
+            CitizenCacheId = citizenCacheId;
+            RelationshipCacheId = relationshipCacheId;
+            CompanyCacheId = companyCacheId;
+            UserCacheId = userCacheId;
         }
         public Guid id { get; set; }
-        public string CitizensId { get; set; }
-        public string CompanyId { get; set; }
-        public string RelationshipId { get; set; }
+        public Guid CitizenCacheId { get; set; }
+        public Guid RelationshipCacheId { get; set; }
+        public Guid CompanyCacheId { get; set; }
+        public Guid UserCacheId { get; set; }
     }
 }

@@ -19,18 +19,18 @@ string companyId = "3c29a4b7-ad9d-414d-9124-e7e09ab9f699";
 string relationshipId = "4938643c-31b8-4e8c-9ff8-0816c09904da";
 
 
-FileTool fileTool = new FileTool(azureUri, azureKey);
+//FileTool fileTool = new FileTool(azureUri, azureKey);
 
-CitizenCache citizens = await fileTool.ReadCitizens(citizensId);
-Console.WriteLine("Female Citizen[0] age is: " + citizens.FemaleCitizens[0].Age);
-citizens.FemaleCitizens[0].Age += 1;
+//CitizenCache citizens = await fileTool.ReadCitizens(citizensId);
+//Console.WriteLine("Female Citizen[0] age is: " + citizens.FemaleCitizens[0].Age);
+//citizens.FemaleCitizens[0].Age += 1;
 
-Console.WriteLine("Female Citizen[0] age is now: " + citizens.FemaleCitizens[0].Age);
-PlayerCompany testcompany = await fileTool.ReadCompany(companyId);
-Console.WriteLine(testcompany.Describe());
+//Console.WriteLine("Female Citizen[0] age is now: " + citizens.FemaleCitizens[0].Age);
+//PlayerCompany testcompany = await fileTool.ReadCompany(companyId);
+//Console.WriteLine(testcompany.Describe());
 
-RelationshipCache relationshipCache = await fileTool.ReadRelationshipCache(relationshipId);
-Console.WriteLine(relationshipCache.id);
+//RelationshipCache relationshipCache = await fileTool.ReadRelationshipCache(relationshipId);
+//Console.WriteLine(relationshipCache.id);
 
 
 
@@ -80,9 +80,9 @@ Console.WriteLine(relationshipCache.id);
 
 
 //Stores everything again
-await fileTool.StoreCitizens(citizens);
-await fileTool.StoreCompany(testcompany);
-await fileTool.StoreRelationshipCache(relationshipCache);
+//await fileTool.StoreCitizens(citizens);
+//await fileTool.StoreCompany(testcompany);
+//await fileTool.StoreRelationshipCache(relationshipCache);
 //fileTool.StoreModifierList(modifierlist, "modifierlist");
 //fileTool.StoreTraitList(traitlist, "traitlist");
 //fileTool.StoreRelationshipCache(relationshipcache, "relationships");
