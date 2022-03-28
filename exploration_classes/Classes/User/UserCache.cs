@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using People;
+using Company;
 
-namespace User
+namespace Users
 {
     public class UserCache
     {
@@ -30,6 +32,13 @@ namespace User
         #endregion
 
         #region Methods
+        public void CreateNewUser(string userName, CitizenCache citizenCache, CompanyCache companyCache)
+        {
+            User NewUser =  new User(userName);
+            NewUser.CompanyId = companyCache.CreateNewCompany(citizenCache, NewUser);
+            this.Users[userName] = NewUser;
+        }
+
         #endregion
 
         #region Subclasses

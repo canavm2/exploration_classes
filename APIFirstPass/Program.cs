@@ -3,7 +3,7 @@ using FileTools;
 using Relation;
 using People;
 using Company;
-using User;
+using Users;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
@@ -42,14 +42,13 @@ LoadTool loadTool = await fileTool.ReadLoadTool(new Guid("3f53a424-601c-4c7e-a19
 Boolean NewData = false;
 
 #region User Loading
-UserCache userCache;
-if (NewData)
-{
-    userCache = new UserCache();
-    loadTool.UserCacheId = userCache.id;
-}
-else userCache = await fileTool.ReadUsers(loadTool.UserCacheId);
-
+//UserCache userCache;
+//if (NewData)
+//{
+//    userCache = new UserCache();
+//    loadTool.UserCacheId = userCache.id;
+//}
+//else userCache = await fileTool.ReadUsers(loadTool.UserCacheId);
 #endregion
 
 #region Citizen Loading
@@ -65,31 +64,34 @@ if (NewData)
 else citizenCache = await fileTool.ReadCitizens(loadTool.CitizenCacheId);
 #endregion
 
-#region Company Loading
-CompanyCache companyCache;
-PlayerCompany playerCompany;
+#region User Loading
+UserCache userCache;
 if (NewData)
 {
-    List<Citizen> advisors = new List<Citizen>();
-    for (int i = 0; i < 7; i++)
-        advisors.Add(citizenCache.GetRandomCitizen());
-    Citizen master = citizenCache.GetRandomCitizen();
-    playerCompany = new("testcompany", master, advisors);
+    userCache = new();
+    loadTool.UserCacheId = userCache.id;
+}
+else userCache = await fileTool.ReadUsers(loadTool.UserCacheId);
+#endregion
+
+#region Company Loading
+CompanyCache companyCache;
+if (NewData)
+{
     companyCache = new();
-    companyCache.PlayerCompanies[playerCompany.id] = playerCompany;
     loadTool.CompanyCacheId = companyCache.id;
 }
 else companyCache = await fileTool.ReadCompanies(loadTool.CompanyCacheId);
 #endregion
 
 #region Relationship Loading
-RelationshipCache relationshipcache;
+RelationshipCache relationshipCache;
 if (NewData)
 {
-    relationshipcache = new RelationshipCache();
-    loadTool.RelationshipCacheId = relationshipcache.id;
+    relationshipCache = new RelationshipCache();
+    loadTool.RelationshipCacheId = relationshipCache.id;
 }
-else relationshipcache = await fileTool.ReadRelationshipCache(loadTool.RelationshipCacheId);
+else relationshipCache = await fileTool.ReadRelationshipCache(loadTool.RelationshipCacheId);
 #endregion
 
 #region Save Data
@@ -98,18 +100,18 @@ if (NewData)
 {
     await fileTool.StoreCitizens(citizenCache);
     await fileTool.StoreCompanies(companyCache);
-    await fileTool.StoreRelationshipCache(relationshipcache);
+    await fileTool.StoreRelationshipCache(relationshipCache);
     await fileTool.StoreUsers(userCache);
 }
 #endregion
 
 #region APImapping
-app.MapGet("/test", () => companyCache.PlayerCompanies[new Guid("00d9631a-f81a-4578-8565-db6176fff695")].Describe());
-//app.MapGet("/test", () => CitizenDB.ReturnTest());
-//app.MapGet("/test", () => CitizenDB.ReturnTest(AzureStorageAccessKey));
+app.MapGet("/save", () => APICalls.Save(fileTool,citizenCache,userCache, companyCache,relationshipCache));
+app.MapGet("/createuser/{username}", (string username) => APICalls.CreateUser(username,userCache,citizenCache,companyCache));
+app.MapGet("/company/{username}", (string username) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Describe());
 //app.MapGet("/test", () => CitizenDB.ReturnCitizen(citizens));
-//app.MapGet("/company", () => playercompany.Describe());//() => CitizenDB.ReturnCitizen(citizens));
 //app.MapGet("/company/citizen/{id}", (int id) => CitizenDB.ReturnCitizenFromCompany(playercompany, id));//() => CitizenDB.ReturnCitizen(citizens));
+//app.MapGet("/test", () => companyCache.PlayerCompanies[new Guid("00d9631a-f81a-4578-8565-db6176fff695")].Describe());
 #endregion
 
 app.Run();

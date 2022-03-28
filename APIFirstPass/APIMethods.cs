@@ -1,14 +1,16 @@
 ﻿namespace APIMethods;
 using People;
 using Company;
+using Users;
+using Relation;
+using FileTools;
 
-public class CitizenDB
+public class APICalls
 {
     public static string ReturnTest(string returnString)
     {
         return returnString;
     }
-
     public static string ReturnCitizen(CitizenCache cache)
     {
         Citizen citizen = cache.GetRandomCitizen();
@@ -28,5 +30,19 @@ public class CitizenDB
             return playercompany.Advisors[advisorkey].DescribeCitizen();
         }
         else return $"Error: id must be between 0 and {playercompany.Advisors.Count}";
+    }
+    public static async Task<string> Save(FileTool fileTool, CitizenCache citizenCache, UserCache userCache, CompanyCache companyCache, RelationshipCache relationshipCache)
+    {
+        await fileTool.StoreCitizens(citizenCache);
+        await fileTool.StoreCompanies(companyCache);
+        await fileTool.StoreRelationshipCache(relationshipCache);
+        await fileTool.StoreUsers(userCache);
+        return "Everything saved!  Beep Beep Woop Woop";
+    }
+    public static string CreateUser(string userName, UserCache userCache, CitizenCache citizenCache, CompanyCache companyCache)
+    {
+        if (userCache.Users.ContainsKey(userName)) return "UserName already Exists, choose something else.";
+        userCache.CreateNewUser(userName, citizenCache, companyCache);
+        return "User Created, use your UserID in the API now.";
     }
 }

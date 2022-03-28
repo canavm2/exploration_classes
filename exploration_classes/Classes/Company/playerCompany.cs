@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using People;
 using FileTools;
+using Users;
 //using Newtonsoft.Json;
 using Relation;
 
@@ -16,13 +17,14 @@ namespace Company
     {
         //Initialy building a company
         #region Constructor
-        public PlayerCompany(string name, Citizen master, List<Citizen> advisors)
+        internal PlayerCompany(string name, Citizen master, List<Citizen> advisors, User user)
         {
             Relationships = new();
             if (advisors.Count != 7)
                 throw new ArgumentException($"There are {advisors.Count} advisors in the list, there must be 7.");
             Name = name;
             id = Guid.NewGuid();
+            UserId = user.id;
             Advisors = new();
             AddAdvisor(master, "master");
             //Sets the first 5 citizens in advisors to the other advisors
@@ -42,13 +44,14 @@ namespace Company
         }
 
         [JsonConstructor]
-        public PlayerCompany(string name, Guid Id, Dictionary<string, Citizen> advisors, Dictionary<string, Relationship> relationships, Skills skills)
+        public PlayerCompany(string name, Guid Id, Dictionary<string, Citizen> advisors, Dictionary<string, Relationship> relationships, Skills skills, Guid userId)
         {
             Name = name;
             id = Id;
             Advisors = advisors;
             Relationships = relationships;
             Skills = skills;
+            UserId = UserId;
         }
 
 
@@ -57,6 +60,7 @@ namespace Company
         #region Dictionaries and Properties
         public string Name { get; set; }
         public Guid id { get; set; }
+        public Guid UserId { get; set; }
         public Dictionary<string, Citizen> Advisors { get; set; }
         public Dictionary<string, Relationship> Relationships { get; set; }
         public Skills Skills { get; set; }

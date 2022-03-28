@@ -2,7 +2,7 @@
 using People;
 using Company;
 using Relation;
-using User;
+using Users;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System.Text;
@@ -196,6 +196,7 @@ namespace FileTools
     }
     public class LoadTool
     {
+        #region Constructors
         public LoadTool()
         {
             id = Guid.NewGuid();
@@ -210,10 +211,14 @@ namespace FileTools
             CompanyCacheId = companyCacheId;
             UserCacheId = userCacheId;
         }
+        #endregion
+
+        #region Dictionaries and Properties
         public Guid id { get; set; }
         public Guid CitizenCacheId { get; set; }
         public Guid RelationshipCacheId { get; set; }
         public Guid CompanyCacheId { get; set; }
         public Guid UserCacheId { get; set; }
+        #endregion
     }
 }
