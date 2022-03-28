@@ -16,10 +16,23 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
+string azureUri = builder.Configuration["AzureCosmos:URI"];
+string azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    azureUri = builder.Configuration["AzureCosmos:URI"];
+    azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
+}
+else
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    azureUri = "REPLACE";
+    azureKey = "REPLACE";
+    //azureUri = builder.Configuration["AzureCosmos:URI"];
+    //azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
 }
 app.UseHttpsRedirection();
 #endregion
@@ -28,8 +41,6 @@ app.UseHttpsRedirection();
 //keyvault stuff that doesnt work.
 //var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
 //builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
-string azureUri = builder.Configuration["AzureCosmos:URI"];
-string azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
 #endregion
 
 #region dataloading

@@ -38,7 +38,7 @@ namespace Company
             for (int i = 0; i < 7; i++)
                 advisors.Add(citizenCache.GetRandomCitizen());
             Citizen master = citizenCache.GetRandomCitizen();
-            PlayerCompany newCompany = new("testcompany", master, advisors, user);
+            PlayerCompany newCompany = new(user.UserName, master, advisors, user);
             this.PlayerCompanies[newCompany.id] = newCompany;
             return newCompany.id;
         }
