@@ -16,8 +16,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setup => setup.SwaggerDoc("v1", new OpenApiInfo()
 {
-    Description = "Todo web api implementation using Minimal Api in Asp.Net Core",
-    Title = "Todo Api",
+    Description = "This is effectively the client for now.",
+    Title = "Exploration Game",
     Version = "v1",
     Contact = new OpenApiContact()
     {
@@ -122,8 +122,9 @@ if (NewData)
 #region APImapping
 app.MapGet("/advancesave", () => APICalls.AdvanceSave(fileTool,citizenCache,userCache,companyCache,relationshipCache));
 app.MapGet("/createuser/{username}", (string username) => APICalls.CreateUser(username,userCache,citizenCache,companyCache));
-app.MapGet("/company/{username}", (string username) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Describe());
+app.MapGet("/company/{username}", (string username) => APICalls.StandardInfo(username, userCache, companyCache));
 app.MapGet("/company/{username}/advisor/{role}", (string username, string role) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Advisors[role].Describe());
+app.MapGet("/company/{username}/spendtp/{tp}", (string username, double tp) => APICalls.SpendTp(username, tp, userCache, companyCache));
 //app.MapGet("/test", () => CitizenDB.ReturnCitizen(citizens));
 //app.MapGet("/company/citizen/{id}", (int id) => CitizenDB.ReturnCitizenFromCompany(playercompany, id));//() => CitizenDB.ReturnCitizen(citizens));
 //app.MapGet("/test", () => companyCache.PlayerCompanies[new Guid("00d9631a-f81a-4578-8565-db6176fff695")].Describe());

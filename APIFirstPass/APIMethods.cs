@@ -35,11 +35,12 @@ public class APICalls
     {
         DateTime currentDateTime = DateTime.Now;
         TimeSpan timeSpan = currentDateTime - userCache.LastSave;
-        int interval = Convert.ToInt32(timeSpan.TotalSeconds);
+        double interval = timeSpan.TotalSeconds;
         foreach (User user in userCache.Users.Values)
         {
             user.GainTimePoints(interval);
         }
+        userCache.LastSave = currentDateTime;
         await fileTool.StoreCitizens(citizenCache);
         await fileTool.StoreCompanies(companyCache);
         await fileTool.StoreRelationshipCache(relationshipCache);
@@ -51,5 +52,17 @@ public class APICalls
         if (userCache.Users.ContainsKey(userName)) return "UserName already Exists, choose something else.";
         userCache.CreateNewUser(userName, citizenCache, companyCache);
         return "User Created, use your UserID in the API now.";
+    }
+    public static string StandardInfo(string userName, UserCache userCache, CompanyCache companyCache)
+    {
+        string standardInfo = userCache.Users[userName].Describe();
+        standardInfo += companyCache.PlayerCompanies[userCache.Users[userName].CompanyId].Describe();
+        return standardInfo;
+    }
+    public static string SpendTp(string userName, double timePoints, UserCache userCache, CompanyCache companyCache)
+    {
+        bool spent = userCache.Users[userName].SpendTimePoints(timePoints);
+        if (spent) return "You have spent your timepoint, I award you nothing.";
+        else return "You did not have enough timepoints to spend, the more you tighten your grip the more star systems will slip through your fingers.";
     }
 }
