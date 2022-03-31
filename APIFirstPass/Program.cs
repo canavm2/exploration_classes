@@ -29,8 +29,14 @@ else
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    azureUri = "REPLACE";
-    azureKey = "REPLACE";
+    //SecretClient client = new SecretClient(new Uri("https://explorationgametesting.vault.azure.net/"), new DefaultAzureCredential());
+    //azureUri = client.GetSecret("azureUri").ToString();
+    //azureUri = client.GetSecret("PrimaryKey").ToString();
+    builder.Configuration.AddAzureKeyVault(new Uri("https://explorationgametesting.vault.azure.net/"), new DefaultAzureCredential());
+    azureUri = builder.Configuration["azureUri"];
+    azureKey = builder.Configuration["PrimaryKey"];
+    //azureUri = "REPLACE";
+    //azureKey = "REPLACE";
     //azureUri = builder.Configuration["AzureCosmos:URI"];
     //azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
 }
@@ -67,9 +73,9 @@ CitizenCache citizenCache;
 if (NewData)
 {
     citizenCache = new CitizenCache(100);
-    Console.WriteLine($"femalecitizens has: {citizenCache.FemaleCitizens.Count} items.\nThe first female is:\n{citizenCache.FemaleCitizens[0].DescribeCitizen()}");
-    Console.WriteLine($"malecitizens has: {citizenCache.MaleCitizens.Count} items.\nThe first male is:\n{citizenCache.MaleCitizens[0].DescribeCitizen()}");
-    Console.WriteLine($"nbcitizens has: {citizenCache.NBCitizens.Count} items.\nThe first non-binary is:\n{citizenCache.NBCitizens[0].DescribeCitizen()}");
+    Console.WriteLine($"femalecitizens has: {citizenCache.FemaleCitizens.Count} items.\nThe first female is:\n{citizenCache.FemaleCitizens[0].Describe()}");
+    Console.WriteLine($"malecitizens has: {citizenCache.MaleCitizens.Count} items.\nThe first male is:\n{citizenCache.MaleCitizens[0].Describe()}");
+    Console.WriteLine($"nbcitizens has: {citizenCache.NBCitizens.Count} items.\nThe first non-binary is:\n{citizenCache.NBCitizens[0].Describe()}");
     loadTool.CitizenCacheId = citizenCache.id;
 }
 else citizenCache = await fileTool.ReadCitizens(loadTool.CitizenCacheId);
@@ -120,6 +126,7 @@ if (NewData)
 app.MapGet("/save", () => APICalls.Save(fileTool,citizenCache,userCache, companyCache,relationshipCache));
 app.MapGet("/createuser/{username}", (string username) => APICalls.CreateUser(username,userCache,citizenCache,companyCache));
 app.MapGet("/company/{username}", (string username) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Describe());
+app.MapGet("/company/{username}/advisor/{role}", (string username, string role) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Advisors[role].Describe());
 //app.MapGet("/test", () => CitizenDB.ReturnCitizen(citizens));
 //app.MapGet("/company/citizen/{id}", (int id) => CitizenDB.ReturnCitizenFromCompany(playercompany, id));//() => CitizenDB.ReturnCitizen(citizens));
 //app.MapGet("/test", () => companyCache.PlayerCompanies[new Guid("00d9631a-f81a-4578-8565-db6176fff695")].Describe());

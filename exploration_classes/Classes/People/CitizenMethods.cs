@@ -21,7 +21,7 @@ namespace People
             DerivedStats["SOCL"].Unmodified = (PrimaryStats["CHA"].Unmodified + PrimaryStats["LDR"].Unmodified) / 2;
         }
 
-        public string DescribeCitizen()
+        public string Describe()
         {
             string returnDescription =
                 $"\n{Name}, a {Age} year old {Gender}.\n" +
