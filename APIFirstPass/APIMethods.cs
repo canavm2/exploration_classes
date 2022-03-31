@@ -31,8 +31,15 @@ public class APICalls
         }
         else return $"Error: id must be between 0 and {playercompany.Advisors.Count}";
     }
-    public static async Task<string> Save(FileTool fileTool, CitizenCache citizenCache, UserCache userCache, CompanyCache companyCache, RelationshipCache relationshipCache)
+    public static async Task<string> AdvanceSave(FileTool fileTool, CitizenCache citizenCache, UserCache userCache, CompanyCache companyCache, RelationshipCache relationshipCache)
     {
+        DateTime currentDateTime = DateTime.Now;
+        TimeSpan timeSpan = currentDateTime - userCache.LastSave;
+        int interval = Convert.ToInt32(timeSpan.TotalSeconds);
+        foreach (User user in userCache.Users.Values)
+        {
+            user.GainTimePoints(interval);
+        }
         await fileTool.StoreCitizens(citizenCache);
         await fileTool.StoreCompanies(companyCache);
         await fileTool.StoreRelationshipCache(relationshipCache);

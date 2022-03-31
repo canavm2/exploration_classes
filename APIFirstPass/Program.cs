@@ -7,13 +7,24 @@ using Users;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
+using Microsoft.OpenApi.Models;
 
 #region app builder
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(setup => setup.SwaggerDoc("v1", new OpenApiInfo()
+{
+    Description = "Todo web api implementation using Minimal Api in Asp.Net Core",
+    Title = "Todo Api",
+    Version = "v1",
+    Contact = new OpenApiContact()
+    {
+        Name = "anuraj",
+        Url = new Uri("https://dotnetthoughts.net")
+    }
+}));
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 string azureUri = builder.Configuration["AzureCosmos:URI"];
@@ -29,22 +40,18 @@ else
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    //SecretClient client = new SecretClient(new Uri("https://explorationgametesting.vault.azure.net/"), new DefaultAzureCredential());
-    //azureUri = client.GetSecret("azureUri").ToString();
-    //azureUri = client.GetSecret("PrimaryKey").ToString();
     builder.Configuration.AddAzureKeyVault(new Uri("https://explorationgametesting.vault.azure.net/"), new DefaultAzureCredential());
     azureUri = builder.Configuration["azureUri"];
     azureKey = builder.Configuration["PrimaryKey"];
+    //I used to use these to manually supply the access info
     //azureUri = "REPLACE";
     //azureKey = "REPLACE";
-    //azureUri = builder.Configuration["AzureCosmos:URI"];
-    //azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
 }
 app.UseHttpsRedirection();
 #endregion
 
 #region variable loading
-//keyvault stuff that doesnt work.
+//keyvault stuff that doesnt work.  I think it will only work in the development env, and isnt working in the deployment, but it works above
 //var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
 //builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
 #endregion
@@ -57,16 +64,6 @@ LoadTool loadTool = await fileTool.ReadLoadTool(new Guid("3f53a424-601c-4c7e-a19
 #endregion
 
 Boolean NewData = false;
-
-#region User Loading
-//UserCache userCache;
-//if (NewData)
-//{
-//    userCache = new UserCache();
-//    loadTool.UserCacheId = userCache.id;
-//}
-//else userCache = await fileTool.ReadUsers(loadTool.UserCacheId);
-#endregion
 
 #region Citizen Loading
 CitizenCache citizenCache;
@@ -123,7 +120,7 @@ if (NewData)
 #endregion
 
 #region APImapping
-app.MapGet("/save", () => APICalls.Save(fileTool,citizenCache,userCache, companyCache,relationshipCache));
+app.MapGet("/advancesave", () => APICalls.AdvanceSave(fileTool,citizenCache,userCache,companyCache,relationshipCache));
 app.MapGet("/createuser/{username}", (string username) => APICalls.CreateUser(username,userCache,citizenCache,companyCache));
 app.MapGet("/company/{username}", (string username) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Describe());
 app.MapGet("/company/{username}/advisor/{role}", (string username, string role) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Advisors[role].Describe());

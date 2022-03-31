@@ -16,19 +16,22 @@ namespace Users
         {
             id = Guid.NewGuid();
             Users = new();
+            LastSave = DateTime.Now;
         }
 
         [JsonConstructor]
-        public UserCache(Guid Id, Dictionary<string, User> users)
+        public UserCache(Guid Id, Dictionary<string, User> users, DateTime lastSave)
         {
             id = Id;
             Users = users;
+            LastSave = lastSave;
         }
         #endregion
 
         #region Dictionaries and Properties
         public Guid id { get; set; }
         public Dictionary<string, User> Users { get; set; }
+        public DateTime LastSave { get; set; }
         #endregion
 
         #region Methods
