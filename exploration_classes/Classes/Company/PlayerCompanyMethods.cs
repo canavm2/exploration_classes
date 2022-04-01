@@ -202,9 +202,15 @@ namespace Company
             Console.WriteLine($"There are {relationshipCount} good relationships, and {oldrelationships} old relationships removed, with {newrelationships} new relationships added.");
         }
 
-        public void ViewRecruits()
+        public string ViewRecruits(CitizenCache citizenCache)
         {
+            if (!Recruits.Any() || (LastRecruitRecycle + TimeSpan.FromDays(2)) < DateTime.Now)
+            {
+                //Replace the list
+            }
+            //display the info about them
 
+            return "fix";
         }
 
 
