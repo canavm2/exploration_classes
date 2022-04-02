@@ -8,23 +8,26 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.Resource;
 
 #region app builder
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(setup => setup.SwaggerDoc("v1", new OpenApiInfo()
+builder.Services.AddSwaggerGen(setup =>
 {
-    Description = "This is effectively the client for now.",
-    Title = "Exploration Game",
-    Version = "v1",
-    Contact = new OpenApiContact()
+    setup.SwaggerDoc("v1", new OpenApiInfo()
     {
-        Name = "anuraj",
-        Url = new Uri("https://dotnetthoughts.net")
-    }
-}));
+        Description = "This is effectively the client for now.",
+        Title = "Exploration Game",
+        Version = "v1"
+    });
+});
+
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 string azureUri = builder.Configuration["AzureCosmos:URI"];
@@ -32,7 +35,10 @@ string azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "swaggerAADdemo v1");
+    });
     azureUri = builder.Configuration["AzureCosmos:URI"];
     azureKey = builder.Configuration["AzureCosmos:PrimaryKey"];
 }
@@ -121,6 +127,10 @@ if (NewData)
 
 #region APImapping
 app.MapGet("/advancesave", () => APICalls.AdvanceSave(fileTool,citizenCache,userCache,companyCache,relationshipCache));
+//app.MapGet("/testauth", (HttpContext context) =>
+//{
+//    context.VerifyUserHasAnyAcceptedScope(new[] { "explorationgame.play" });
+//}).RequireAuthorization();
 app.MapGet("/createuser/{username}", (string username) => APICalls.CreateUser(username,userCache,citizenCache,companyCache));
 app.MapGet("/company/{username}", (string username) => APICalls.StandardInfo(username, userCache, companyCache));
 app.MapGet("/company/{username}/advisor/{role}", (string username, string role) => companyCache.PlayerCompanies[userCache.Users[username].CompanyId].Advisors[role].Describe());

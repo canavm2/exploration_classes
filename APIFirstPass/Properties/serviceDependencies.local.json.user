@@ -1,20 +1,4 @@
 {
-  "dependencies": {
-    "secrets1": {
-      "restored": true,
-      "restoreTime": "2022-03-25T01:55:43.5011139Z"
-    }
-  },
-  "parameters": {
-    "secrets1.resourceGroupName": {
-      "Name": "secrets1.resourceGroupName",
-      "Type": "resourceGroup",
-      "Value": "ExplorationTesting"
-    },
-    "secrets1.subscriptionId": {
-      "Name": "secrets1.subscriptionId",
-      "Type": "subscription",
-      "Value": "847dc5c0-0f77-4961-9c2f-293ad725b53d"
-    }
-  }
+  "dependencies": {},
+  "parameters": {}
 }

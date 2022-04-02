@@ -46,23 +46,23 @@
           "dependencies": {
             "Azure.Extensions.AspNetCore.Configuration.Secrets": {
               "target": "Package",
-              "version": "[1.0.0, )"
-            },
-            "Azure.Identity": {
-              "target": "Package",
-              "version": "[1.5.0, )"
+              "version": "[1.2.1, )"
             },
             "Azure.Security.KeyVault.Secrets": {
               "target": "Package",
-              "version": "[4.2.0, )"
+              "version": "[4.3.0, )"
             },
-            "Azure.Storage.Blobs": {
+            "Microsoft.AspNetCore.Identity": {
               "target": "Package",
-              "version": "[12.11.0, )"
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Identity.Web": {
+              "target": "Package",
+              "version": "[1.23.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.3.0, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -171,7 +171,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
